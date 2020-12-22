@@ -40,7 +40,7 @@ The complete source code is available at [GitHub Repository](https://github.com/
 
 ## Sample usage via the SDK
 
-The examples below show how your application have to initiate and get a text of the first paragraph using Aspose.Tasks-Cloud library:
+The examples below show how your application have to initiate and get assignments from you project file using Aspose.Tasks-Cloud library:
 
 Config.json file:
 ```csharp
@@ -66,14 +66,14 @@ Go code:
 	tasksApi.UploadFile(ctx, &requests.UploadFileOpts{
 		File: file,
 		Path: "uploaded_sample.mpp",
-    }))
+	})
 
 	// get assignments from the project file
 	options := &requests.GetAssignmentsOpts{
     		Name:   "uploaded_sample.mpp",
-    }
+	}
 
-	result, _, err := tasksApi.GetParagraphs(ctx, remoteName, options)
+	result, _, err := tasksApi.GetAssignments(ctx, options)
 
 	if err != nil {
 		//error handling
