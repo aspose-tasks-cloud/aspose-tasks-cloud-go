@@ -69,25 +69,21 @@ The complete source code is available at [GitHub Repository](https://github.com/
 
 The examples below show how your application have to initiate and get assignments from you project file using Aspose.Tasks-Cloud library:
 
-Config.json file:
-```csharp
-{
-	"AppKey": "your app key",
-	"AppSid": "your app sid",
-	"BaseUrl": "https://api.aspose.cloud"
-}
-```
-Go code:
+## Get MPP Project Assignments in GO
 
 ```
-	// Start README example
-
-	// init tasks cloud api
-	config, _ := models.NewConfiguration(configFilePath)
+	// Get your ClientId and ClientSecret from https://dashboard.aspose.cloud (free registration required).
+	// myconfig.json
+	{
+		"AppSid": "MY_CLIENT_ID",
+		"AppKey": "MY_CLIENT_SECRET",
+		"BaseUrl": "https://api.aspose.cloud"
+	}
+	
+	config, _ := models.NewConfiguration("myconfig.json")
 	tasksApi, ctx, _ := api.CreateTasksApi(config)
-
-	// upload sample.mpp to a cloud
-	// uploaded_sample.mpp is a name in the cloud
+	
+	// upload file to a cloud
 	file, _ := os.Open("sample.mpp")
 
 	tasksApi.UploadFile(ctx, &requests.UploadFileOpts{
@@ -105,10 +101,7 @@ Go code:
 	if err != nil {
 		//error handling
 	}
-
 	fmt.Println(result.Assignments.AssignmentItem[0].Uid)
-
-	// End README example
 ```
 
 ## Aspose.Tasks Cloud SDKs in Popular Languages
@@ -116,6 +109,6 @@ Go code:
 | .NET | PHP | Python| Node.js | Go |
 |---|---|---|---|---|
 | [GitHub](https://github.com/aspose-tasks-cloud/aspose-tasks-cloud-dotnet) |[GitHub](https://github.com/aspose-tasks-cloud/aspose-tasks-cloud-php) | [GitHub](https://github.com/aspose-tasks-cloud/aspose-tasks-cloud-python) | [GitHub](https://github.com/aspose-tasks-cloud/aspose-tasks-cloud-node) |[GitHub](https://github.com/aspose-tasks-cloud/aspose-tasks-cloud-go)|
-| [NuGet](https://www.nuget.org/packages/Aspose.tasks-Cloud/)| [Composer](https://packagist.org/packages/aspose/tasks-cloud-php) | [PIP](https://pypi.org/project/aspose-tasks-cloud/) | [NPM](https://www.npmjs.com/package/aspose-tasks-cloud) | [Go.Dev](https://pkg.go.dev/github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/) |
+| [NuGet](https://www.nuget.org/packages/Aspose.tasks-Cloud/)| [Composer](https://packagist.org/packages/aspose/tasks-cloud-php) | [PIP](https://pypi.org/project/aspose-tasks-cloud/) | [NPM](https://www.npmjs.com/package/@asposecloud/aspose-tasks-cloud) | [Go.Dev](https://pkg.go.dev/github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/) |
 
 [Product Page](https://products.aspose.cloud/tasks/go) | [Documentation](https://docs.aspose.cloud/display/taskscloud/Home) | [API Reference](https://apireference.aspose.cloud/tasks/) | [Code Samples](https://github.com/aspose-tasks-cloud/aspose-tasks-cloud-go) | [Blog](https://blog.aspose.cloud/category/tasks/) | [Free Support](https://forum.aspose.cloud/c/tasks) | [Free Trial](https://dashboard.aspose.cloud/#/apps)
