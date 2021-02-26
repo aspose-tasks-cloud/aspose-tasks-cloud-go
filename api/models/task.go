@@ -250,4 +250,6 @@ type Task struct {
 	OutlineCodes []OutlineCode `json:"outlineCodes,omitempty"`
 	// Represents the flag which indicates that task has schedule discrepancies.
 	Warning bool `json:"warning"`
+	// Represents activity id field - a task's unique identifier used by Primavera (only applicable to Primavera projects).
+	ActivityId string `json:"activityId,omitempty"`
 }

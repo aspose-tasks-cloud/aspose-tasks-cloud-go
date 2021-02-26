@@ -96,12 +96,12 @@ func Test_Storage_StorageExists(t *testing.T) {
 	config := ReadConfiguration(t)
 	client, ctx := PrepareTest(t, config)
 
-	opts := &requests.StorageExistsOpts{}
+	opts := &requests.StorageExistsOpts{"SomeNonexistentStorageName"}
 
 	result, response, err := client.TasksApi.StorageExists(ctx, opts)
 	if err != nil {
 		t.Error(err)
 	}
 	assert.Equal(t, 200, response.StatusCode)
-	assert.True(t, result.Exists)
+	assert.False(t, result.Exists)
 }

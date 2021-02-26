@@ -168,20 +168,9 @@ func Test_Resources_PutResource(t *testing.T) {
 
 // Test for delete resource.
 func Test_Resources_DeleteResource(t *testing.T) {
-	localFileName := "Home_move_plan.mpp"
+	localFileName := "Plan_with_resource.mpp"
 	remoteFileName := CreateRandomGuid() + localFileName
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
-
-	deleteOpts := &requests.DeleteResourceOpts{
-		ResourceUid: 0,
-		Name:        remoteFileName,
-		Folder:      optional.NewString(remoteBaseTestDataFolder),
-	}
-	deleteResult, _, err := client.TasksApi.DeleteResource(ctx, deleteOpts)
-	if err != nil {
-		t.Error(err)
-	}
-	assert.Equal(t, int32(200), deleteResult.Code)
 
 	getOpts := &requests.GetResourcesOpts{
 		Name:   remoteFileName,
@@ -191,8 +180,26 @@ func Test_Resources_DeleteResource(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
+
+	resourceCountBeforeDelete := len(getResult.Resources.ResourceItem)
+
+	deleteOpts := &requests.DeleteResourceOpts{
+		ResourceUid: 1,
+		Name:        remoteFileName,
+		Folder:      optional.NewString(remoteBaseTestDataFolder),
+	}
+	deleteResult, _, err := client.TasksApi.DeleteResource(ctx, deleteOpts)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, int32(200), deleteResult.Code)
+
+	getResult, _, err = client.TasksApi.GetResources(ctx, getOpts)
+	if err != nil {
+		t.Error(err)
+	}
 	assert.Equal(t, int32(200), getResult.Code)
 	assert.NotNil(t, getResult.Resources)
-	assert.Equal(t, 0, len(getResult.Resources.ResourceItem))
+	assert.Greater(t, resourceCountBeforeDelete, len(getResult.Resources.ResourceItem))
 	t.Cleanup(func() { DeleteTestFileFromStorage(t, ctx, client) })
 }
