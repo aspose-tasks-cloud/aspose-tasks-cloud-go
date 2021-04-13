@@ -82,6 +82,7 @@ func Test_ExtendedAttributes_GetExtendedAttributeByIndex(t *testing.T) {
 	assert.Equal(t, 1, len(result.ExtendedAttribute.ValueList))
 	assert.Equal(t, "descr", result.ExtendedAttribute.ValueList[0].Description)
 	assert.Equal(t, int32(1), result.ExtendedAttribute.ValueList[0].Id)
+	t.Cleanup(func() { DeleteTestFileFromStorage(t, ctx, client) })
 }
 
 // Test for put extended attribute, it should add new ExtendedAttribute.
