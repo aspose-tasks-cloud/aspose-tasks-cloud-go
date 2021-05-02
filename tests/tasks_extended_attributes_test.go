@@ -30,12 +30,10 @@ package api_test
 
 import (
 	"github.com/antihax/optional"
-	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/custom"
 	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/models"
 	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/requests"
 	"github.com/stretchr/testify/assert"
 	"testing"
-	"time"
 )
 
 // Test for put extended attribute with lookup value.
@@ -104,8 +102,6 @@ func Test_TasksExtendedAttributes_PutExtendedAttribute_WithLookupValue(t *testin
 		Name:    remoteFileName,
 		Folder:  optional.NewString(remoteBaseTestDataFolder),
 	}
-	putTaskRequest.Task.Baselines[0].Start = custom.TimeWithoutTZ(time.Now())
-	putTaskRequest.Task.Baselines[0].Finish = custom.TimeWithoutTZ(time.Now())
 	putTaskResult, _, err := client.TasksApi.PutTask(ctx, &putTaskRequest)
 	if err != nil {
 		t.Error(err)
@@ -178,8 +174,6 @@ func Test_TasksExtendedAttributes_PutExtendedAttribute_WithDateValue(t *testing.
 		Name:    remoteFileName,
 		Folder:  optional.NewString(remoteBaseTestDataFolder),
 	}
-	putTaskRequest.Task.Baselines[0].Start = custom.TimeWithoutTZ(time.Now())
-	putTaskRequest.Task.Baselines[0].Finish = custom.TimeWithoutTZ(time.Now())
 	putTaskResult, _, err := client.TasksApi.PutTask(ctx, &putTaskRequest)
 	if err != nil {
 		t.Error(err)
@@ -257,8 +251,6 @@ func Test_TasksExtendedAttributes_PutExtendedAttribute_WithDurationValue(t *test
 		Name:    remoteFileName,
 		Folder:  optional.NewString(remoteBaseTestDataFolder),
 	}
-	putTaskRequest.Task.Baselines[0].Start = custom.TimeWithoutTZ(time.Now())
-	putTaskRequest.Task.Baselines[0].Finish = custom.TimeWithoutTZ(time.Now())
 	putTaskResult, _, err := client.TasksApi.PutTask(ctx, &putTaskRequest)
 	if err != nil {
 		t.Error(err)
@@ -332,8 +324,6 @@ func Test_TasksExtendedAttributes_PutExtendedAttribute_WithFlagValue(t *testing.
 		Name:    remoteFileName,
 		Folder:  optional.NewString(remoteBaseTestDataFolder),
 	}
-	putTaskRequest.Task.Baselines[0].Start = custom.TimeWithoutTZ(time.Now())
-	putTaskRequest.Task.Baselines[0].Finish = custom.TimeWithoutTZ(time.Now())
 	putTaskResult, _, err := client.TasksApi.PutTask(ctx, &putTaskRequest)
 	if err != nil {
 		t.Error(err)
@@ -406,8 +396,6 @@ func Test_TasksExtendedAttributes_PutExtendedAttribute_WithCostValue(t *testing.
 		Name:    remoteFileName,
 		Folder:  optional.NewString(remoteBaseTestDataFolder),
 	}
-	putTaskRequest.Task.Baselines[0].Start = custom.TimeWithoutTZ(time.Now())
-	putTaskRequest.Task.Baselines[0].Finish = custom.TimeWithoutTZ(time.Now())
 	putTaskResult, _, err := client.TasksApi.PutTask(ctx, &putTaskRequest)
 	if err != nil {
 		t.Error(err)
@@ -480,8 +468,6 @@ func Test_TasksExtendedAttributes_PutExtendedAttribute_WithNumberValue(t *testin
 		Name:    remoteFileName,
 		Folder:  optional.NewString(remoteBaseTestDataFolder),
 	}
-	putTaskRequest.Task.Baselines[0].Start = custom.TimeWithoutTZ(time.Now())
-	putTaskRequest.Task.Baselines[0].Finish = custom.TimeWithoutTZ(time.Now())
 	putTaskResult, _, err := client.TasksApi.PutTask(ctx, &putTaskRequest)
 	if err != nil {
 		t.Error(err)
@@ -554,8 +540,6 @@ func Test_TasksExtendedAttributes_PutExtendedAttribute_WithTextValue(t *testing.
 		Name:    remoteFileName,
 		Folder:  optional.NewString(remoteBaseTestDataFolder),
 	}
-	putTaskRequest.Task.Baselines[0].Start = custom.TimeWithoutTZ(time.Now())
-	putTaskRequest.Task.Baselines[0].Finish = custom.TimeWithoutTZ(time.Now())
 	putTaskResult, _, err := client.TasksApi.PutTask(ctx, &putTaskRequest)
 	if err != nil {
 		t.Error(err)
