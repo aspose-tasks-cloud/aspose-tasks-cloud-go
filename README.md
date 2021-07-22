@@ -1,12 +1,12 @@
 ![](https://img.shields.io/badge/api-v3.0-lightgrey)  [![GitHub license](https://img.shields.io/github/license/aspose-tasks-cloud/aspose-tasks-cloud-go)](https://github.com/aspose-tasks-cloud/aspose-tasks-cloud-go)
 
-# Manipulate Project Files via Go Cloud REST API
+# Manipulate MS Project Files in Go via Cloud REST API
 
-Aspose.Tasks for Cloud offers the ability to manipulate and convert Microsoft Project MPT, MPP, MPX & Oracle Primavera XER, XML, and PrimaveraP6XML files in the Cloud. [Aspose.Tasks Cloud SDK for Go](https://products.aspose.cloud/tasks/go) wraps the REST API to make it easier for the developers to integrate Task Management features in their own cloud-based Go applications.
+Aspose.Tasks for Cloud offers the ability to manipulate and convert Microsoft Project MPT, MPP, MPX & Oracle Primavera XER, XML, and PrimaveraP6XML files in Go. [Aspose.Tasks Cloud SDK for Go](https://products.aspose.cloud/tasks/go) wraps the REST API to make it easier for the developers to integrate MS Project Task Management features in their own cloud-based Go applications on Linux, MacOS, Windows or Android.
 
 Feel free to explore the [Developer's Guide](https://docs.aspose.cloud/display/taskscloud/Developer+Guide) & [API Reference](https://apireference.aspose.cloud/tasks/) to know all about Aspose.Tasks Cloud API.
 
-## MS Project Processing Features
+## MS Project in Go Processing Features
 - Add project assignments or delete project assignments along with their references.
 - Get the project's outline codes by index & get links to all project tasks.
 - Import projects from Primavera DB formats or from databases with the specified connection string.
@@ -67,9 +67,9 @@ The complete source code is available at [GitHub Repository](https://github.com/
 
 ## Sample usage via the SDK
 
-The examples below show how your application have to initiate and get assignments from you project file using Aspose.Tasks-Cloud library:
+The examples below show how your application have to initiate and convert your ms project file to PDF using Go Aspose.Tasks-Cloud library:
 
-## Get MPP Project Assignments in GO
+## Convert MS Project MPP to PDF in GO
 
 ```
 	// Get your ClientId and ClientSecret from https://dashboard.aspose.cloud (free registration required).
@@ -91,17 +91,17 @@ The examples below show how your application have to initiate and get assignment
 		Path: "uploaded_sample.mpp",
 	})
 
-	// get assignments from the project file
-	options := &requests.GetAssignmentsOpts{
-    		Name:   "uploaded_sample.mpp",
+	// convert your ms project file to PDF
+	options := &requests.GetReportPdfOpts{
+		Type_:  string(models.MILESTONES_ReportType),
+		Name:   "uploaded_sample.mpp"
 	}
 
-	result, _, err := tasksApi.GetAssignments(ctx, options)
+	file, response, err := tasksApi.GetReportPdf(ctx, options)
 
 	if err != nil {
 		//error handling
 	}
-	fmt.Println(result.Assignments.AssignmentItem[0].Uid)
 ```
 
 ## Aspose.Tasks Cloud SDKs in Popular Languages
