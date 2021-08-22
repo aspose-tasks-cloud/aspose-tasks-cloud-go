@@ -114,6 +114,8 @@ type Task struct {
 	// The amount of a free slack.
 	FreeSlack int32 `json:"freeSlack"`
 	Guid string `json:"guid,omitempty"`
+	// Indicates whether the task has an resource assigned which has more work on assigned tasks than can be completed within normal working capacity.
+	HasOverallocatedResource bool `json:"hasOverallocatedResource"`
 	// Determines whether the GANTT bar of a task is hidden when displayed in Microsoft Project.
 	HideBar bool `json:"hideBar"`
 	// Determines whether a task ignores the resource calendar.

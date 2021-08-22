@@ -1338,7 +1338,7 @@ Name | Type | Description  | Notes
  **format** | **optional.String**| Format of the resulting file. | 
  **folder** | **optional.String**| The document folder. | 
  **storage** | **optional.String**| The document storage. | 
- **xProjectOnlineToken** | **optional.String**| Authorization token for the SharePoint. For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly | 
+ **xProjectOnlineToken** | **optional.String**| Authorization token (SPOIDCRL) for SharePoint&#39;s PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly | 
  **xSharepointPassword** | **optional.String**| The password for the SharePoint site. | 
 
 ### Return type
@@ -1739,7 +1739,7 @@ Name | Type | Description  | Notes
  **saveOptions** | [**optional.Interface of ProjectServerSaveOptionsDto**](ProjectServerSaveOptionsDto.md)| Dispensable save options for Project Server\\Project Online. | 
  **folder** | **optional.String**| The document folder. | 
  **storage** | **optional.String**| The document storage. | 
- **xProjectOnlineToken** | **optional.String**| Authorization token for the SharePoint. For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly | 
+ **xProjectOnlineToken** | **optional.String**| Authorization token (SPOIDCRL) for SharePoint&#39;s PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly | 
  **xSharepointPassword** | **optional.String**| The password for the SharePoint site. | 
 
 ### Return type
@@ -1771,7 +1771,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **userName** | **optional.String**| The user name for the sharepoint site. | 
- **xProjectOnlineToken** | **optional.String**| Authorization token for the SharePoint. For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly | 
+ **xProjectOnlineToken** | **optional.String**| Authorization token (SPOIDCRL) for SharePoint&#39;s PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly | 
  **xSharepointPassword** | **optional.String**| The password for the SharePoint site. | 
 
 ### Return type
@@ -1808,7 +1808,7 @@ Name | Type | Description  | Notes
  **saveOptions** | [**optional.Interface of ProjectServerSaveOptionsDto**](ProjectServerSaveOptionsDto.md)| Dispensable save options for Project Server\\Project Online. | 
  **folder** | **optional.String**| The document folder. | 
  **storage** | **optional.String**| The document storage. | 
- **xProjectOnlineToken** | **optional.String**| Authorization token for the SharePoint. For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly | 
+ **xProjectOnlineToken** | **optional.String**| Authorization token (SPOIDCRL) for SharePoint&#39;s PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly | 
  **xSharepointPassword** | **optional.String**| The password for the SharePoint site. | 
 
 ### Return type

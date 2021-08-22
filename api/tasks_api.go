@@ -3147,7 +3147,7 @@ TasksApiService Imports project from Project Online and saves it to specified fi
      * @param "Format" (optional.String) -  Format of the resulting file.
      * @param "Folder" (optional.String) -  The document folder.
      * @param "Storage" (optional.String) -  The document storage.
-     * @param "XProjectOnlineToken" (optional.String) -  Authorization token for the SharePoint. For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
+     * @param "XProjectOnlineToken" (optional.String) -  Authorization token (SPOIDCRL) for SharePoint&#39;s PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
      * @param "XSharepointPassword" (optional.String) -  The password for the SharePoint site.
 
 @return models.AsposeResponse
@@ -4158,7 +4158,7 @@ TasksApiService Creates new project in Project Server\\Project Online instance.
      * @param "SaveOptions" (optional.Interface of ProjectServerSaveOptionsDto) -  Dispensable save options for Project Server\\Project Online.
      * @param "Folder" (optional.String) -  The document folder.
      * @param "Storage" (optional.String) -  The document storage.
-     * @param "XProjectOnlineToken" (optional.String) -  Authorization token for the SharePoint. For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
+     * @param "XProjectOnlineToken" (optional.String) -  Authorization token (SPOIDCRL) for SharePoint&#39;s PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
      * @param "XSharepointPassword" (optional.String) -  The password for the SharePoint site.
 
 @return models.AsposeResponse
@@ -4258,7 +4258,7 @@ TasksApiService Gets the list of published projects in the current Project Onlin
  * @param *requests.GetProjectListOpts - Request parameters:
      * @param "SiteUrl" (string) - The URL of PWA (Project Web Access) API of Project Online.
      * @param "UserName" (optional.String) -  The user name for the sharepoint site.
-     * @param "XProjectOnlineToken" (optional.String) -  Authorization token for the SharePoint. For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
+     * @param "XProjectOnlineToken" (optional.String) -  Authorization token (SPOIDCRL) for SharePoint&#39;s PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
      * @param "XSharepointPassword" (optional.String) -  The password for the SharePoint site.
 
 @return models.ProjectListResponse
@@ -4346,7 +4346,7 @@ TasksApiService Updates existing project in Project Server\\Project Online insta
      * @param "SaveOptions" (optional.Interface of ProjectServerSaveOptionsDto) -  Dispensable save options for Project Server\\Project Online.
      * @param "Folder" (optional.String) -  The document folder.
      * @param "Storage" (optional.String) -  The document storage.
-     * @param "XProjectOnlineToken" (optional.String) -  Authorization token for the SharePoint. For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
+     * @param "XProjectOnlineToken" (optional.String) -  Authorization token (SPOIDCRL) for SharePoint&#39;s PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
      * @param "XSharepointPassword" (optional.String) -  The password for the SharePoint site.
 
 @return models.AsposeResponse

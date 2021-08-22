@@ -44,6 +44,7 @@ Name | Type | Description | Notes
 **FixedCostAccrual** | [***CostAccrualType**](CostAccrualType.md) | Determines how the fixed cost is accrued against a task. | [default to null]
 **FreeSlack** | **int32** | The amount of a free slack. | [default to null]
 **Guid** | **string** |  | [optional] [default to null]
+**HasOverallocatedResource** | **bool** | Indicates whether the task has an resource assigned which has more work on assigned tasks than can be completed within normal working capacity. | [default to null]
 **HideBar** | **bool** | Determines whether the GANTT bar of a task is hidden when displayed in Microsoft Project. | [default to null]
 **IgnoreResourceCalendar** | **bool** | Determines whether a task ignores the resource calendar. | [default to null]
 **LateFinish** | [**time.Time**](time.Time.md) | The late finish date of a task. | [default to null]
