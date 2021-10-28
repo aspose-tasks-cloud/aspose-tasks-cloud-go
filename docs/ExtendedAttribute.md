@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **DateValue** | [**time.Time**](time.Time.md) | Gets or sets a value for attributes with date types (Date, Start, Finish). | [default to null]
 **FlagValue** | **bool** | Gets or sets a value indicating whether a flag is set for an attribute with &#39;Flag&#39; type. | [default to null]
 **TextValue** | **string** | Gets or sets a value for attributes with &#39;Text&#39; type. | [optional] [default to null]
+**IsErrorValue** | **bool** | Gets whether calculation of extended attribute&#39;s value resulted in an error.              | [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

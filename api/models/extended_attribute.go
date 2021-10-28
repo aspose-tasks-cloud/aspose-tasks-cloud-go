@@ -51,4 +51,6 @@ type ExtendedAttribute struct {
 	FlagValue bool `json:"flagValue"`
 	// Gets or sets a value for attributes with 'Text' type.
 	TextValue string `json:"textValue,omitempty"`
+	// Gets whether calculation of extended attribute's value resulted in an error.             
+	IsErrorValue bool `json:"isErrorValue"`
 }
