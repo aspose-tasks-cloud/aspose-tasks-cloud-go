@@ -59,6 +59,8 @@ type ExtendedAttributeDefinition struct {
 	RollupType *RollupType `json:"rollupType"`
 	// Determines whether rollups are calculated for a task and group summary rows.
 	CalculationType *CalculationType `json:"calculationType"`
+	// Gets or sets the type of calculation of the custom attribute's value for summary rows.
+	SummaryRowsCalculationType *SummaryRowsCalculationType `json:"summaryRowsCalculationType"`
 	// The formula that Microsoft Project uses to populate a custom task field.
 	Formula string `json:"formula,omitempty"`
 	// Determines whether only values in the list are allowed in a file.

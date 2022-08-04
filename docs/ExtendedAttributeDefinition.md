@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **PhoneticsAlias** | **string** | The phonetic pronunciation of the alias of a custom field. | [optional] [default to null]
 **RollupType** | [***RollupType**](RollupType.md) | The way rollups are calculated. | [default to null]
 **CalculationType** | [***CalculationType**](CalculationType.md) | Determines whether rollups are calculated for a task and group summary rows. | [default to null]
+**SummaryRowsCalculationType** | [***SummaryRowsCalculationType**](SummaryRowsCalculationType.md) | Gets or sets the type of calculation of the custom attribute&#39;s value for summary rows. | [default to null]
 **Formula** | **string** | The formula that Microsoft Project uses to populate a custom task field. | [optional] [default to null]
 **RestrictValues** | **bool** | Determines whether only values in the list are allowed in a file. | [default to null]
 **ValuelistSortOrder** | **int32** | The way value lists are sorted. Values are: 0&#x3D;Descending, 1&#x3D;Ascending. | [default to null]

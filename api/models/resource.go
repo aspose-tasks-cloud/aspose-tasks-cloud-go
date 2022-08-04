@@ -33,6 +33,8 @@ import (
 
 // Represents a project resource.
 type Resource struct {
+	//         Gets the flag indicating whether resource is a root resource. Root resource is         a special resource which is intended to support internals of MS Project's formats         and is not intended to be used directly from the user's code.     
+	IsRoot bool `json:"isRoot"`
 	// The name of a resource.
 	Name string `json:"name,omitempty"`
 	// The unique identifier of a resource.

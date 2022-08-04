@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**IsRoot** | **bool** |         Gets the flag indicating whether resource is a root resource. Root resource is         a special resource which is intended to support internals of MS Project&#39;s formats         and is not intended to be used directly from the user&#39;s code.      | [default to null]
 **Name** | **string** | The name of a resource. | [optional] [default to null]
 **Uid** | **int32** | The unique identifier of a resource. | [default to null]
 **Id** | **int32** | The position identifier of a resource within the list of resources. | [default to null]
