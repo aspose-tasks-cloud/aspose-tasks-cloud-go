@@ -10,10 +10,10 @@
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *  copies of the Software, and to permit persons to whom the Software is
  *  furnished to do so, subject to the following conditions:
- * 
+ *
  *  The above copyright notice and this permission notice shall be included in all
  *  copies or substantial portions of the Software.
- * 
+ *
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -34,6 +34,8 @@ import (
 	"encoding/xml"
 	"errors"
 	"fmt"
+	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/models"
+	"golang.org/x/oauth2"
 	"io"
 	"io/ioutil"
 	"log"
@@ -49,8 +51,6 @@ import (
 	"strings"
 	"time"
 	"unicode/utf8"
-	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/models"
-	"golang.org/x/oauth2"
 )
 
 var (
@@ -65,7 +65,7 @@ type APIClient struct {
 	common service // Reuse a single struct instead of allocating one for each service on the heap.
 
 	// API Services
-    TasksApi	*TasksApiService
+	TasksApi *TasksApiService
 }
 
 type service struct {
@@ -73,41 +73,41 @@ type service struct {
 }
 
 type FormParamContainer struct {
-    name string
-    text string
-    file []byte
-    isFile bool
+	name   string
+	text   string
+	file   []byte
+	isFile bool
 }
 
 // NewAPIClient creates a new API client. Requires a userAgent string describing your application.
 // optionally a custom http.Client to allow for advanced features such as caching.
 func NewAPIClient(cfg *models.Configuration) (client *APIClient, err error) {
-    if cfg.HttpClient == nil {
-        cfg.HttpClient = http.DefaultClient
-    }
+	if cfg.HttpClient == nil {
+		cfg.HttpClient = http.DefaultClient
+	}
 
-    if cfg.AppKey == "" {
-        return nil, errors.New("AppKey must be non-empty string")
-    }
+	if cfg.AppKey == "" {
+		return nil, errors.New("AppKey must be non-empty string")
+	}
 
-    if cfg.AppSid == "" {
-        return nil, errors.New("AppSid must be non-empty string")
-    }
+	if cfg.AppSid == "" {
+		return nil, errors.New("AppSid must be non-empty string")
+	}
 
-    _, urlErr := url.ParseRequestURI(cfg.BaseUrl)
+	_, urlErr := url.ParseRequestURI(cfg.BaseUrl)
 
-    if urlErr != nil {
-        return nil, errors.New("BaseUrl must be valid URL")
-    }
+	if urlErr != nil {
+		return nil, errors.New("BaseUrl must be valid URL")
+	}
 
-    c := &APIClient{}
-    c.cfg = cfg
-    c.common.client = c
+	c := &APIClient{}
+	c.cfg = cfg
+	c.common.client = c
 
-    // API Services
-    c.TasksApi = (*TasksApiService)(&c.common)
+	// API Services
+	c.TasksApi = (*TasksApiService)(&c.common)
 
-    return c, nil
+	return c, nil
 }
 
 func atoi(in string) (int, error) {
@@ -187,32 +187,32 @@ func parameterToString(obj interface{}, collectionFormat string) string {
 // callAPI do the request.
 func (c *APIClient) callAPI(request *http.Request) (*http.Response, error) {
 
-    // log request
-    if c.cfg.DebugMode {
-        dumpRequest, err := httputil.DumpRequest(request, true)
-        if err != nil {
-            return nil, err
-        }
+	// log request
+	if c.cfg.DebugMode {
+		dumpRequest, err := httputil.DumpRequest(request, true)
+		if err != nil {
+			return nil, err
+		}
 
-        log.Print(string(dumpRequest))
-    }
+		log.Print(string(dumpRequest))
+	}
 
-    response, err := c.cfg.HttpClient.Do(request)
+	response, err := c.cfg.HttpClient.Do(request)
 
-    if err != nil {
-        return response, err
-    }
+	if err != nil {
+		return response, err
+	}
 
-    if c.cfg.DebugMode {
-        dumpResponse, err := httputil.DumpResponse(response, true)
-        if err != nil {
-            return nil, err
-        }
+	if c.cfg.DebugMode {
+		dumpResponse, err := httputil.DumpResponse(response, true)
+		if err != nil {
+			return nil, err
+		}
 
-        log.Print(string(dumpResponse))
-    }
+		log.Print(string(dumpResponse))
+	}
 
-    return response, err
+	return response, err
 }
 
 // Change base path to allow switching to mocks
@@ -268,145 +268,145 @@ func (c *APIClient) NewContextWithToken(ctx context.Context) (ctxWithToken conte
 }
 
 // prepareRequest build the request
-func (c *APIClient) prepareRequest (
-    ctx context.Context,
-    path string, method string,
-    postBody interface{},
-    headerParams map[string]string,
-    queryParams url.Values,
-    formParams []FormParamContainer) (localVarRequest *http.Request, err error) {
+func (c *APIClient) prepareRequest(
+	ctx context.Context,
+	path string, method string,
+	postBody interface{},
+	headerParams map[string]string,
+	queryParams url.Values,
+	formParams []FormParamContainer) (localVarRequest *http.Request, err error) {
 
-    var body *bytes.Buffer
+	var body *bytes.Buffer
 
-    // Detect postBody type and post.
-    if postBody != nil {
-        contentType := headerParams["Content-Type"]
-        if contentType == "" {
-            contentType = detectContentType(postBody)
-            headerParams["Content-Type"] = contentType
-        }
+	// Detect postBody type and post.
+	if postBody != nil {
+		contentType := headerParams["Content-Type"]
+		if contentType == "" {
+			contentType = detectContentType(postBody)
+			headerParams["Content-Type"] = contentType
+		}
 
-        body, err = setBody(postBody, contentType)
-        if err != nil {
-            return nil, err
-        }
-    }
+		body, err = setBody(postBody, contentType)
+		if err != nil {
+			return nil, err
+		}
+	}
 
-    // add form parameters and file if available.
-    if len(formParams) > 0 {
-        if body != nil {
-            return nil, errors.New("Cannot specify postBody and multipart form at the same time.")
-        }
-        body = &bytes.Buffer{}
-        w := multipart.NewWriter(body)
-        headerParams["Content-Type"] = w.FormDataContentType()
+	// add form parameters and file if available.
+	if len(formParams) > 0 {
+		if body != nil {
+			return nil, errors.New("Cannot specify postBody and multipart form at the same time.")
+		}
+		body = &bytes.Buffer{}
+		w := multipart.NewWriter(body)
+		headerParams["Content-Type"] = w.FormDataContentType()
 
-        for _, fp := range formParams {
-            if fp.isFile {
-                if len(fp.file) > 0 && fp.name != "" {
-                    w.Boundary()
-                    part, err := w.CreateFormFile("file", filepath.Base(fp.name))
-                    if err != nil {
-                        return nil, err
-                    }
-                    _, err = part.Write(fp.file)
-                    if err != nil {
-                        return nil, err
-                    }
-                }
-            } else {
-                w.WriteField(fp.name, fp.text)
-            }
-        }
+		for _, fp := range formParams {
+			if fp.isFile {
+				if len(fp.file) > 0 && fp.name != "" {
+					w.Boundary()
+					part, err := w.CreateFormFile("file", filepath.Base(fp.name))
+					if err != nil {
+						return nil, err
+					}
+					_, err = part.Write(fp.file)
+					if err != nil {
+						return nil, err
+					}
+				}
+			} else {
+				w.WriteField(fp.name, fp.text)
+			}
+		}
 
-        // Set Content-Length
-        headerParams["Content-Length"] = fmt.Sprintf("%d", body.Len())
-        w.Close()
-    }
+		// Set Content-Length
+		headerParams["Content-Length"] = fmt.Sprintf("%d", body.Len())
+		w.Close()
+	}
 
-    // Setup path and query parameters
-    url, err := url.Parse(path)
-    if err != nil {
-        return nil, err
-    }
+	// Setup path and query parameters
+	url, err := url.Parse(path)
+	if err != nil {
+		return nil, err
+	}
 
-    // Adding Query Param
-    query := url.Query()
-    for k, v := range queryParams {
-        for _, iv := range v {
-            query.Add(k, iv)
-        }
-    }
+	// Adding Query Param
+	query := url.Query()
+	for k, v := range queryParams {
+		for _, iv := range v {
+			query.Add(k, iv)
+		}
+	}
 
-    // Encode the parameters.
-    url.RawQuery = query.Encode()
+	// Encode the parameters.
+	url.RawQuery = query.Encode()
 
-    // Generate a new request
-    if body != nil {
-        localVarRequest, err = http.NewRequest(method, url.String(), body)
-    } else {
-        localVarRequest, err = http.NewRequest(method, url.String(), nil)
-    }
-    if err != nil {
-        return nil, err
-    }
+	// Generate a new request
+	if body != nil {
+		localVarRequest, err = http.NewRequest(method, url.String(), body)
+	} else {
+		localVarRequest, err = http.NewRequest(method, url.String(), nil)
+	}
+	if err != nil {
+		return nil, err
+	}
 
-    // add header parameters, if any
-    if len(headerParams) > 0 {
-        headers := http.Header{}
-        for h, v := range headerParams {
-            headers.Set(h, v)
-        }
-        localVarRequest.Header = headers
-    }
+	// add header parameters, if any
+	if len(headerParams) > 0 {
+		headers := http.Header{}
+		for h, v := range headerParams {
+			headers.Set(h, v)
+		}
+		localVarRequest.Header = headers
+	}
 
-    if ctx != nil {
-        // add context to the request
-        localVarRequest = localVarRequest.WithContext(ctx)
+	if ctx != nil {
+		// add context to the request
+		localVarRequest = localVarRequest.WithContext(ctx)
 
-        // Walk through any authentication.
+		// Walk through any authentication.
 
-        // OAuth2 authentication
-        if tok, ok := ctx.Value(models.ContextOAuth2).(oauth2.TokenSource); ok {
-            // We were able to grab an oauth2 token from the context
-            var latestToken *oauth2.Token
-            if latestToken, err = tok.Token(); err != nil {
-                return nil, err
-            }
+		// OAuth2 authentication
+		if tok, ok := ctx.Value(models.ContextOAuth2).(oauth2.TokenSource); ok {
+			// We were able to grab an oauth2 token from the context
+			var latestToken *oauth2.Token
+			if latestToken, err = tok.Token(); err != nil {
+				return nil, err
+			}
 
-            latestToken.SetAuthHeader(localVarRequest)
-        }
+			latestToken.SetAuthHeader(localVarRequest)
+		}
 
-        // Basic HTTP Authentication
-        if auth, ok := ctx.Value(models.ContextBasicAuth).(models.BasicAuth); ok {
-            localVarRequest.SetBasicAuth(auth.UserName, auth.Password)
-        }
+		// Basic HTTP Authentication
+		if auth, ok := ctx.Value(models.ContextBasicAuth).(models.BasicAuth); ok {
+			localVarRequest.SetBasicAuth(auth.UserName, auth.Password)
+		}
 
-        // AccessToken Authentication
-        if auth, ok := ctx.Value(models.ContextAccessToken).(string); ok {
-            localVarRequest.Header.Add("Authorization", "Bearer " + auth)
-        }
-    }
+		// AccessToken Authentication
+		if auth, ok := ctx.Value(models.ContextAccessToken).(string); ok {
+			localVarRequest.Header.Add("Authorization", "Bearer "+auth)
+		}
+	}
 
-    for header, value := range c.cfg.DefaultHeader {
-        localVarRequest.Header.Add(header, value)
-    }
+	for header, value := range c.cfg.DefaultHeader {
+		localVarRequest.Header.Add(header, value)
+	}
 
-    return localVarRequest, nil
+	return localVarRequest, nil
 }
 
 func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err error) {
-		if strings.Contains(contentType, "application/xml") {
-			if err = xml.Unmarshal(b, v); err != nil {
-				return err
-			}
-			return nil
-		} else if strings.Contains(contentType, "application/json") {
-			if err = json.Unmarshal(b, v); err != nil {
-				return err
-			}
-			return nil
+	if strings.Contains(contentType, "application/xml") {
+		if err = xml.Unmarshal(b, v); err != nil {
+			return err
 		}
+		return nil
+	} else if strings.Contains(contentType, "application/json") {
+		if err = json.Unmarshal(b, v); err != nil {
+			return err
+		}
+		return nil
+	}
 	return errors.New("undefined response type")
 }
 

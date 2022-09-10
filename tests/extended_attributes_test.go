@@ -102,17 +102,19 @@ func Test_ExtendedAttributes_PutExtendedAttribute(t *testing.T) {
 		Id:          112,
 	}
 	newCalculationType := models.LOOKUP_CalculationType
+	newSummaryRowsCalculationType := models.NONE_SummaryRowsCalculationType
 	newCfType := models.TEXT_CustomFieldType
 	newElementType := models.TASK_ElementType
 	newRollupType := models.NULL_RollupType
 	newExtendedAttribute := models.ExtendedAttributeDefinition{
-		CalculationType: &newCalculationType,
-		CfType:          &newCfType,
-		ElementType:     &newElementType,
-		RollupType:      &newRollupType,
-		FieldName:       "Text3",
-		Alias:           "New Field",
-		ValueList:       []models.Value{firstValue, secondValue},
+		CalculationType:            &newCalculationType,
+		SummaryRowsCalculationType: &newSummaryRowsCalculationType,
+		CfType:                     &newCfType,
+		ElementType:                &newElementType,
+		RollupType:                 &newRollupType,
+		FieldName:                  "Text3",
+		Alias:                      "New Field",
+		ValueList:                  []models.Value{firstValue, secondValue},
 	}
 
 	putResult, _, err := client.TasksApi.PutExtendedAttribute(ctx, &requests.PutExtendedAttributeOpts{

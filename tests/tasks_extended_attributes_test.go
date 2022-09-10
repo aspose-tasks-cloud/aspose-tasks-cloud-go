@@ -43,16 +43,18 @@ func Test_TasksExtendedAttributes_PutExtendedAttribute_WithLookupValue(t *testin
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
 
 	newCalculationType := models.LOOKUP_CalculationType
+	newSummaryRowsCalculationType := models.NONE_SummaryRowsCalculationType
 	newCfType := models.TEXT_CustomFieldType
 	newElementType := models.TASK_ElementType
 	newRollupType := models.NULL_RollupType
 	newExtendedAttributeDef := models.ExtendedAttributeDefinition{
-		CalculationType: &newCalculationType,
-		CfType:          &newCfType,
-		ElementType:     &newElementType,
-		RollupType:      &newRollupType,
-		FieldName:       "Text3",
-		Alias:           "New Field",
+		CalculationType:            &newCalculationType,
+		SummaryRowsCalculationType: &newSummaryRowsCalculationType,
+		CfType:                     &newCfType,
+		ElementType:                &newElementType,
+		RollupType:                 &newRollupType,
+		FieldName:                  "Text3",
+		Alias:                      "New Field",
 		ValueList: []models.Value{
 			{
 				Description: "descr1",
@@ -127,16 +129,18 @@ func Test_TasksExtendedAttributes_PutExtendedAttribute_WithDateValue(t *testing.
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
 
 	newCalculationType := models.NONE_CalculationType
+	newSummaryRowsCalculationType := models.NONE_SummaryRowsCalculationType
 	newCfType := models.FINISH_CustomFieldType
 	newElementType := models.TASK_ElementType
 	newRollupType := models.NULL_RollupType
 	newExtendedAttributeDef := models.ExtendedAttributeDefinition{
-		CalculationType: &newCalculationType,
-		CfType:          &newCfType,
-		ElementType:     &newElementType,
-		RollupType:      &newRollupType,
-		FieldName:       "Finish4",
-		Alias:           "Custom Finish Field",
+		CalculationType:            &newCalculationType,
+		SummaryRowsCalculationType: &newSummaryRowsCalculationType,
+		CfType:                     &newCfType,
+		ElementType:                &newElementType,
+		RollupType:                 &newRollupType,
+		FieldName:                  "Finish4",
+		Alias:                      "Custom Finish Field",
 	}
 	putOpts := &requests.PutExtendedAttributeOpts{
 		ExtendedAttribute: newExtendedAttributeDef,
@@ -199,16 +203,18 @@ func Test_TasksExtendedAttributes_PutExtendedAttribute_WithDurationValue(t *test
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
 
 	newCalculationType := models.NONE_CalculationType
+	newSummaryRowsCalculationType := models.NONE_SummaryRowsCalculationType
 	newCfType := models.DURATION_CustomFieldType
 	newElementType := models.TASK_ElementType
 	newRollupType := models.NULL_RollupType
 	newExtendedAttributeDef := models.ExtendedAttributeDefinition{
-		CalculationType: &newCalculationType,
-		CfType:          &newCfType,
-		ElementType:     &newElementType,
-		RollupType:      &newRollupType,
-		FieldName:       "Duration3",
-		Alias:           "Custom Duration Field",
+		CalculationType:            &newCalculationType,
+		SummaryRowsCalculationType: &newSummaryRowsCalculationType,
+		CfType:                     &newCfType,
+		ElementType:                &newElementType,
+		RollupType:                 &newRollupType,
+		FieldName:                  "Duration3",
+		Alias:                      "Custom Duration Field",
 	}
 	putOpts := &requests.PutExtendedAttributeOpts{
 		ExtendedAttribute: newExtendedAttributeDef,
@@ -277,16 +283,18 @@ func Test_TasksExtendedAttributes_PutExtendedAttribute_WithFlagValue(t *testing.
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
 
 	newCalculationType := models.NONE_CalculationType
+	newSummaryRowsCalculationType := models.NONE_SummaryRowsCalculationType
 	newCfType := models.FLAG_CustomFieldType
 	newElementType := models.TASK_ElementType
 	newRollupType := models.NULL_RollupType
 	newExtendedAttributeDef := models.ExtendedAttributeDefinition{
-		CalculationType: &newCalculationType,
-		CfType:          &newCfType,
-		ElementType:     &newElementType,
-		RollupType:      &newRollupType,
-		FieldName:       "Flag12",
-		Alias:           "Custom Flag Field",
+		CalculationType:            &newCalculationType,
+		SummaryRowsCalculationType: &newSummaryRowsCalculationType,
+		CfType:                     &newCfType,
+		ElementType:                &newElementType,
+		RollupType:                 &newRollupType,
+		FieldName:                  "Flag12",
+		Alias:                      "Custom Flag Field",
 	}
 	putOpts := &requests.PutExtendedAttributeOpts{
 		ExtendedAttribute: newExtendedAttributeDef,
@@ -349,16 +357,18 @@ func Test_TasksExtendedAttributes_PutExtendedAttribute_WithCostValue(t *testing.
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
 
 	newCalculationType := models.NONE_CalculationType
+	newSummaryRowsCalculationType := models.NONE_SummaryRowsCalculationType
 	newCfType := models.COST_CustomFieldType
 	newElementType := models.TASK_ElementType
 	newRollupType := models.NULL_RollupType
 	newExtendedAttributeDef := models.ExtendedAttributeDefinition{
-		CalculationType: &newCalculationType,
-		CfType:          &newCfType,
-		ElementType:     &newElementType,
-		RollupType:      &newRollupType,
-		FieldName:       "Cost10",
-		Alias:           "Custom Cost Field",
+		CalculationType:            &newCalculationType,
+		SummaryRowsCalculationType: &newSummaryRowsCalculationType,
+		CfType:                     &newCfType,
+		ElementType:                &newElementType,
+		RollupType:                 &newRollupType,
+		FieldName:                  "Cost10",
+		Alias:                      "Custom Cost Field",
 	}
 	putOpts := &requests.PutExtendedAttributeOpts{
 		ExtendedAttribute: newExtendedAttributeDef,
@@ -421,16 +431,18 @@ func Test_TasksExtendedAttributes_PutExtendedAttribute_WithNumberValue(t *testin
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
 
 	newCalculationType := models.NONE_CalculationType
+	newSummaryRowsCalculationType := models.NONE_SummaryRowsCalculationType
 	newCfType := models.NUMBER_CustomFieldType
 	newElementType := models.TASK_ElementType
 	newRollupType := models.NULL_RollupType
 	newExtendedAttributeDef := models.ExtendedAttributeDefinition{
-		CalculationType: &newCalculationType,
-		CfType:          &newCfType,
-		ElementType:     &newElementType,
-		RollupType:      &newRollupType,
-		FieldName:       "Number9",
-		Alias:           "Custom Number Field",
+		CalculationType:            &newCalculationType,
+		SummaryRowsCalculationType: &newSummaryRowsCalculationType,
+		CfType:                     &newCfType,
+		ElementType:                &newElementType,
+		RollupType:                 &newRollupType,
+		FieldName:                  "Number9",
+		Alias:                      "Custom Number Field",
 	}
 	putOpts := &requests.PutExtendedAttributeOpts{
 		ExtendedAttribute: newExtendedAttributeDef,
@@ -493,16 +505,18 @@ func Test_TasksExtendedAttributes_PutExtendedAttribute_WithTextValue(t *testing.
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
 
 	newCalculationType := models.NONE_CalculationType
+	newSummaryRowsCalculationType := models.NONE_SummaryRowsCalculationType
 	newCfType := models.TEXT_CustomFieldType
 	newElementType := models.TASK_ElementType
 	newRollupType := models.NULL_RollupType
 	newExtendedAttributeDef := models.ExtendedAttributeDefinition{
-		CalculationType: &newCalculationType,
-		CfType:          &newCfType,
-		ElementType:     &newElementType,
-		RollupType:      &newRollupType,
-		FieldName:       "Text1",
-		Alias:           "Custom Text Field",
+		CalculationType:            &newCalculationType,
+		SummaryRowsCalculationType: &newSummaryRowsCalculationType,
+		CfType:                     &newCfType,
+		ElementType:                &newElementType,
+		RollupType:                 &newRollupType,
+		FieldName:                  "Text1",
+		Alias:                      "Custom Text Field",
 	}
 	putOpts := &requests.PutExtendedAttributeOpts{
 		ExtendedAttribute: newExtendedAttributeDef,
