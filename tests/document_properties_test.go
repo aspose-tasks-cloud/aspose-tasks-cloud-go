@@ -54,7 +54,7 @@ func Test_DocumentProperties_GetDocumentProperties(t *testing.T) {
 	}
 	assert.Equal(t, int32(200), result.Code)
 	assert.NotNil(t, result.Properties)
-	assert.Equal(t, 52, len(result.Properties.List))
+	assert.Equal(t, 63, len(result.Properties.List))
 	assert.Equal(t, "Title", result.Properties.List[0].Name)
 	assert.Equal(t, "Home Move", result.Properties.List[0].Value)
 	t.Cleanup(func() { DeleteTestFileFromStorage(t, ctx, client) })
@@ -68,8 +68,8 @@ func Test_DocumentProperties_GetDocumentProperty(t *testing.T) {
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
 
 	options := &requests.GetDocumentPropertyOpts{
-		Name:   remoteFileName,
-		Folder: optional.NewString(remoteBaseTestDataFolder),
+		Name:         remoteFileName,
+		Folder:       optional.NewString(remoteBaseTestDataFolder),
 		PropertyName: "Title",
 	}
 	result, _, err := client.TasksApi.GetDocumentProperty(ctx, options)
@@ -92,11 +92,11 @@ func Test_DocumentProperties_PutDocumentProperty(t *testing.T) {
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
 
 	putOptions := &requests.PutDocumentPropertyOpts{
-		Name:   remoteFileName,
-		Folder: optional.NewString(remoteBaseTestDataFolder),
+		Name:         remoteFileName,
+		Folder:       optional.NewString(remoteBaseTestDataFolder),
 		PropertyName: "Title",
 		Property: models.DocumentProperty{
-			Name: "Title",
+			Name:  "Title",
 			Value: "New title value",
 		},
 	}
@@ -110,8 +110,8 @@ func Test_DocumentProperties_PutDocumentProperty(t *testing.T) {
 	assert.Equal(t, "New title value", putResult.Property.Value)
 
 	getOptions := &requests.GetDocumentPropertyOpts{
-		Name:   remoteFileName,
-		Folder: optional.NewString(remoteBaseTestDataFolder),
+		Name:         remoteFileName,
+		Folder:       optional.NewString(remoteBaseTestDataFolder),
 		PropertyName: "Title",
 	}
 	getResult, _, err := client.TasksApi.GetDocumentProperty(ctx, getOptions)
@@ -133,11 +133,11 @@ func Test_DocumentProperties_PutDocumentPropertyShouldIgnoreNonexistentProperty(
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
 
 	putOptions := &requests.PutDocumentPropertyOpts{
-		Name:   remoteFileName,
-		Folder: optional.NewString(remoteBaseTestDataFolder),
+		Name:         remoteFileName,
+		Folder:       optional.NewString(remoteBaseTestDataFolder),
 		PropertyName: "new property",
 		Property: models.DocumentProperty{
-			Name: "new property",
+			Name:  "new property",
 			Value: "new property value",
 		},
 	}
@@ -149,8 +149,8 @@ func Test_DocumentProperties_PutDocumentPropertyShouldIgnoreNonexistentProperty(
 	assert.Nil(t, putResult.Property)
 
 	getOptions := &requests.GetDocumentPropertyOpts{
-		Name:   remoteFileName,
-		Folder: optional.NewString(remoteBaseTestDataFolder),
+		Name:         remoteFileName,
+		Folder:       optional.NewString(remoteBaseTestDataFolder),
 		PropertyName: "new property",
 	}
 	getResult, _, err := client.TasksApi.GetDocumentProperty(ctx, getOptions)
@@ -170,11 +170,11 @@ func Test_DocumentProperties_PostDocumentProperty(t *testing.T) {
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
 
 	postOptions := &requests.PostDocumentPropertyOpts{
-		Name:   remoteFileName,
-		Folder: optional.NewString(remoteBaseTestDataFolder),
+		Name:         remoteFileName,
+		Folder:       optional.NewString(remoteBaseTestDataFolder),
 		PropertyName: "Title",
 		Property: models.DocumentProperty{
-			Name: "Title",
+			Name:  "Title",
 			Value: "New title value",
 		},
 	}
@@ -188,8 +188,8 @@ func Test_DocumentProperties_PostDocumentProperty(t *testing.T) {
 	assert.Equal(t, "New title value", postResult.Property.Value)
 
 	getOptions := &requests.GetDocumentPropertyOpts{
-		Name:   remoteFileName,
-		Folder: optional.NewString(remoteBaseTestDataFolder),
+		Name:         remoteFileName,
+		Folder:       optional.NewString(remoteBaseTestDataFolder),
 		PropertyName: "Title",
 	}
 	getResult, _, err := client.TasksApi.GetDocumentProperty(ctx, getOptions)
@@ -211,11 +211,11 @@ func Test_DocumentProperties_PostDocumentPropertyShouldIgnoreNonexistentProperty
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
 
 	postOptions := &requests.PostDocumentPropertyOpts{
-		Name:   remoteFileName,
-		Folder: optional.NewString(remoteBaseTestDataFolder),
+		Name:         remoteFileName,
+		Folder:       optional.NewString(remoteBaseTestDataFolder),
 		PropertyName: "new property",
 		Property: models.DocumentProperty{
-			Name: "new property",
+			Name:  "new property",
 			Value: "new property value",
 		},
 	}
@@ -227,8 +227,8 @@ func Test_DocumentProperties_PostDocumentPropertyShouldIgnoreNonexistentProperty
 	assert.Nil(t, postResult.Property)
 
 	getOptions := &requests.GetDocumentPropertyOpts{
-		Name:   remoteFileName,
-		Folder: optional.NewString(remoteBaseTestDataFolder),
+		Name:         remoteFileName,
+		Folder:       optional.NewString(remoteBaseTestDataFolder),
 		PropertyName: "new property",
 	}
 	getResult, _, err := client.TasksApi.GetDocumentProperty(ctx, getOptions)

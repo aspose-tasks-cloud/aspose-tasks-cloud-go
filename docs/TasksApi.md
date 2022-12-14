@@ -70,6 +70,7 @@ Method | HTTP request | Description
 [**PutResource**](TasksApi.md#putresource) | **Put** /tasks/{name}/resources/{resourceUid} | Updates resource with the specified Uid
 [**GetRiskAnalysisReport**](TasksApi.md#getriskanalysisreport) | **Get** /tasks/{name}/riskAnalysisReport | Performs a risk analysys using Monte Carlo simulation and creates a risk analysis report.
 [**DeleteTask**](TasksApi.md#deletetask) | **Delete** /tasks/{name}/tasks/{taskUid} | Deletes a project task with all references to it and rebuilds tasks tree.
+[**GetPrimaveraTaskProperties**](TasksApi.md#getprimaverataskproperties) | **Get** /tasks/{name}/tasks/{taskUid}/primaveraProperties | Get primavera properties for a task with the specified Uid.
 [**GetTask**](TasksApi.md#gettask) | **Get** /tasks/{name}/tasks/{taskUid} | Read project task.
 [**GetTaskAssignments**](TasksApi.md#gettaskassignments) | **Get** /tasks/{name}/tasks/{taskUid}/assignments | Get task assignments.
 [**GetTaskRecurringInfo**](TasksApi.md#gettaskrecurringinfo) | **Get** /tasks/{name}/tasks/{taskUid}/recurringInfo | Get recurring info for a task with the specified Uid
@@ -2293,6 +2294,39 @@ Name | Type | Description  | Notes
 
 ### Return type
 [**AsposeResponse**](AsposeResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetPrimaveraTaskProperties**
+> PrimaveraTaskPropertiesResponse GetPrimaveraTaskProperties(ctx, name, taskUid, optional)
+Get primavera properties for a task with the specified Uid.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file. | 
+  **taskUid** | **int32**| Uid of task to get primavera properties for. | 
+ **optional** | ***GetPrimaveraTaskPropertiesOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **folder** | **optional.String**| The document folder. | 
+ **storage** | **optional.String**| The document storage. | 
+
+### Return type
+[**PrimaveraTaskPropertiesResponse**](PrimaveraTaskPropertiesResponse.md)
 
 ### Authorization
 [JWT](../README.md#JWT)

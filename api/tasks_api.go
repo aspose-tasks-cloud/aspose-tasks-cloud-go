@@ -10,10 +10,10 @@
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *  copies of the Software, and to permit persons to whom the Software is
  *  furnished to do so, subject to the following conditions:
- * 
+ *
  *  The above copyright notice and this permission notice shall be included in all
  *  copies or substantial portions of the Software.
- * 
+ *
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -31,13 +31,13 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"fmt"
+	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/models"
+	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/requests"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
-	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/requests"
-	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/models"
 )
 
 // Linger please
@@ -46,7 +46,8 @@ var (
 )
 
 type TasksApiService service
-/* 
+
+/*
 TasksApiService Copy file
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.CopyFileOpts - Request parameters:
@@ -62,7 +63,6 @@ func (a *TasksApiService) CopyFile(ctx context.Context, localVarOptionals *reque
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
-		
 	)
 
 	// create path and map variables
@@ -106,30 +106,30 @@ func (a *TasksApiService) CopyFile(ctx context.Context, localVarOptionals *reque
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarHttpResponse, err
+		}
 
-        return localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
+		return localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
 
-    return localVarHttpResponse, err
+	return localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Delete file
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.DeleteFileOpts - Request parameters:
@@ -143,7 +143,6 @@ func (a *TasksApiService) DeleteFile(ctx context.Context, localVarOptionals *req
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
-		
 	)
 
 	// create path and map variables
@@ -183,30 +182,30 @@ func (a *TasksApiService) DeleteFile(ctx context.Context, localVarOptionals *req
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarHttpResponse, err
+		}
 
-        return localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
+		return localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
 
-    return localVarHttpResponse, err
+	return localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Download file
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.DownloadFileOpts - Request parameters:
@@ -218,8 +217,8 @@ TasksApiService Download file
 */
 func (a *TasksApiService) DownloadFile(ctx context.Context, localVarOptionals *requests.DownloadFileOpts) ([]byte, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue []byte
 	)
 
@@ -260,33 +259,33 @@ func (a *TasksApiService) DownloadFile(ctx context.Context, localVarOptionals *r
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if localVarReturnValue, err = ioutil.ReadAll(localVarHttpResponse.Body); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if localVarReturnValue, err = ioutil.ReadAll(localVarHttpResponse.Body); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Move file
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.MoveFileOpts - Request parameters:
@@ -302,7 +301,6 @@ func (a *TasksApiService) MoveFile(ctx context.Context, localVarOptionals *reque
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
-		
 	)
 
 	// create path and map variables
@@ -346,34 +344,34 @@ func (a *TasksApiService) MoveFile(ctx context.Context, localVarOptionals *reque
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarHttpResponse, err
+		}
 
-        return localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
+		return localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
 
-    return localVarHttpResponse, err
+	return localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Upload file
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.UploadFileOpts - Request parameters:
-     * @param "Path" (string) - Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.             
+     * @param "Path" (string) - Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.
      * @param "File" (*os.File) - File to upload
      * @param "StorageName" (optional.String) -  Storage name
 
@@ -381,8 +379,8 @@ TasksApiService Upload file
 */
 func (a *TasksApiService) UploadFile(ctx context.Context, localVarOptionals *requests.UploadFileOpts) (models.FilesUploadResult, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.FilesUploadResult
 	)
 
@@ -416,9 +414,9 @@ func (a *TasksApiService) UploadFile(ctx context.Context, localVarOptionals *req
 	}
 	localVarFile := localVarOptionals.File
 	if localVarFile != nil {
-        fbs, _ := ioutil.ReadAll(localVarFile)
-        localVarFile.Close()
-        localVarFormParams = append(localVarFormParams, NewFileFormParamContainer(localVarFile.Name(), fbs))
+		fbs, _ := ioutil.ReadAll(localVarFile)
+		localVarFile.Close()
+		localVarFormParams = append(localVarFormParams, NewFileFormParamContainer(localVarFile.Name(), fbs))
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
 	if err != nil {
@@ -426,32 +424,33 @@ func (a *TasksApiService) UploadFile(ctx context.Context, localVarOptionals *req
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Copy folder
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.CopyFolderOpts - Request parameters:
@@ -466,7 +465,6 @@ func (a *TasksApiService) CopyFolder(ctx context.Context, localVarOptionals *req
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
-		
 	)
 
 	// create path and map variables
@@ -507,30 +505,30 @@ func (a *TasksApiService) CopyFolder(ctx context.Context, localVarOptionals *req
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarHttpResponse, err
+		}
 
-        return localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
+		return localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
 
-    return localVarHttpResponse, err
+	return localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Create the folder
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.CreateFolderOpts - Request parameters:
@@ -543,7 +541,6 @@ func (a *TasksApiService) CreateFolder(ctx context.Context, localVarOptionals *r
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
-		
 	)
 
 	// create path and map variables
@@ -580,30 +577,30 @@ func (a *TasksApiService) CreateFolder(ctx context.Context, localVarOptionals *r
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarHttpResponse, err
+		}
 
-        return localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
+		return localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
 
-    return localVarHttpResponse, err
+	return localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Delete folder
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.DeleteFolderOpts - Request parameters:
@@ -617,7 +614,6 @@ func (a *TasksApiService) DeleteFolder(ctx context.Context, localVarOptionals *r
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody   interface{}
-		
 	)
 
 	// create path and map variables
@@ -657,30 +653,30 @@ func (a *TasksApiService) DeleteFolder(ctx context.Context, localVarOptionals *r
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarHttpResponse, err
+		}
 
-        return localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
+		return localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
 
-    return localVarHttpResponse, err
+	return localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get all files and folders within a folder
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetFilesListOpts - Request parameters:
@@ -691,8 +687,8 @@ TasksApiService Get all files and folders within a folder
 */
 func (a *TasksApiService) GetFilesList(ctx context.Context, localVarOptionals *requests.GetFilesListOpts) (models.FilesList, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.FilesList
 	)
 
@@ -730,33 +726,33 @@ func (a *TasksApiService) GetFilesList(ctx context.Context, localVarOptionals *r
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Move folder
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.MoveFolderOpts - Request parameters:
@@ -771,7 +767,6 @@ func (a *TasksApiService) MoveFolder(ctx context.Context, localVarOptionals *req
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
-		
 	)
 
 	// create path and map variables
@@ -812,29 +807,30 @@ func (a *TasksApiService) MoveFolder(ctx context.Context, localVarOptionals *req
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarHttpResponse, err
+		}
 
-        return localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
+		return localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
 
-    return localVarHttpResponse, err
+	return localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Get disc usage
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetDiscUsageOpts - Request parameters:
@@ -844,8 +840,8 @@ TasksApiService Get disc usage
 */
 func (a *TasksApiService) GetDiscUsage(ctx context.Context, localVarOptionals *requests.GetDiscUsageOpts) (models.DiscUsage, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.DiscUsage
 	)
 
@@ -882,33 +878,33 @@ func (a *TasksApiService) GetDiscUsage(ctx context.Context, localVarOptionals *r
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get file versions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetFileVersionsOpts - Request parameters:
@@ -919,8 +915,8 @@ TasksApiService Get file versions
 */
 func (a *TasksApiService) GetFileVersions(ctx context.Context, localVarOptionals *requests.GetFileVersionsOpts) (models.FileVersions, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.FileVersions
 	)
 
@@ -958,33 +954,33 @@ func (a *TasksApiService) GetFileVersions(ctx context.Context, localVarOptionals
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Check if file or folder exists
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.ObjectExistsOpts - Request parameters:
@@ -996,8 +992,8 @@ TasksApiService Check if file or folder exists
 */
 func (a *TasksApiService) ObjectExists(ctx context.Context, localVarOptionals *requests.ObjectExistsOpts) (models.ObjectExist, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.ObjectExist
 	)
 
@@ -1038,33 +1034,33 @@ func (a *TasksApiService) ObjectExists(ctx context.Context, localVarOptionals *r
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Check if storage exists
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.StorageExistsOpts - Request parameters:
@@ -1074,8 +1070,8 @@ TasksApiService Check if storage exists
 */
 func (a *TasksApiService) StorageExists(ctx context.Context, localVarOptionals *requests.StorageExistsOpts) (models.StorageExist, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.StorageExist
 	)
 
@@ -1110,32 +1106,33 @@ func (a *TasksApiService) StorageExists(ctx context.Context, localVarOptionals *
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Deletes a project assignment with all references to it.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.DeleteAssignmentOpts - Request parameters:
@@ -1149,8 +1146,8 @@ TasksApiService Deletes a project assignment with all references to it.
 */
 func (a *TasksApiService) DeleteAssignment(ctx context.Context, localVarOptionals *requests.DeleteAssignmentOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -1195,33 +1192,33 @@ func (a *TasksApiService) DeleteAssignment(ctx context.Context, localVarOptional
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Read project assignment with the specified Uid.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetAssignmentOpts - Request parameters:
@@ -1234,8 +1231,8 @@ TasksApiService Read project assignment with the specified Uid.
 */
 func (a *TasksApiService) GetAssignment(ctx context.Context, localVarOptionals *requests.GetAssignmentOpts) (models.AssignmentResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AssignmentResponse
 	)
 
@@ -1277,33 +1274,33 @@ func (a *TasksApiService) GetAssignment(ctx context.Context, localVarOptionals *
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get timescaled data for an assignment with the specified Uid.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetAssignmentTimephasedDataOpts - Request parameters:
@@ -1319,8 +1316,8 @@ TasksApiService Get timescaled data for an assignment with the specified Uid.
 */
 func (a *TasksApiService) GetAssignmentTimephasedData(ctx context.Context, localVarOptionals *requests.GetAssignmentTimephasedDataOpts) (models.TimephasedDataResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.TimephasedDataResponse
 	)
 
@@ -1371,33 +1368,33 @@ func (a *TasksApiService) GetAssignmentTimephasedData(ctx context.Context, local
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get project&#39;s assignment items.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetAssignmentsOpts - Request parameters:
@@ -1409,8 +1406,8 @@ TasksApiService Get project&#39;s assignment items.
 */
 func (a *TasksApiService) GetAssignments(ctx context.Context, localVarOptionals *requests.GetAssignmentsOpts) (models.AssignmentItemsResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AssignmentItemsResponse
 	)
 
@@ -1451,33 +1448,33 @@ func (a *TasksApiService) GetAssignments(ctx context.Context, localVarOptionals 
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Adds a new assignment to a project and returns assignment item in a response.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PostAssignmentOpts - Request parameters:
@@ -1494,8 +1491,8 @@ TasksApiService Adds a new assignment to a project and returns assignment item i
 */
 func (a *TasksApiService) PostAssignment(ctx context.Context, localVarOptionals *requests.PostAssignmentOpts) (models.AssignmentItemResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AssignmentItemResponse
 	)
 
@@ -1547,33 +1544,33 @@ func (a *TasksApiService) PostAssignment(ctx context.Context, localVarOptionals 
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Updates resources assignment with the specified Uid.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutAssignmentOpts - Request parameters:
@@ -1590,8 +1587,8 @@ TasksApiService Updates resources assignment with the specified Uid.
 */
 func (a *TasksApiService) PutAssignment(ctx context.Context, localVarOptionals *requests.PutAssignmentOpts) (models.AssignmentResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AssignmentResponse
 	)
 
@@ -1644,32 +1641,33 @@ func (a *TasksApiService) PutAssignment(ctx context.Context, localVarOptionals *
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Deletes a project calendar
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.DeleteCalendarOpts - Request parameters:
@@ -1683,8 +1681,8 @@ TasksApiService Deletes a project calendar
 */
 func (a *TasksApiService) DeleteCalendar(ctx context.Context, localVarOptionals *requests.DeleteCalendarOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -1729,33 +1727,33 @@ func (a *TasksApiService) DeleteCalendar(ctx context.Context, localVarOptionals 
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Deletes calendar exception from calendar exceptions collection.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.DeleteCalendarExceptionOpts - Request parameters:
@@ -1770,8 +1768,8 @@ TasksApiService Deletes calendar exception from calendar exceptions collection.
 */
 func (a *TasksApiService) DeleteCalendarException(ctx context.Context, localVarOptionals *requests.DeleteCalendarExceptionOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -1817,33 +1815,33 @@ func (a *TasksApiService) DeleteCalendarException(ctx context.Context, localVarO
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get a project&#39;s calendar with the specified Uid.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetCalendarOpts - Request parameters:
@@ -1856,8 +1854,8 @@ TasksApiService Get a project&#39;s calendar with the specified Uid.
 */
 func (a *TasksApiService) GetCalendar(ctx context.Context, localVarOptionals *requests.GetCalendarOpts) (models.CalendarResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.CalendarResponse
 	)
 
@@ -1899,33 +1897,33 @@ func (a *TasksApiService) GetCalendar(ctx context.Context, localVarOptionals *re
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get a list of calendar&#39;s exceptions.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetCalendarExceptionsOpts - Request parameters:
@@ -1938,8 +1936,8 @@ TasksApiService Get a list of calendar&#39;s exceptions.
 */
 func (a *TasksApiService) GetCalendarExceptions(ctx context.Context, localVarOptionals *requests.GetCalendarExceptionsOpts) (models.CalendarExceptionsResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.CalendarExceptionsResponse
 	)
 
@@ -1981,33 +1979,33 @@ func (a *TasksApiService) GetCalendarExceptions(ctx context.Context, localVarOpt
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Gets the collection of work weeks of the specified calendar.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetCalendarWorkWeeksOpts - Request parameters:
@@ -2020,8 +2018,8 @@ TasksApiService Gets the collection of work weeks of the specified calendar.
 */
 func (a *TasksApiService) GetCalendarWorkWeeks(ctx context.Context, localVarOptionals *requests.GetCalendarWorkWeeksOpts) (models.CalendarWorkWeeksResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.CalendarWorkWeeksResponse
 	)
 
@@ -2063,33 +2061,33 @@ func (a *TasksApiService) GetCalendarWorkWeeks(ctx context.Context, localVarOpti
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Read project calendar items.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetCalendarsOpts - Request parameters:
@@ -2101,8 +2099,8 @@ TasksApiService Read project calendar items.
 */
 func (a *TasksApiService) GetCalendars(ctx context.Context, localVarOptionals *requests.GetCalendarsOpts) (models.CalendarItemsResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.CalendarItemsResponse
 	)
 
@@ -2143,33 +2141,33 @@ func (a *TasksApiService) GetCalendars(ctx context.Context, localVarOptionals *r
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Adds a new calendar to project file.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PostCalendarOpts - Request parameters:
@@ -2183,8 +2181,8 @@ TasksApiService Adds a new calendar to project file.
 */
 func (a *TasksApiService) PostCalendar(ctx context.Context, localVarOptionals *requests.PostCalendarOpts) (models.CalendarItemResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
 		localVarReturnValue models.CalendarItemResponse
 	)
 
@@ -2230,33 +2228,33 @@ func (a *TasksApiService) PostCalendar(ctx context.Context, localVarOptionals *r
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Adds a new calendar exception to a calendar.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PostCalendarExceptionOpts - Request parameters:
@@ -2271,8 +2269,8 @@ TasksApiService Adds a new calendar exception to a calendar.
 */
 func (a *TasksApiService) PostCalendarException(ctx context.Context, localVarOptionals *requests.PostCalendarExceptionOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -2319,33 +2317,33 @@ func (a *TasksApiService) PostCalendarException(ctx context.Context, localVarOpt
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Edits an existing project calendar.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutCalendarOpts - Request parameters:
@@ -2360,8 +2358,8 @@ TasksApiService Edits an existing project calendar.
 */
 func (a *TasksApiService) PutCalendar(ctx context.Context, localVarOptionals *requests.PutCalendarOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -2408,33 +2406,33 @@ func (a *TasksApiService) PutCalendar(ctx context.Context, localVarOptionals *re
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Updates calendar exception.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutCalendarExceptionOpts - Request parameters:
@@ -2450,8 +2448,8 @@ TasksApiService Updates calendar exception.
 */
 func (a *TasksApiService) PutCalendarException(ctx context.Context, localVarOptionals *requests.PutCalendarExceptionOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -2499,32 +2497,33 @@ func (a *TasksApiService) PutCalendarException(ctx context.Context, localVarOpti
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Returns the list of the tasks which must be completed on time for a project to finish on schedule. Each task of the project is represented as a task item here, which is light-weighted task representation of the project task..
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetCriticalPathOpts - Request parameters:
@@ -2536,8 +2535,8 @@ TasksApiService Returns the list of the tasks which must be completed on time fo
 */
 func (a *TasksApiService) GetCriticalPath(ctx context.Context, localVarOptionals *requests.GetCriticalPathOpts) (models.TaskItemsResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.TaskItemsResponse
 	)
 
@@ -2578,32 +2577,33 @@ func (a *TasksApiService) GetCriticalPath(ctx context.Context, localVarOptionals
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Returns page count for the project to be rendered using given Timescale and PresentationFormat  or specified PageSize.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetPageCountOpts - Request parameters:
@@ -2620,8 +2620,8 @@ TasksApiService Returns page count for the project to be rendered using given Ti
 */
 func (a *TasksApiService) GetPageCount(ctx context.Context, localVarOptionals *requests.GetPageCountOpts) (models.PageCountResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.PageCountResponse
 	)
 
@@ -2677,33 +2677,33 @@ func (a *TasksApiService) GetPageCount(ctx context.Context, localVarOptionals *r
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get Uids of projects contained in the file.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetProjectIdsOpts - Request parameters:
@@ -2715,8 +2715,8 @@ TasksApiService Get Uids of projects contained in the file.
 */
 func (a *TasksApiService) GetProjectIds(ctx context.Context, localVarOptionals *requests.GetProjectIdsOpts) (models.ProjectIdsResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.ProjectIdsResponse
 	)
 
@@ -2757,33 +2757,33 @@ func (a *TasksApiService) GetProjectIds(ctx context.Context, localVarOptionals *
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get a project document.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetTaskDocumentOpts - Request parameters:
@@ -2795,8 +2795,8 @@ TasksApiService Get a project document.
 */
 func (a *TasksApiService) GetTaskDocument(ctx context.Context, localVarOptionals *requests.GetTaskDocumentOpts) ([]byte, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue []byte
 	)
 
@@ -2837,33 +2837,33 @@ func (a *TasksApiService) GetTaskDocument(ctx context.Context, localVarOptionals
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if localVarReturnValue, err = ioutil.ReadAll(localVarHttpResponse.Body); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if localVarReturnValue, err = ioutil.ReadAll(localVarHttpResponse.Body); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get a project document in the specified format
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetTaskDocumentWithFormatOpts - Request parameters:
@@ -2877,8 +2877,8 @@ TasksApiService Get a project document in the specified format
 */
 func (a *TasksApiService) GetTaskDocumentWithFormat(ctx context.Context, localVarOptionals *requests.GetTaskDocumentWithFormatOpts) ([]byte, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue []byte
 	)
 
@@ -2923,33 +2923,33 @@ func (a *TasksApiService) GetTaskDocumentWithFormat(ctx context.Context, localVa
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if localVarReturnValue, err = ioutil.ReadAll(localVarHttpResponse.Body); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if localVarReturnValue, err = ioutil.ReadAll(localVarHttpResponse.Body); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Imports project from database with the specified connection string and saves it to specified file with the specified format.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutImportProjectFromDbOpts - Request parameters:
@@ -2966,8 +2966,8 @@ TasksApiService Imports project from database with the specified connection stri
 */
 func (a *TasksApiService) PutImportProjectFromDb(ctx context.Context, localVarOptionals *requests.PutImportProjectFromDbOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -3018,33 +3018,33 @@ func (a *TasksApiService) PutImportProjectFromDb(ctx context.Context, localVarOp
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Imports project from primavera db formats (Primavera SQLite .db or Primavera xml) and saves it to specified file with the specified format.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutImportProjectFromFileOpts - Request parameters:
@@ -3060,8 +3060,8 @@ TasksApiService Imports project from primavera db formats (Primavera SQLite .db 
 */
 func (a *TasksApiService) PutImportProjectFromFile(ctx context.Context, localVarOptionals *requests.PutImportProjectFromFileOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -3110,33 +3110,33 @@ func (a *TasksApiService) PutImportProjectFromFile(ctx context.Context, localVar
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Imports project from Project Online and saves it to specified file.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutImportProjectFromProjectOnlineOpts - Request parameters:
@@ -3154,8 +3154,8 @@ TasksApiService Imports project from Project Online and saves it to specified fi
 */
 func (a *TasksApiService) PutImportProjectFromProjectOnline(ctx context.Context, localVarOptionals *requests.PutImportProjectFromProjectOnlineOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -3211,32 +3211,33 @@ func (a *TasksApiService) PutImportProjectFromProjectOnline(ctx context.Context,
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Get a collection of a project&#39;s document properties.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetDocumentPropertiesOpts - Request parameters:
@@ -3248,8 +3249,8 @@ TasksApiService Get a collection of a project&#39;s document properties.
 */
 func (a *TasksApiService) GetDocumentProperties(ctx context.Context, localVarOptionals *requests.GetDocumentPropertiesOpts) (models.DocumentPropertiesResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.DocumentPropertiesResponse
 	)
 
@@ -3290,33 +3291,33 @@ func (a *TasksApiService) GetDocumentProperties(ctx context.Context, localVarOpt
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get a document property by name.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetDocumentPropertyOpts - Request parameters:
@@ -3329,8 +3330,8 @@ TasksApiService Get a document property by name.
 */
 func (a *TasksApiService) GetDocumentProperty(ctx context.Context, localVarOptionals *requests.GetDocumentPropertyOpts) (models.DocumentPropertyResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.DocumentPropertyResponse
 	)
 
@@ -3372,33 +3373,33 @@ func (a *TasksApiService) GetDocumentProperty(ctx context.Context, localVarOptio
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Set/create document property.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PostDocumentPropertyOpts - Request parameters:
@@ -3413,8 +3414,8 @@ TasksApiService Set/create document property.
 */
 func (a *TasksApiService) PostDocumentProperty(ctx context.Context, localVarOptionals *requests.PostDocumentPropertyOpts) (models.DocumentPropertyResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
 		localVarReturnValue models.DocumentPropertyResponse
 	)
 
@@ -3461,33 +3462,33 @@ func (a *TasksApiService) PostDocumentProperty(ctx context.Context, localVarOpti
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Set/create document property.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutDocumentPropertyOpts - Request parameters:
@@ -3502,8 +3503,8 @@ TasksApiService Set/create document property.
 */
 func (a *TasksApiService) PutDocumentProperty(ctx context.Context, localVarOptionals *requests.PutDocumentPropertyOpts) (models.DocumentPropertyResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.DocumentPropertyResponse
 	)
 
@@ -3550,32 +3551,33 @@ func (a *TasksApiService) PutDocumentProperty(ctx context.Context, localVarOptio
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Delete a project extended attribute.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.DeleteExtendedAttributeByIndexOpts - Request parameters:
@@ -3588,8 +3590,8 @@ TasksApiService Delete a project extended attribute.
 */
 func (a *TasksApiService) DeleteExtendedAttributeByIndex(ctx context.Context, localVarOptionals *requests.DeleteExtendedAttributeByIndexOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -3631,33 +3633,33 @@ func (a *TasksApiService) DeleteExtendedAttributeByIndex(ctx context.Context, lo
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get a project extended attribute definition with the specified index.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetExtendedAttributeByIndexOpts - Request parameters:
@@ -3670,8 +3672,8 @@ TasksApiService Get a project extended attribute definition with the specified i
 */
 func (a *TasksApiService) GetExtendedAttributeByIndex(ctx context.Context, localVarOptionals *requests.GetExtendedAttributeByIndexOpts) (models.ExtendedAttributeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.ExtendedAttributeResponse
 	)
 
@@ -3713,33 +3715,33 @@ func (a *TasksApiService) GetExtendedAttributeByIndex(ctx context.Context, local
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get a project&#39;s extended attributes.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetExtendedAttributesOpts - Request parameters:
@@ -3751,8 +3753,8 @@ TasksApiService Get a project&#39;s extended attributes.
 */
 func (a *TasksApiService) GetExtendedAttributes(ctx context.Context, localVarOptionals *requests.GetExtendedAttributesOpts) (models.ExtendedAttributeItemsResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.ExtendedAttributeItemsResponse
 	)
 
@@ -3793,33 +3795,33 @@ func (a *TasksApiService) GetExtendedAttributes(ctx context.Context, localVarOpt
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Add a new extended attribute definition to a project or  updates existing attribute definition (with the same FieldId).
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutExtendedAttributeOpts - Request parameters:
@@ -3833,8 +3835,8 @@ TasksApiService Add a new extended attribute definition to a project or  updates
 */
 func (a *TasksApiService) PutExtendedAttribute(ctx context.Context, localVarOptionals *requests.PutExtendedAttributeOpts) (models.ExtendedAttributeItemResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.ExtendedAttributeItemResponse
 	)
 
@@ -3880,32 +3882,33 @@ func (a *TasksApiService) PutExtendedAttribute(ctx context.Context, localVarOpti
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Deletes a project outline code
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.DeleteOutlineCodeByIndexOpts - Request parameters:
@@ -3918,8 +3921,8 @@ TasksApiService Deletes a project outline code
 */
 func (a *TasksApiService) DeleteOutlineCodeByIndex(ctx context.Context, localVarOptionals *requests.DeleteOutlineCodeByIndexOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -3961,33 +3964,33 @@ func (a *TasksApiService) DeleteOutlineCodeByIndex(ctx context.Context, localVar
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get outline code by index.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetOutlineCodeByIndexOpts - Request parameters:
@@ -4000,8 +4003,8 @@ TasksApiService Get outline code by index.
 */
 func (a *TasksApiService) GetOutlineCodeByIndex(ctx context.Context, localVarOptionals *requests.GetOutlineCodeByIndexOpts) (models.OutlineCodeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.OutlineCodeResponse
 	)
 
@@ -4043,33 +4046,33 @@ func (a *TasksApiService) GetOutlineCodeByIndex(ctx context.Context, localVarOpt
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get a project&#39;s outline codes.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetOutlineCodesOpts - Request parameters:
@@ -4081,8 +4084,8 @@ TasksApiService Get a project&#39;s outline codes.
 */
 func (a *TasksApiService) GetOutlineCodes(ctx context.Context, localVarOptionals *requests.GetOutlineCodesOpts) (models.OutlineCodeItemsResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.OutlineCodeItemsResponse
 	)
 
@@ -4123,32 +4126,33 @@ func (a *TasksApiService) GetOutlineCodes(ctx context.Context, localVarOptionals
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Creates new project in Project Server\\Project Online instance.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.CreateNewProjectOpts - Request parameters:
@@ -4165,8 +4169,8 @@ TasksApiService Creates new project in Project Server\\Project Online instance.
 */
 func (a *TasksApiService) CreateNewProject(ctx context.Context, localVarOptionals *requests.CreateNewProjectOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -4213,10 +4217,10 @@ func (a *TasksApiService) CreateNewProject(ctx context.Context, localVarOptional
 	}
 	// body params
 	if localVarOptionals != nil && localVarOptionals.SaveOptions.IsSet() {
-		
+
 		localVarOptionalSaveOptions, localVarOptionalSaveOptionsok := localVarOptionals.SaveOptions.Value().(models.ProjectServerSaveOptionsDto)
 		if !localVarOptionalSaveOptionsok {
-				return localVarReturnValue, nil, reportError("saveOptions should be ProjectServerSaveOptionsDto")
+			return localVarReturnValue, nil, reportError("saveOptions should be ProjectServerSaveOptionsDto")
 		}
 		localVarPostBody = &localVarOptionalSaveOptions
 	}
@@ -4226,33 +4230,33 @@ func (a *TasksApiService) CreateNewProject(ctx context.Context, localVarOptional
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Gets the list of published projects in the current Project Online account.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetProjectListOpts - Request parameters:
@@ -4265,8 +4269,8 @@ TasksApiService Gets the list of published projects in the current Project Onlin
 */
 func (a *TasksApiService) GetProjectList(ctx context.Context, localVarOptionals *requests.GetProjectListOpts) (models.ProjectListResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.ProjectListResponse
 	)
 
@@ -4310,33 +4314,33 @@ func (a *TasksApiService) GetProjectList(ctx context.Context, localVarOptionals 
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Updates existing project in Project Server\\Project Online instance. The existing project will be overwritten.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.UpdateProjectOpts - Request parameters:
@@ -4353,8 +4357,8 @@ TasksApiService Updates existing project in Project Server\\Project Online insta
 */
 func (a *TasksApiService) UpdateProject(ctx context.Context, localVarOptionals *requests.UpdateProjectOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -4401,10 +4405,10 @@ func (a *TasksApiService) UpdateProject(ctx context.Context, localVarOptionals *
 	}
 	// body params
 	if localVarOptionals != nil && localVarOptionals.SaveOptions.IsSet() {
-		
+
 		localVarOptionalSaveOptions, localVarOptionalSaveOptionsok := localVarOptionals.SaveOptions.Value().(models.ProjectServerSaveOptionsDto)
 		if !localVarOptionalSaveOptionsok {
-				return localVarReturnValue, nil, reportError("saveOptions should be ProjectServerSaveOptionsDto")
+			return localVarReturnValue, nil, reportError("saveOptions should be ProjectServerSaveOptionsDto")
 		}
 		localVarPostBody = &localVarOptionalSaveOptions
 	}
@@ -4414,32 +4418,33 @@ func (a *TasksApiService) UpdateProject(ctx context.Context, localVarOptionals *
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Reschedules all project tasks ids, outline levels, start/finish dates, sets early/late dates, calculates slacks, work and cost fields.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutRecalculateProjectOpts - Request parameters:
@@ -4454,8 +4459,8 @@ TasksApiService Reschedules all project tasks ids, outline levels, start/finish 
 */
 func (a *TasksApiService) PutRecalculateProject(ctx context.Context, localVarOptionals *requests.PutRecalculateProjectOpts) (models.ProjectRecalculateResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.ProjectRecalculateResponse
 	)
 
@@ -4505,33 +4510,33 @@ func (a *TasksApiService) PutRecalculateProject(ctx context.Context, localVarOpt
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Recalculate project resource fields
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutRecalculateProjectResourceFieldsOpts - Request parameters:
@@ -4544,8 +4549,8 @@ TasksApiService Recalculate project resource fields
 */
 func (a *TasksApiService) PutRecalculateProjectResourceFields(ctx context.Context, localVarOptionals *requests.PutRecalculateProjectResourceFieldsOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -4589,39 +4594,39 @@ func (a *TasksApiService) PutRecalculateProjectResourceFields(ctx context.Contex
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Recalculate project uncomplete work
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutRecalculateProjectUncompleteWorkToStartAfterOpts - Request parameters:
      * @param "Name" (string) - The file name
      * @param "After" (time.Time) - DateTime (from System lib)
-     * @param "Storage" (optional.String) -  The document storage 
+     * @param "Storage" (optional.String) -  The document storage
      * @param "Folder" (optional.String) -  The document folder
      * @param "FileName" (optional.String) -  The filename to save the changes
 
@@ -4629,8 +4634,8 @@ TasksApiService Recalculate project uncomplete work
 */
 func (a *TasksApiService) PutRecalculateProjectUncompleteWorkToStartAfter(ctx context.Context, localVarOptionals *requests.PutRecalculateProjectUncompleteWorkToStartAfterOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -4676,34 +4681,34 @@ func (a *TasksApiService) PutRecalculateProjectUncompleteWorkToStartAfter(ctx co
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
-TasksApiService Recalculate project work as complete 
+/*
+TasksApiService Recalculate project work as complete
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutRecalculateProjectWorkAsCompleteOpts - Request parameters:
      * @param "Name" (string) - The filename
@@ -4717,8 +4722,8 @@ TasksApiService Recalculate project work as complete
 */
 func (a *TasksApiService) PutRecalculateProjectWorkAsComplete(ctx context.Context, localVarOptionals *requests.PutRecalculateProjectWorkAsCompleteOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -4767,32 +4772,33 @@ func (a *TasksApiService) PutRecalculateProjectWorkAsComplete(ctx context.Contex
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Returns created report in PDF format.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetReportPdfOpts - Request parameters:
@@ -4805,8 +4811,8 @@ TasksApiService Returns created report in PDF format.
 */
 func (a *TasksApiService) GetReportPdf(ctx context.Context, localVarOptionals *requests.GetReportPdfOpts) ([]byte, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue []byte
 	)
 
@@ -4848,32 +4854,33 @@ func (a *TasksApiService) GetReportPdf(ctx context.Context, localVarOptionals *r
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if localVarReturnValue, err = ioutil.ReadAll(localVarHttpResponse.Body); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if localVarReturnValue, err = ioutil.ReadAll(localVarHttpResponse.Body); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Deletes a project resource with all references to it
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.DeleteResourceOpts - Request parameters:
@@ -4887,8 +4894,8 @@ TasksApiService Deletes a project resource with all references to it
 */
 func (a *TasksApiService) DeleteResource(ctx context.Context, localVarOptionals *requests.DeleteResourceOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -4933,33 +4940,33 @@ func (a *TasksApiService) DeleteResource(ctx context.Context, localVarOptionals 
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get project resource.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetResourceOpts - Request parameters:
@@ -4972,8 +4979,8 @@ TasksApiService Get project resource.
 */
 func (a *TasksApiService) GetResource(ctx context.Context, localVarOptionals *requests.GetResourceOpts) (models.ResourceResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.ResourceResponse
 	)
 
@@ -5015,33 +5022,33 @@ func (a *TasksApiService) GetResource(ctx context.Context, localVarOptionals *re
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get resource&#39;s assignments.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetResourceAssignmentsOpts - Request parameters:
@@ -5054,8 +5061,8 @@ TasksApiService Get resource&#39;s assignments.
 */
 func (a *TasksApiService) GetResourceAssignments(ctx context.Context, localVarOptionals *requests.GetResourceAssignmentsOpts) (models.AssignmentsResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AssignmentsResponse
 	)
 
@@ -5097,33 +5104,33 @@ func (a *TasksApiService) GetResourceAssignments(ctx context.Context, localVarOp
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get timescaled data for a resource with the specified Uid.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetResourceTimephasedDataOpts - Request parameters:
@@ -5139,8 +5146,8 @@ TasksApiService Get timescaled data for a resource with the specified Uid.
 */
 func (a *TasksApiService) GetResourceTimephasedData(ctx context.Context, localVarOptionals *requests.GetResourceTimephasedDataOpts) (models.TimephasedDataResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.TimephasedDataResponse
 	)
 
@@ -5191,33 +5198,33 @@ func (a *TasksApiService) GetResourceTimephasedData(ctx context.Context, localVa
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get a project&#39;s resources.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetResourcesOpts - Request parameters:
@@ -5229,8 +5236,8 @@ TasksApiService Get a project&#39;s resources.
 */
 func (a *TasksApiService) GetResources(ctx context.Context, localVarOptionals *requests.GetResourcesOpts) (models.ResourceItemsResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.ResourceItemsResponse
 	)
 
@@ -5271,33 +5278,33 @@ func (a *TasksApiService) GetResources(ctx context.Context, localVarOptionals *r
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Add a new resource to a project.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PostResourceOpts - Request parameters:
@@ -5312,8 +5319,8 @@ TasksApiService Add a new resource to a project.
 */
 func (a *TasksApiService) PostResource(ctx context.Context, localVarOptionals *requests.PostResourceOpts) (models.ResourceItemResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
 		localVarReturnValue models.ResourceItemResponse
 	)
 
@@ -5363,33 +5370,33 @@ func (a *TasksApiService) PostResource(ctx context.Context, localVarOptionals *r
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Updates resource with the specified Uid
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutResourceOpts - Request parameters:
@@ -5406,8 +5413,8 @@ TasksApiService Updates resource with the specified Uid
 */
 func (a *TasksApiService) PutResource(ctx context.Context, localVarOptionals *requests.PutResourceOpts) (models.ResourceResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.ResourceResponse
 	)
 
@@ -5460,32 +5467,33 @@ func (a *TasksApiService) PutResource(ctx context.Context, localVarOptionals *re
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Performs a risk analysys using Monte Carlo simulation and creates a risk analysis report.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetRiskAnalysisReportOpts - Request parameters:
@@ -5504,8 +5512,8 @@ TasksApiService Performs a risk analysys using Monte Carlo simulation and create
 */
 func (a *TasksApiService) GetRiskAnalysisReport(ctx context.Context, localVarOptionals *requests.GetRiskAnalysisReportOpts) ([]byte, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue []byte
 	)
 
@@ -5565,32 +5573,33 @@ func (a *TasksApiService) GetRiskAnalysisReport(ctx context.Context, localVarOpt
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if localVarReturnValue, err = ioutil.ReadAll(localVarHttpResponse.Body); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if localVarReturnValue, err = ioutil.ReadAll(localVarHttpResponse.Body); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Deletes a project task with all references to it and rebuilds tasks tree.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.DeleteTaskOpts - Request parameters:
@@ -5604,8 +5613,8 @@ TasksApiService Deletes a project task with all references to it and rebuilds ta
 */
 func (a *TasksApiService) DeleteTask(ctx context.Context, localVarOptionals *requests.DeleteTaskOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -5650,33 +5659,115 @@ func (a *TasksApiService) DeleteTask(ctx context.Context, localVarOptionals *req
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
+TasksApiService Get primavera properties for a task with the specified Uid.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param *requests.GetPrimaveraTaskPropertiesOpts - Request parameters:
+     * @param "Name" (string) - The name of the file.
+     * @param "TaskUid" (int32) - Uid of task to get primavera properties for.
+     * @param "Folder" (optional.String) -  The document folder.
+     * @param "Storage" (optional.String) -  The document storage.
+
+@return models.PrimaveraTaskPropertiesResponse
+*/
+func (a *TasksApiService) GetPrimaveraTaskProperties(ctx context.Context, localVarOptionals *requests.GetPrimaveraTaskPropertiesOpts) (models.PrimaveraTaskPropertiesResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarReturnValue models.PrimaveraTaskPropertiesResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/tasks/{taskUid}/primaveraProperties"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"taskUid"+"}", fmt.Sprintf("%v", localVarOptionals.TaskUid), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
 TasksApiService Read project task.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetTaskOpts - Request parameters:
@@ -5689,8 +5780,8 @@ TasksApiService Read project task.
 */
 func (a *TasksApiService) GetTask(ctx context.Context, localVarOptionals *requests.GetTaskOpts) (models.TaskResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.TaskResponse
 	)
 
@@ -5732,33 +5823,33 @@ func (a *TasksApiService) GetTask(ctx context.Context, localVarOptionals *reques
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get task assignments.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetTaskAssignmentsOpts - Request parameters:
@@ -5771,8 +5862,8 @@ TasksApiService Get task assignments.
 */
 func (a *TasksApiService) GetTaskAssignments(ctx context.Context, localVarOptionals *requests.GetTaskAssignmentsOpts) (models.AssignmentsResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AssignmentsResponse
 	)
 
@@ -5814,33 +5905,33 @@ func (a *TasksApiService) GetTaskAssignments(ctx context.Context, localVarOption
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get recurring info for a task with the specified Uid
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetTaskRecurringInfoOpts - Request parameters:
@@ -5853,8 +5944,8 @@ TasksApiService Get recurring info for a task with the specified Uid
 */
 func (a *TasksApiService) GetTaskRecurringInfo(ctx context.Context, localVarOptionals *requests.GetTaskRecurringInfoOpts) (models.RecurringInfoResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.RecurringInfoResponse
 	)
 
@@ -5896,33 +5987,33 @@ func (a *TasksApiService) GetTaskRecurringInfo(ctx context.Context, localVarOpti
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get timescaled data for a task with the specified Uid.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetTaskTimephasedDataOpts - Request parameters:
@@ -5938,8 +6029,8 @@ TasksApiService Get timescaled data for a task with the specified Uid.
 */
 func (a *TasksApiService) GetTaskTimephasedData(ctx context.Context, localVarOptionals *requests.GetTaskTimephasedDataOpts) (models.TimephasedDataResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.TimephasedDataResponse
 	)
 
@@ -5990,33 +6081,33 @@ func (a *TasksApiService) GetTaskTimephasedData(ctx context.Context, localVarOpt
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get a project&#39;s tasks.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetTasksOpts - Request parameters:
@@ -6028,8 +6119,8 @@ TasksApiService Get a project&#39;s tasks.
 */
 func (a *TasksApiService) GetTasks(ctx context.Context, localVarOptionals *requests.GetTasksOpts) (models.TaskItemsResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.TaskItemsResponse
 	)
 
@@ -6070,33 +6161,33 @@ func (a *TasksApiService) GetTasks(ctx context.Context, localVarOptionals *reque
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Add a new task to a project.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PostTaskOpts - Request parameters:
@@ -6111,8 +6202,8 @@ TasksApiService Add a new task to a project.
 */
 func (a *TasksApiService) PostTask(ctx context.Context, localVarOptionals *requests.PostTaskOpts) (models.TaskItemResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
 		localVarReturnValue models.TaskItemResponse
 	)
 
@@ -6162,33 +6253,33 @@ func (a *TasksApiService) PostTask(ctx context.Context, localVarOptionals *reque
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Adds a new recurring task.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PostTaskRecurringInfoOpts - Request parameters:
@@ -6205,8 +6296,8 @@ TasksApiService Adds a new recurring task.
 */
 func (a *TasksApiService) PostTaskRecurringInfo(ctx context.Context, localVarOptionals *requests.PostTaskRecurringInfoOpts) (models.TaskItemResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
 		localVarReturnValue models.TaskItemResponse
 	)
 
@@ -6255,33 +6346,33 @@ func (a *TasksApiService) PostTaskRecurringInfo(ctx context.Context, localVarOpt
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Create multiple tasks by single request.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PostTasksOpts - Request parameters:
@@ -6295,8 +6386,8 @@ TasksApiService Create multiple tasks by single request.
 */
 func (a *TasksApiService) PostTasks(ctx context.Context, localVarOptionals *requests.PostTasksOpts) (models.TaskItemsResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
 		localVarReturnValue models.TaskItemsResponse
 	)
 
@@ -6342,40 +6433,40 @@ func (a *TasksApiService) PostTasks(ctx context.Context, localVarOptionals *requ
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Move one task to another parent task.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutMoveTaskOpts - Request parameters:
      * @param "Name" (string) - The name of the file.
      * @param "TaskUid" (int32) - Unique id of the task to be moved.
      * @param "ParentTaskUid" (int32) - Unique id of the new parent task.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document. 
+     * @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
      * @param "Storage" (optional.String) -  The document storage.
      * @param "Folder" (optional.String) -  The document folder.
 
@@ -6383,8 +6474,8 @@ TasksApiService Move one task to another parent task.
 */
 func (a *TasksApiService) PutMoveTask(ctx context.Context, localVarOptionals *requests.PutMoveTaskOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -6430,33 +6521,33 @@ func (a *TasksApiService) PutMoveTask(ctx context.Context, localVarOptionals *re
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Move a task to another position under the same parent and the same outline level
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutMoveTaskToSiblingOpts - Request parameters:
@@ -6471,8 +6562,8 @@ TasksApiService Move a task to another position under the same parent and the sa
 */
 func (a *TasksApiService) PutMoveTaskToSibling(ctx context.Context, localVarOptionals *requests.PutMoveTaskToSiblingOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -6518,33 +6609,33 @@ func (a *TasksApiService) PutMoveTaskToSibling(ctx context.Context, localVarOpti
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Updates special task getting by task UID
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutTaskOpts - Request parameters:
@@ -6552,7 +6643,7 @@ TasksApiService Updates special task getting by task UID
      * @param "TaskUid" (int32) - Task UID
      * @param "Task" (Task) - TaskDTO
      * @param "Mode" (optional.String) -  CalculationModeDTO
-     * @param "Recalculate" (optional.Bool) -  boolean value 
+     * @param "Recalculate" (optional.Bool) -  boolean value
      * @param "Storage" (optional.String) -  The document strorage
      * @param "Folder" (optional.String) -  The document folder
      * @param "FileName" (optional.String) -  The name of the file to save changes
@@ -6561,8 +6652,8 @@ TasksApiService Updates special task getting by task UID
 */
 func (a *TasksApiService) PutTask(ctx context.Context, localVarOptionals *requests.PutTaskOpts) (models.TaskResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.TaskResponse
 	)
 
@@ -6615,33 +6706,33 @@ func (a *TasksApiService) PutTask(ctx context.Context, localVarOptionals *reques
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Updates existing task&#39;s recurring info. Note that task should be already recurring.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutTaskRecurringInfoOpts - Request parameters:
@@ -6656,8 +6747,8 @@ TasksApiService Updates existing task&#39;s recurring info. Note that task shoul
 */
 func (a *TasksApiService) PutTaskRecurringInfo(ctx context.Context, localVarOptionals *requests.PutTaskRecurringInfoOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -6704,32 +6795,33 @@ func (a *TasksApiService) PutTaskRecurringInfo(ctx context.Context, localVarOpti
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Delete task link.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.DeleteTaskLinkOpts - Request parameters:
@@ -6743,8 +6835,8 @@ TasksApiService Delete task link.
 */
 func (a *TasksApiService) DeleteTaskLink(ctx context.Context, localVarOptionals *requests.DeleteTaskLinkOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -6789,33 +6881,33 @@ func (a *TasksApiService) DeleteTaskLink(ctx context.Context, localVarOptionals 
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Get tasks&#39; links of a project.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetTaskLinksOpts - Request parameters:
@@ -6827,8 +6919,8 @@ TasksApiService Get tasks&#39; links of a project.
 */
 func (a *TasksApiService) GetTaskLinks(ctx context.Context, localVarOptionals *requests.GetTaskLinksOpts) (models.TaskLinksResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.TaskLinksResponse
 	)
 
@@ -6869,33 +6961,33 @@ func (a *TasksApiService) GetTaskLinks(ctx context.Context, localVarOptionals *r
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Adds a new task link to a project.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PostTaskLinkOpts - Request parameters:
@@ -6909,8 +7001,8 @@ TasksApiService Adds a new task link to a project.
 */
 func (a *TasksApiService) PostTaskLink(ctx context.Context, localVarOptionals *requests.PostTaskLinkOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -6956,33 +7048,33 @@ func (a *TasksApiService) PostTaskLink(ctx context.Context, localVarOptionals *r
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Updates existing task link.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutTaskLinkOpts - Request parameters:
@@ -6997,8 +7089,8 @@ TasksApiService Updates existing task link.
 */
 func (a *TasksApiService) PutTaskLink(ctx context.Context, localVarOptionals *requests.PutTaskLinkOpts) (models.TaskLinkResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.TaskLinkResponse
 	)
 
@@ -7045,32 +7137,33 @@ func (a *TasksApiService) PutTaskLink(ctx context.Context, localVarOptionals *re
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Returns VBA project.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetVbaProjectOpts - Request parameters:
@@ -7082,8 +7175,8 @@ TasksApiService Returns VBA project.
 */
 func (a *TasksApiService) GetVbaProject(ctx context.Context, localVarOptionals *requests.GetVbaProjectOpts) (models.VbaProjectResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.VbaProjectResponse
 	)
 
@@ -7124,32 +7217,33 @@ func (a *TasksApiService) GetVbaProject(ctx context.Context, localVarOptionals *
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
-/* 
+
+/*
 TasksApiService Get a project&#39;s WBS Definition.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetWbsDefinitionOpts - Request parameters:
@@ -7161,8 +7255,8 @@ TasksApiService Get a project&#39;s WBS Definition.
 */
 func (a *TasksApiService) GetWbsDefinition(ctx context.Context, localVarOptionals *requests.GetWbsDefinitionOpts) (models.WbsDefinitionResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
 		localVarReturnValue models.WbsDefinitionResponse
 	)
 
@@ -7203,33 +7297,33 @@ func (a *TasksApiService) GetWbsDefinition(ctx context.Context, localVarOptional
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
 
-/* 
+/*
 TasksApiService Renumber WBS code of passed tasks (if specified) or all project&#39;s tasks.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.PutRenumberWbsCodeOpts - Request parameters:
@@ -7243,8 +7337,8 @@ TasksApiService Renumber WBS code of passed tasks (if specified) or all project&
 */
 func (a *TasksApiService) PutRenumberWbsCode(ctx context.Context, localVarOptionals *requests.PutRenumberWbsCodeOpts) (models.AsposeResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
 		localVarReturnValue models.AsposeResponse
 	)
 
@@ -7290,31 +7384,32 @@ func (a *TasksApiService) PutRenumberWbsCode(ctx context.Context, localVarOption
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
-    if err != nil || localVarHttpResponse == nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
-    if localVarHttpResponse.StatusCode == 401 {
-        defer localVarHttpResponse.Body.Close()
-        return localVarReturnValue, nil, errors.New("Access is denied")
-    }
-    if localVarHttpResponse.StatusCode >= 300 {
-        defer localVarHttpResponse.Body.Close()
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
 
-        var apiError TasksApiErrorResponse
+		var apiError TasksApiErrorResponse
 
-        if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
-            return localVarReturnValue, localVarHttpResponse, err
-        }
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
 
-        return localVarReturnValue, localVarHttpResponse, &apiError
-    }
-    defer localVarHttpResponse.Body.Close()
-    if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
-        return localVarReturnValue, localVarHttpResponse, err
-    }
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
 
-    return localVarReturnValue, localVarHttpResponse, err
+	return localVarReturnValue, localVarHttpResponse, err
 }
+
 /*
 TasksApiService Get a project document in the specified format and with the specified save options
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -7330,8 +7425,8 @@ TasksApiService Get a project document in the specified format and with the spec
 */
 func (a *TasksApiService) PostTaskDocumentWithFormat(ctx context.Context, localVarOptionals *requests.PostTaskDocumentWithFormatOpts) ([]byte, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
 		localVarReturnValue []byte
 	)
 
