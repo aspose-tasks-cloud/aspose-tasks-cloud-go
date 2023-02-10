@@ -75,6 +75,7 @@ type Configuration struct {
 	BaseUrl       string            `json:"BaseUrl,omitempty"`
 	AppKey        string            `json:"AppKey"`
 	AppSid        string            `json:"AppSid"`
+	AuthUrl       string            `json:"AuthUrl,omitempty"`
 	DebugMode     bool              `json:"DebugMode,omitempty"`
 	DefaultHeader map[string]string `json:"DefaultHeader,omitempty"`
 	HttpClient    *http.Client
@@ -91,7 +92,7 @@ func NewConfiguration(configFilePath string) (pConfig *Configuration, err error)
 	cfg := Configuration{
 		BaseUrl:       "https://api.aspose.cloud",
 		DebugMode:     false,
-		DefaultHeader: map[string]string{"x-aspose-client": "go sdk", "x-aspose-client-version": "22.12"},
+		DefaultHeader: map[string]string{"x-aspose-client": "go sdk", "x-aspose-client-version": "23.02"},
 	}
 	err = json.Unmarshal(data, &cfg)
 
