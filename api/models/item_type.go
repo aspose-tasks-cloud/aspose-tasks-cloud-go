@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="project_ids_response.go">
+ * <copyright company="Aspose" file="item_type.go">
  *   Copyright (c) 2021 Aspose.Tasks Cloud
  * </copyright>
  * <summary>
@@ -26,13 +26,12 @@
  */
 
 package models
+// ItemType : Specifies the type of an item.
+type ItemType string
 
-// ProjectIds response
-type ProjectIdsResponse struct {
-	// Response status code
-	Code int32 `json:"code"`
-	// Response status
-	Status string `json:"status,omitempty"`
-	// UIds of the project
-	ProjectIds []string `json:"projectIds,omitempty"`
-}
+// List of ItemType
+const (
+	TASK_ITEM_ItemType ItemType = "TaskItem"
+	RESOURCE_ITEM_ItemType ItemType = "ResourceItem"
+	OTHER_ITEM_ItemType ItemType = "OtherItem"
+)

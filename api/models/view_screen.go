@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="project_ids_response.go">
+ * <copyright company="Aspose" file="view_screen.go">
  *   Copyright (c) 2021 Aspose.Tasks Cloud
  * </copyright>
  * <summary>
@@ -26,13 +26,23 @@
  */
 
 package models
+// ViewScreen : Specifies the screen type for a view.
+type ViewScreen string
 
-// ProjectIds response
-type ProjectIdsResponse struct {
-	// Response status code
-	Code int32 `json:"code"`
-	// Response status
-	Status string `json:"status,omitempty"`
-	// UIds of the project
-	ProjectIds []string `json:"projectIds,omitempty"`
-}
+// List of ViewScreen
+const (
+	GANTT_ViewScreen ViewScreen = "Gantt"
+	NETWORK_DIAGRAM_ViewScreen ViewScreen = "NetworkDiagram"
+	RELATIONSHIP_DIAGRAM_ViewScreen ViewScreen = "RelationshipDiagram"
+	TASK_FORM_ViewScreen ViewScreen = "TaskForm"
+	TASK_SHEET_ViewScreen ViewScreen = "TaskSheet"
+	RESOURCE_FORM_ViewScreen ViewScreen = "ResourceForm"
+	RESOURCE_SHEET_ViewScreen ViewScreen = "ResourceSheet"
+	RESOURCE_GRAPH_ViewScreen ViewScreen = "ResourceGraph"
+	TASK_DETAILS_FORM_ViewScreen ViewScreen = "TaskDetailsForm"
+	TASK_NAME_FORM_ViewScreen ViewScreen = "TaskNameForm"
+	RESOURCE_NAME_FORM_ViewScreen ViewScreen = "ResourceNameForm"
+	CALENDAR_ViewScreen ViewScreen = "Calendar"
+	TASK_USAGE_ViewScreen ViewScreen = "TaskUsage"
+	RESOURCE_USAGE_ViewScreen ViewScreen = "ResourceUsage"
+)

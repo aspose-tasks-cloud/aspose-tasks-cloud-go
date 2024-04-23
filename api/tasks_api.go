@@ -49,15 +49,13 @@ type TasksApiService service
 
 /*
 TasksApiService Copy file
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.CopyFileOpts - Request parameters:
-     * @param "SrcPath" (string) - Source file path e.g. &#39;/folder/file.ext&#39;
-     * @param "DestPath" (string) - Destination file path
-     * @param "SrcStorageName" (optional.String) -  Source storage name
-     * @param "DestStorageName" (optional.String) -  Destination storage name
-     * @param "VersionId" (optional.String) -  File version ID to copy
-
-
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.CopyFileOpts - Request parameters:
+  - @param "SrcPath" (string) - Source file path e.g. &#39;/folder/file.ext&#39;
+  - @param "DestPath" (string) - Destination file path
+  - @param "SrcStorageName" (optional.String) -  Source storage name
+  - @param "DestStorageName" (optional.String) -  Destination storage name
+  - @param "VersionId" (optional.String) -  File version ID to copy
 */
 func (a *TasksApiService) CopyFile(ctx context.Context, localVarOptionals *requests.CopyFileOpts) (*http.Response, error) {
 	var (
@@ -131,13 +129,11 @@ func (a *TasksApiService) CopyFile(ctx context.Context, localVarOptionals *reque
 
 /*
 TasksApiService Delete file
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.DeleteFileOpts - Request parameters:
-     * @param "Path" (string) - File path e.g. &#39;/folder/file.ext&#39;
-     * @param "StorageName" (optional.String) -  Storage name
-     * @param "VersionId" (optional.String) -  File version ID to delete
-
-
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.DeleteFileOpts - Request parameters:
+  - @param "Path" (string) - File path e.g. &#39;/folder/file.ext&#39;
+  - @param "StorageName" (optional.String) -  Storage name
+  - @param "VersionId" (optional.String) -  File version ID to delete
 */
 func (a *TasksApiService) DeleteFile(ctx context.Context, localVarOptionals *requests.DeleteFileOpts) (*http.Response, error) {
 	var (
@@ -207,11 +203,11 @@ func (a *TasksApiService) DeleteFile(ctx context.Context, localVarOptionals *req
 
 /*
 TasksApiService Download file
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.DownloadFileOpts - Request parameters:
-     * @param "Path" (string) - File path e.g. &#39;/folder/file.ext&#39;
-     * @param "StorageName" (optional.String) -  Storage name
-     * @param "VersionId" (optional.String) -  File version ID to download
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.DownloadFileOpts - Request parameters:
+  - @param "Path" (string) - File path e.g. &#39;/folder/file.ext&#39;
+  - @param "StorageName" (optional.String) -  Storage name
+  - @param "VersionId" (optional.String) -  File version ID to download
 
 @return []byte
 */
@@ -287,15 +283,13 @@ func (a *TasksApiService) DownloadFile(ctx context.Context, localVarOptionals *r
 
 /*
 TasksApiService Move file
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.MoveFileOpts - Request parameters:
-     * @param "SrcPath" (string) - Source file path e.g. &#39;/src.ext&#39;
-     * @param "DestPath" (string) - Destination file path e.g. &#39;/dest.ext&#39;
-     * @param "SrcStorageName" (optional.String) -  Source storage name
-     * @param "DestStorageName" (optional.String) -  Destination storage name
-     * @param "VersionId" (optional.String) -  File version ID to move
-
-
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.MoveFileOpts - Request parameters:
+  - @param "SrcPath" (string) - Source file path e.g. &#39;/src.ext&#39;
+  - @param "DestPath" (string) - Destination file path e.g. &#39;/dest.ext&#39;
+  - @param "SrcStorageName" (optional.String) -  Source storage name
+  - @param "DestStorageName" (optional.String) -  Destination storage name
+  - @param "VersionId" (optional.String) -  File version ID to move
 */
 func (a *TasksApiService) MoveFile(ctx context.Context, localVarOptionals *requests.MoveFileOpts) (*http.Response, error) {
 	var (
@@ -369,11 +363,11 @@ func (a *TasksApiService) MoveFile(ctx context.Context, localVarOptionals *reque
 
 /*
 TasksApiService Upload file
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.UploadFileOpts - Request parameters:
-     * @param "Path" (string) - Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.
-     * @param "File" (*os.File) - File to upload
-     * @param "StorageName" (optional.String) -  Storage name
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.UploadFileOpts - Request parameters:
+  - @param "Path" (string) - Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.
+  - @param "File" (*os.File) - File to upload
+  - @param "StorageName" (optional.String) -  Storage name
 
 @return models.FilesUploadResult
 */
@@ -452,14 +446,12 @@ func (a *TasksApiService) UploadFile(ctx context.Context, localVarOptionals *req
 
 /*
 TasksApiService Copy folder
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.CopyFolderOpts - Request parameters:
-     * @param "SrcPath" (string) - Source folder path e.g. &#39;/src&#39;
-     * @param "DestPath" (string) - Destination folder path e.g. &#39;/dst&#39;
-     * @param "SrcStorageName" (optional.String) -  Source storage name
-     * @param "DestStorageName" (optional.String) -  Destination storage name
-
-
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.CopyFolderOpts - Request parameters:
+  - @param "SrcPath" (string) - Source folder path e.g. &#39;/src&#39;
+  - @param "DestPath" (string) - Destination folder path e.g. &#39;/dst&#39;
+  - @param "SrcStorageName" (optional.String) -  Source storage name
+  - @param "DestStorageName" (optional.String) -  Destination storage name
 */
 func (a *TasksApiService) CopyFolder(ctx context.Context, localVarOptionals *requests.CopyFolderOpts) (*http.Response, error) {
 	var (
@@ -530,12 +522,10 @@ func (a *TasksApiService) CopyFolder(ctx context.Context, localVarOptionals *req
 
 /*
 TasksApiService Create the folder
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.CreateFolderOpts - Request parameters:
-     * @param "Path" (string) - Folder path to create e.g. &#39;folder_1/folder_2/&#39;
-     * @param "StorageName" (optional.String) -  Storage name
-
-
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.CreateFolderOpts - Request parameters:
+  - @param "Path" (string) - Folder path to create e.g. &#39;folder_1/folder_2/&#39;
+  - @param "StorageName" (optional.String) -  Storage name
 */
 func (a *TasksApiService) CreateFolder(ctx context.Context, localVarOptionals *requests.CreateFolderOpts) (*http.Response, error) {
 	var (
@@ -602,13 +592,11 @@ func (a *TasksApiService) CreateFolder(ctx context.Context, localVarOptionals *r
 
 /*
 TasksApiService Delete folder
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.DeleteFolderOpts - Request parameters:
-     * @param "Path" (string) - Folder path e.g. &#39;/folder&#39;
-     * @param "StorageName" (optional.String) -  Storage name
-     * @param "Recursive" (optional.Bool) -  Enable to delete folders, subfolders and files
-
-
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.DeleteFolderOpts - Request parameters:
+  - @param "Path" (string) - Folder path e.g. &#39;/folder&#39;
+  - @param "StorageName" (optional.String) -  Storage name
+  - @param "Recursive" (optional.Bool) -  Enable to delete folders, subfolders and files
 */
 func (a *TasksApiService) DeleteFolder(ctx context.Context, localVarOptionals *requests.DeleteFolderOpts) (*http.Response, error) {
 	var (
@@ -678,10 +666,10 @@ func (a *TasksApiService) DeleteFolder(ctx context.Context, localVarOptionals *r
 
 /*
 TasksApiService Get all files and folders within a folder
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetFilesListOpts - Request parameters:
-     * @param "Path" (string) - Folder path e.g. &#39;/folder&#39;
-     * @param "StorageName" (optional.String) -  Storage name
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetFilesListOpts - Request parameters:
+  - @param "Path" (string) - Folder path e.g. &#39;/folder&#39;
+  - @param "StorageName" (optional.String) -  Storage name
 
 @return models.FilesList
 */
@@ -754,14 +742,12 @@ func (a *TasksApiService) GetFilesList(ctx context.Context, localVarOptionals *r
 
 /*
 TasksApiService Move folder
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.MoveFolderOpts - Request parameters:
-     * @param "SrcPath" (string) - Folder path to move e.g. &#39;/folder&#39;
-     * @param "DestPath" (string) - Destination folder path to move to e.g &#39;/dst&#39;
-     * @param "SrcStorageName" (optional.String) -  Source storage name
-     * @param "DestStorageName" (optional.String) -  Destination storage name
-
-
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.MoveFolderOpts - Request parameters:
+  - @param "SrcPath" (string) - Folder path to move e.g. &#39;/folder&#39;
+  - @param "DestPath" (string) - Destination folder path to move to e.g &#39;/dst&#39;
+  - @param "SrcStorageName" (optional.String) -  Source storage name
+  - @param "DestStorageName" (optional.String) -  Destination storage name
 */
 func (a *TasksApiService) MoveFolder(ctx context.Context, localVarOptionals *requests.MoveFolderOpts) (*http.Response, error) {
 	var (
@@ -832,9 +818,9 @@ func (a *TasksApiService) MoveFolder(ctx context.Context, localVarOptionals *req
 
 /*
 TasksApiService Get disc usage
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetDiscUsageOpts - Request parameters:
-     * @param "StorageName" (optional.String) -  Storage name
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetDiscUsageOpts - Request parameters:
+  - @param "StorageName" (optional.String) -  Storage name
 
 @return models.DiscUsage
 */
@@ -906,10 +892,10 @@ func (a *TasksApiService) GetDiscUsage(ctx context.Context, localVarOptionals *r
 
 /*
 TasksApiService Get file versions
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetFileVersionsOpts - Request parameters:
-     * @param "Path" (string) - File path e.g. &#39;/file.ext&#39;
-     * @param "StorageName" (optional.String) -  Storage name
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetFileVersionsOpts - Request parameters:
+  - @param "Path" (string) - File path e.g. &#39;/file.ext&#39;
+  - @param "StorageName" (optional.String) -  Storage name
 
 @return models.FileVersions
 */
@@ -982,11 +968,11 @@ func (a *TasksApiService) GetFileVersions(ctx context.Context, localVarOptionals
 
 /*
 TasksApiService Check if file or folder exists
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.ObjectExistsOpts - Request parameters:
-     * @param "Path" (string) - File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39;
-     * @param "StorageName" (optional.String) -  Storage name
-     * @param "VersionId" (optional.String) -  File version ID
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.ObjectExistsOpts - Request parameters:
+  - @param "Path" (string) - File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39;
+  - @param "StorageName" (optional.String) -  Storage name
+  - @param "VersionId" (optional.String) -  File version ID
 
 @return models.ObjectExist
 */
@@ -1062,9 +1048,9 @@ func (a *TasksApiService) ObjectExists(ctx context.Context, localVarOptionals *r
 
 /*
 TasksApiService Check if storage exists
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.StorageExistsOpts - Request parameters:
-     * @param "StorageName" (string) - Storage name
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.StorageExistsOpts - Request parameters:
+  - @param "StorageName" (string) - Storage name
 
 @return models.StorageExist
 */
@@ -1134,13 +1120,13 @@ func (a *TasksApiService) StorageExists(ctx context.Context, localVarOptionals *
 
 /*
 TasksApiService Deletes a project assignment with all references to it.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.DeleteAssignmentOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "AssignmentUid" (int32) - assignment Uid
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to. If this parameter is omitted then the changes will be saved to the source project document.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.DeleteAssignmentOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "AssignmentUid" (int32) - assignment Uid
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to. If this parameter is omitted then the changes will be saved to the source project document.
 
 @return models.AsposeResponse
 */
@@ -1220,12 +1206,12 @@ func (a *TasksApiService) DeleteAssignment(ctx context.Context, localVarOptional
 
 /*
 TasksApiService Read project assignment with the specified Uid.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetAssignmentOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "AssignmentUid" (int32) - Assignment Uid
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetAssignmentOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "AssignmentUid" (int32) - Assignment Uid
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.AssignmentResponse
 */
@@ -1302,15 +1288,15 @@ func (a *TasksApiService) GetAssignment(ctx context.Context, localVarOptionals *
 
 /*
 TasksApiService Get timescaled data for an assignment with the specified Uid.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetAssignmentTimephasedDataOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "AssignmentUid" (int32) - Uid of assignment to get timephased data for.
-     * @param "Type_" (optional.String) -  Type of timephased data to get.
-     * @param "StartDate" (*custom.TimeWithoutTZ) -  Start date.
-     * @param "EndDate" (*custom.TimeWithoutTZ) -  End date.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "Storage" (optional.String) -  The document storage.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetAssignmentTimephasedDataOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "AssignmentUid" (int32) - Uid of assignment to get timephased data for.
+  - @param "Type_" (optional.String) -  Type of timephased data to get.
+  - @param "StartDate" (*custom.TimeWithoutTZ) -  Start date.
+  - @param "EndDate" (*custom.TimeWithoutTZ) -  End date.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "Storage" (optional.String) -  The document storage.
 
 @return models.TimephasedDataResponse
 */
@@ -1396,11 +1382,11 @@ func (a *TasksApiService) GetAssignmentTimephasedData(ctx context.Context, local
 
 /*
 TasksApiService Get project&#39;s assignment items.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetAssignmentsOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetAssignmentsOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.AssignmentItemsResponse
 */
@@ -1476,16 +1462,16 @@ func (a *TasksApiService) GetAssignments(ctx context.Context, localVarOptionals 
 
 /*
 TasksApiService Adds a new assignment to a project and returns assignment item in a response.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PostAssignmentOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "TaskUid" (int32) - The unique id of the task to be assigned.
-     * @param "ResourceUid" (int32) - The unique id of the resource to be assigned.
-     * @param "Units" (optional.Float64) -  The units for the new assignment. If not specified, &#39;cost&#39; value is used.
-     * @param "Cost" (optional.Float32) -  The cost for a new assignment. If not specified, default value is used.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to. If this parameter is omitted then the changes will be saved to the source project document.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PostAssignmentOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "TaskUid" (int32) - The unique id of the task to be assigned.
+  - @param "ResourceUid" (int32) - The unique id of the resource to be assigned.
+  - @param "Units" (optional.Float64) -  The units for the new assignment. If not specified, &#39;cost&#39; value is used.
+  - @param "Cost" (optional.Float32) -  The cost for a new assignment. If not specified, default value is used.
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to. If this parameter is omitted then the changes will be saved to the source project document.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.AssignmentItemResponse
 */
@@ -1572,16 +1558,16 @@ func (a *TasksApiService) PostAssignment(ctx context.Context, localVarOptionals 
 
 /*
 TasksApiService Updates resources assignment with the specified Uid.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutAssignmentOpts - Request parameters:
-     * @param "Name" (string) - The file name
-     * @param "AssignmentUid" (int32) - Assignment UID
-     * @param "Assignment" (ResourceAssignment) - Assignment DTO
-     * @param "Mode" (optional.String) -  Project&#39;s calculation mode
-     * @param "Recalculate" (optional.Bool) -  boolean value
-     * @param "Storage" (optional.String) -  The document storage
-     * @param "Folder" (optional.String) -  The document storage
-     * @param "FileName" (optional.String) -  The filename to save Changes
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutAssignmentOpts - Request parameters:
+  - @param "Name" (string) - The file name
+  - @param "AssignmentUid" (int32) - Assignment UID
+  - @param "Assignment" (ResourceAssignment) - Assignment DTO
+  - @param "Mode" (optional.String) -  Project&#39;s calculation mode
+  - @param "Recalculate" (optional.Bool) -  boolean value
+  - @param "Storage" (optional.String) -  The document storage
+  - @param "Folder" (optional.String) -  The document storage
+  - @param "FileName" (optional.String) -  The filename to save Changes
 
 @return models.AssignmentResponse
 */
@@ -1669,13 +1655,13 @@ func (a *TasksApiService) PutAssignment(ctx context.Context, localVarOptionals *
 
 /*
 TasksApiService Deletes a project calendar
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.DeleteCalendarOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "CalendarUid" (int32) - Calendar&#39;s Uid
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.DeleteCalendarOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "CalendarUid" (int32) - Calendar&#39;s Uid
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
 
 @return models.AsposeResponse
 */
@@ -1755,14 +1741,14 @@ func (a *TasksApiService) DeleteCalendar(ctx context.Context, localVarOptionals 
 
 /*
 TasksApiService Deletes calendar exception from calendar exceptions collection.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.DeleteCalendarExceptionOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "CalendarUid" (int32) - Calendar Uid
-     * @param "Index" (int32) - Index of the calendar exception. See CalendarException.Index property.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.DeleteCalendarExceptionOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "CalendarUid" (int32) - Calendar Uid
+  - @param "Index" (int32) - Index of the calendar exception. See CalendarException.Index property.
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.AsposeResponse
 */
@@ -1843,12 +1829,12 @@ func (a *TasksApiService) DeleteCalendarException(ctx context.Context, localVarO
 
 /*
 TasksApiService Get a project&#39;s calendar with the specified Uid.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetCalendarOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "CalendarUid" (int32) - Calendar&#39;s Uid
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetCalendarOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "CalendarUid" (int32) - Calendar&#39;s Uid
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.CalendarResponse
 */
@@ -1925,12 +1911,12 @@ func (a *TasksApiService) GetCalendar(ctx context.Context, localVarOptionals *re
 
 /*
 TasksApiService Get a list of calendar&#39;s exceptions.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetCalendarExceptionsOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "CalendarUid" (int32) - Calendar&#39;s Uid
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetCalendarExceptionsOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "CalendarUid" (int32) - Calendar&#39;s Uid
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.CalendarExceptionsResponse
 */
@@ -2007,12 +1993,12 @@ func (a *TasksApiService) GetCalendarExceptions(ctx context.Context, localVarOpt
 
 /*
 TasksApiService Gets the collection of work weeks of the specified calendar.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetCalendarWorkWeeksOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "CalendarUid" (int32) - Calendar Uid
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetCalendarWorkWeeksOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "CalendarUid" (int32) - Calendar Uid
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.CalendarWorkWeeksResponse
 */
@@ -2089,11 +2075,11 @@ func (a *TasksApiService) GetCalendarWorkWeeks(ctx context.Context, localVarOpti
 
 /*
 TasksApiService Read project calendar items.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetCalendarsOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetCalendarsOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.CalendarItemsResponse
 */
@@ -2169,13 +2155,13 @@ func (a *TasksApiService) GetCalendars(ctx context.Context, localVarOptionals *r
 
 /*
 TasksApiService Adds a new calendar to project file.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PostCalendarOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Calendar" (Calendar) - Calendar DTO
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PostCalendarOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Calendar" (Calendar) - Calendar DTO
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.CalendarItemResponse
 */
@@ -2256,14 +2242,14 @@ func (a *TasksApiService) PostCalendar(ctx context.Context, localVarOptionals *r
 
 /*
 TasksApiService Adds a new calendar exception to a calendar.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PostCalendarExceptionOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "CalendarUid" (int32) - Calendar&#39;s Uid
-     * @param "CalendarException" (CalendarException) - CalendarException DTO
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PostCalendarExceptionOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "CalendarUid" (int32) - Calendar&#39;s Uid
+  - @param "CalendarException" (CalendarException) - CalendarException DTO
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.AsposeResponse
 */
@@ -2345,14 +2331,14 @@ func (a *TasksApiService) PostCalendarException(ctx context.Context, localVarOpt
 
 /*
 TasksApiService Edits an existing project calendar.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutCalendarOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "CalendarUid" (int32) - The Uid of an existing calendar to edit.
-     * @param "Calendar" (Calendar) - Modified calendar DTO
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutCalendarOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "CalendarUid" (int32) - The Uid of an existing calendar to edit.
+  - @param "Calendar" (Calendar) - Modified calendar DTO
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.AsposeResponse
 */
@@ -2434,15 +2420,15 @@ func (a *TasksApiService) PutCalendar(ctx context.Context, localVarOptionals *re
 
 /*
 TasksApiService Updates calendar exception.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutCalendarExceptionOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "CalendarUid" (int32) - Calendar Uid
-     * @param "Index" (int32) - Index of the calendar exception. See CalendarException.Index property.
-     * @param "CalendarException" (CalendarException) - CalendarException DTO
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to. If this parameter              is omitted then the changes will be saved to the source project document.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutCalendarExceptionOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "CalendarUid" (int32) - Calendar Uid
+  - @param "Index" (int32) - Index of the calendar exception. See CalendarException.Index property.
+  - @param "CalendarException" (CalendarException) - CalendarException DTO
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to. If this parameter              is omitted then the changes will be saved to the source project document.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.AsposeResponse
 */
@@ -2525,11 +2511,11 @@ func (a *TasksApiService) PutCalendarException(ctx context.Context, localVarOpti
 
 /*
 TasksApiService Returns the list of the tasks which must be completed on time for a project to finish on schedule. Each task of the project is represented as a task item here, which is light-weighted task representation of the project task..
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetCriticalPathOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetCriticalPathOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.TaskItemsResponse
 */
@@ -2605,16 +2591,16 @@ func (a *TasksApiService) GetCriticalPath(ctx context.Context, localVarOptionals
 
 /*
 TasksApiService Returns page count for the project to be rendered using given Timescale and PresentationFormat  or specified PageSize.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetPageCountOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "PageSize" (optional.String) -  PageSize to get page count for.
-     * @param "PresentationFormat" (optional.String) -  PresentationFormat to get page count for.
-     * @param "Timescale" (optional.String) -  Timescale to get page count for.
-     * @param "StartDate" (*custom.TimeWithoutTZ) -  Start date to get page count for.
-     * @param "EndDate" (*custom.TimeWithoutTZ) -  End date to get page count for.
-     * @param "Folder" (optional.String) -  The document folder
-     * @param "Storage" (optional.String) -  The document storage.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetPageCountOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "PageSize" (optional.String) -  PageSize to get page count for.
+  - @param "PresentationFormat" (optional.String) -  PresentationFormat to get page count for.
+  - @param "Timescale" (optional.String) -  Timescale to get page count for.
+  - @param "StartDate" (*custom.TimeWithoutTZ) -  Start date to get page count for.
+  - @param "EndDate" (*custom.TimeWithoutTZ) -  End date to get page count for.
+  - @param "Folder" (optional.String) -  The document folder
+  - @param "Storage" (optional.String) -  The document storage.
 
 @return models.PageCountResponse
 */
@@ -2705,11 +2691,11 @@ func (a *TasksApiService) GetPageCount(ctx context.Context, localVarOptionals *r
 
 /*
 TasksApiService Get Uids of projects contained in the file.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetProjectIdsOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetProjectIdsOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.ProjectIdsResponse
 */
@@ -2785,11 +2771,11 @@ func (a *TasksApiService) GetProjectIds(ctx context.Context, localVarOptionals *
 
 /*
 TasksApiService Get a project document.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetTaskDocumentOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetTaskDocumentOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return []byte
 */
@@ -2865,13 +2851,13 @@ func (a *TasksApiService) GetTaskDocument(ctx context.Context, localVarOptionals
 
 /*
 TasksApiService Get a project document in the specified format
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetTaskDocumentWithFormatOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Format" (string) - The format of the resulting file.
-     * @param "ReturnAsZipArchive" (optional.Bool) -  If parameter is true, HTML resources are included as separate files and returned along with the resulting html file as a zip package.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetTaskDocumentWithFormatOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Format" (string) - The format of the resulting file.
+  - @param "ReturnAsZipArchive" (optional.Bool) -  If parameter is true, HTML resources are included as separate files and returned along with the resulting html file as a zip package.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return []byte
 */
@@ -2951,16 +2937,16 @@ func (a *TasksApiService) GetTaskDocumentWithFormat(ctx context.Context, localVa
 
 /*
 TasksApiService Imports project from database with the specified connection string and saves it to specified file with the specified format.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutImportProjectFromDbOpts - Request parameters:
-     * @param "DatabaseType" (string) - The type of source database. The supported values are (Msp, Mpd, Primavera).
-     * @param "ConnectionString" (string) - The connection string to the source database.
-     * @param "ProjectUid" (string) - Uid of the project to import.
-     * @param "Filename" (string) - The name of the resulting file.
-     * @param "Format" (optional.String) -  Format of the resulting file.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "DatabaseSchema" (optional.String) -  Schema of Microsoft project database (if applicable)
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutImportProjectFromDbOpts - Request parameters:
+  - @param "DatabaseType" (string) - The type of source database. The supported values are (Msp, Mpd, Primavera).
+  - @param "ConnectionString" (string) - The connection string to the source database.
+  - @param "ProjectUid" (string) - Uid of the project to import.
+  - @param "Filename" (string) - The name of the resulting file.
+  - @param "Format" (optional.String) -  Format of the resulting file.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "DatabaseSchema" (optional.String) -  Schema of Microsoft project database (if applicable)
 
 @return models.AsposeResponse
 */
@@ -3046,15 +3032,15 @@ func (a *TasksApiService) PutImportProjectFromDb(ctx context.Context, localVarOp
 
 /*
 TasksApiService Imports project from primavera db formats (Primavera SQLite .db or Primavera xml) and saves it to specified file with the specified format.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutImportProjectFromFileOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "ProjectUid" (string) - Uid of the project to import.
-     * @param "Filename" (string) - The name of the resulting file.
-     * @param "FileType" (optional.String) -  The type of file to import. The supported values are (PrimaveraSqliteDb, PrimaveraXml).
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "OutputFileFormat" (optional.String) -  The format of the resulting file.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutImportProjectFromFileOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "ProjectUid" (string) - Uid of the project to import.
+  - @param "Filename" (string) - The name of the resulting file.
+  - @param "FileType" (optional.String) -  The type of file to import. The supported values are (PrimaveraSqliteDb, PrimaveraXml).
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "OutputFileFormat" (optional.String) -  The format of the resulting file.
 
 @return models.AsposeResponse
 */
@@ -3138,17 +3124,17 @@ func (a *TasksApiService) PutImportProjectFromFile(ctx context.Context, localVar
 
 /*
 TasksApiService Imports project from Project Online and saves it to specified file.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutImportProjectFromProjectOnlineOpts - Request parameters:
-     * @param "Name" (string) - The name of the resulting file.
-     * @param "Guid" (string) - Guid of the project to import.
-     * @param "SiteUrl" (string) - The URL of PWA (Project Web Access) API of Project Online
-     * @param "UserName" (optional.String) -  The user name for the sharepoint site.
-     * @param "Format" (optional.String) -  Format of the resulting file.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "XProjectOnlineToken" (optional.String) -  Authorization token (SPOIDCRL) for SharePoint&#39;s PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
-     * @param "XSharepointPassword" (optional.String) -  The password for the SharePoint site.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutImportProjectFromProjectOnlineOpts - Request parameters:
+  - @param "Name" (string) - The name of the resulting file.
+  - @param "Guid" (string) - Guid of the project to import.
+  - @param "SiteUrl" (string) - The URL of PWA (Project Web Access) API of Project Online
+  - @param "UserName" (optional.String) -  The user name for the sharepoint site.
+  - @param "Format" (optional.String) -  Format of the resulting file.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "XProjectOnlineToken" (optional.String) -  Authorization token (SPOIDCRL) for SharePoint&#39;s PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
+  - @param "XSharepointPassword" (optional.String) -  The password for the SharePoint site.
 
 @return models.AsposeResponse
 */
@@ -3239,11 +3225,11 @@ func (a *TasksApiService) PutImportProjectFromProjectOnline(ctx context.Context,
 
 /*
 TasksApiService Get a collection of a project&#39;s document properties.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetDocumentPropertiesOpts - Request parameters:
-     * @param "Name" (string) - The document name.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetDocumentPropertiesOpts - Request parameters:
+  - @param "Name" (string) - The document name.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.DocumentPropertiesResponse
 */
@@ -3319,12 +3305,12 @@ func (a *TasksApiService) GetDocumentProperties(ctx context.Context, localVarOpt
 
 /*
 TasksApiService Get a document property by name.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetDocumentPropertyOpts - Request parameters:
-     * @param "Name" (string) - The document name.
-     * @param "PropertyName" (string) - The property name.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetDocumentPropertyOpts - Request parameters:
+  - @param "Name" (string) - The document name.
+  - @param "PropertyName" (string) - The property name.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.DocumentPropertyResponse
 */
@@ -3401,14 +3387,14 @@ func (a *TasksApiService) GetDocumentProperty(ctx context.Context, localVarOptio
 
 /*
 TasksApiService Set/create document property.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PostDocumentPropertyOpts - Request parameters:
-     * @param "Name" (string) - The document name.
-     * @param "PropertyName" (string) - The property name.
-     * @param "Property" (DocumentProperty) - DocumentProperty with new property value.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "Filename" (optional.String) -  Name of the project document to save changes to. If this parameter is omitted then the changes will be saved to the source project document.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PostDocumentPropertyOpts - Request parameters:
+  - @param "Name" (string) - The document name.
+  - @param "PropertyName" (string) - The property name.
+  - @param "Property" (DocumentProperty) - DocumentProperty with new property value.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "Filename" (optional.String) -  Name of the project document to save changes to. If this parameter is omitted then the changes will be saved to the source project document.
 
 @return models.DocumentPropertyResponse
 */
@@ -3490,14 +3476,14 @@ func (a *TasksApiService) PostDocumentProperty(ctx context.Context, localVarOpti
 
 /*
 TasksApiService Set/create document property.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutDocumentPropertyOpts - Request parameters:
-     * @param "Name" (string) - The document name.
-     * @param "PropertyName" (string) - The property name.
-     * @param "Property" (DocumentProperty) - DocumentProperty with new property value.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "Filename" (optional.String) -  Name of the project document to save changes to. If this parameter is omitted then the changes will be saved to the source project document.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutDocumentPropertyOpts - Request parameters:
+  - @param "Name" (string) - The document name.
+  - @param "PropertyName" (string) - The property name.
+  - @param "Property" (DocumentProperty) - DocumentProperty with new property value.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "Filename" (optional.String) -  Name of the project document to save changes to. If this parameter is omitted then the changes will be saved to the source project document.
 
 @return models.DocumentPropertyResponse
 */
@@ -3579,12 +3565,12 @@ func (a *TasksApiService) PutDocumentProperty(ctx context.Context, localVarOptio
 
 /*
 TasksApiService Delete a project extended attribute.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.DeleteExtendedAttributeByIndexOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Index" (int32) - Index (See ExtendedAttributeItem.Index property) or FieldId of the extended attribute.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.DeleteExtendedAttributeByIndexOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Index" (int32) - Index (See ExtendedAttributeItem.Index property) or FieldId of the extended attribute.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.AsposeResponse
 */
@@ -3661,12 +3647,12 @@ func (a *TasksApiService) DeleteExtendedAttributeByIndex(ctx context.Context, lo
 
 /*
 TasksApiService Get a project extended attribute definition with the specified index.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetExtendedAttributeByIndexOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Index" (int32) - Index (See ExtendedAttributeItem.Index property) or FieldId of the extended attribute.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetExtendedAttributeByIndexOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Index" (int32) - Index (See ExtendedAttributeItem.Index property) or FieldId of the extended attribute.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.ExtendedAttributeResponse
 */
@@ -3743,11 +3729,11 @@ func (a *TasksApiService) GetExtendedAttributeByIndex(ctx context.Context, local
 
 /*
 TasksApiService Get a project&#39;s extended attributes.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetExtendedAttributesOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetExtendedAttributesOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.ExtendedAttributeItemsResponse
 */
@@ -3823,13 +3809,13 @@ func (a *TasksApiService) GetExtendedAttributes(ctx context.Context, localVarOpt
 
 /*
 TasksApiService Add a new extended attribute definition to a project or  updates existing attribute definition (with the same FieldId).
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutExtendedAttributeOpts - Request parameters:
-     * @param "ExtendedAttribute" (ExtendedAttributeDefinition) - Definition of the extended attribute to add.
-     * @param "Name" (string) - The name of the file.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutExtendedAttributeOpts - Request parameters:
+  - @param "ExtendedAttribute" (ExtendedAttributeDefinition) - Definition of the extended attribute to add.
+  - @param "Name" (string) - The name of the file.
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.ExtendedAttributeItemResponse
 */
@@ -3910,12 +3896,12 @@ func (a *TasksApiService) PutExtendedAttribute(ctx context.Context, localVarOpti
 
 /*
 TasksApiService Deletes a project outline code
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.DeleteOutlineCodeByIndexOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Index" (int32) - Index of the outline code. See OutlineCodeItem.Index property.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.DeleteOutlineCodeByIndexOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Index" (int32) - Index of the outline code. See OutlineCodeItem.Index property.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.AsposeResponse
 */
@@ -3992,12 +3978,12 @@ func (a *TasksApiService) DeleteOutlineCodeByIndex(ctx context.Context, localVar
 
 /*
 TasksApiService Get outline code by index.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetOutlineCodeByIndexOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Index" (int32) - Index of the outline code. See OutlineCodeItem.Index property.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetOutlineCodeByIndexOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Index" (int32) - Index of the outline code. See OutlineCodeItem.Index property.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.OutlineCodeResponse
 */
@@ -4074,11 +4060,11 @@ func (a *TasksApiService) GetOutlineCodeByIndex(ctx context.Context, localVarOpt
 
 /*
 TasksApiService Get a project&#39;s outline codes.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetOutlineCodesOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetOutlineCodesOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.OutlineCodeItemsResponse
 */
@@ -4154,16 +4140,16 @@ func (a *TasksApiService) GetOutlineCodes(ctx context.Context, localVarOptionals
 
 /*
 TasksApiService Creates new project in Project Server\\Project Online instance.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.CreateNewProjectOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "SiteUrl" (string) - The URL of PWA (Project Web Access) API of Project Online.
-     * @param "UserName" (optional.String) -  The user name for the sharepoint site.
-     * @param "SaveOptions" (optional.Interface of ProjectServerSaveOptionsDto) -  Dispensable save options for Project Server\\Project Online.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "XProjectOnlineToken" (optional.String) -  Authorization token (SPOIDCRL) for SharePoint&#39;s PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
-     * @param "XSharepointPassword" (optional.String) -  The password for the SharePoint site.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.CreateNewProjectOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "SiteUrl" (string) - The URL of PWA (Project Web Access) API of Project Online.
+  - @param "UserName" (optional.String) -  The user name for the sharepoint site.
+  - @param "SaveOptions" (optional.Interface of ProjectServerSaveOptionsDto) -  Dispensable save options for Project Server\\Project Online.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "XProjectOnlineToken" (optional.String) -  Authorization token (SPOIDCRL) for SharePoint&#39;s PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
+  - @param "XSharepointPassword" (optional.String) -  The password for the SharePoint site.
 
 @return models.AsposeResponse
 */
@@ -4258,12 +4244,12 @@ func (a *TasksApiService) CreateNewProject(ctx context.Context, localVarOptional
 
 /*
 TasksApiService Gets the list of published projects in the current Project Online account.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetProjectListOpts - Request parameters:
-     * @param "SiteUrl" (string) - The URL of PWA (Project Web Access) API of Project Online.
-     * @param "UserName" (optional.String) -  The user name for the sharepoint site.
-     * @param "XProjectOnlineToken" (optional.String) -  Authorization token (SPOIDCRL) for SharePoint&#39;s PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
-     * @param "XSharepointPassword" (optional.String) -  The password for the SharePoint site.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetProjectListOpts - Request parameters:
+  - @param "SiteUrl" (string) - The URL of PWA (Project Web Access) API of Project Online.
+  - @param "UserName" (optional.String) -  The user name for the sharepoint site.
+  - @param "XProjectOnlineToken" (optional.String) -  Authorization token (SPOIDCRL) for SharePoint&#39;s PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
+  - @param "XSharepointPassword" (optional.String) -  The password for the SharePoint site.
 
 @return models.ProjectListResponse
 */
@@ -4342,16 +4328,16 @@ func (a *TasksApiService) GetProjectList(ctx context.Context, localVarOptionals 
 
 /*
 TasksApiService Updates existing project in Project Server\\Project Online instance. The existing project will be overwritten.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.UpdateProjectOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "SiteUrl" (string) - The URL of PWA (Project Web Access) API of Project Online.
-     * @param "UserName" (optional.String) -  The user name for the sharepoint site.
-     * @param "SaveOptions" (optional.Interface of ProjectServerSaveOptionsDto) -  Dispensable save options for Project Server\\Project Online.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "XProjectOnlineToken" (optional.String) -  Authorization token (SPOIDCRL) for SharePoint&#39;s PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
-     * @param "XSharepointPassword" (optional.String) -  The password for the SharePoint site.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.UpdateProjectOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "SiteUrl" (string) - The URL of PWA (Project Web Access) API of Project Online.
+  - @param "UserName" (optional.String) -  The user name for the sharepoint site.
+  - @param "SaveOptions" (optional.Interface of ProjectServerSaveOptionsDto) -  Dispensable save options for Project Server\\Project Online.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "XProjectOnlineToken" (optional.String) -  Authorization token (SPOIDCRL) for SharePoint&#39;s PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
+  - @param "XSharepointPassword" (optional.String) -  The password for the SharePoint site.
 
 @return models.AsposeResponse
 */
@@ -4446,14 +4432,14 @@ func (a *TasksApiService) UpdateProject(ctx context.Context, localVarOptionals *
 
 /*
 TasksApiService Reschedules all project tasks ids, outline levels, start/finish dates, sets early/late dates, calculates slacks, work and cost fields.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutRecalculateProjectOpts - Request parameters:
-     * @param "Name" (string) - The filename
-     * @param "Mode" (optional.String) -  Project&#39;s calculation mode
-     * @param "Validate" (optional.Bool) -  If true the validation of recalculation will be performed. What data is validated:     At the moment only basic validation of task and task link date ranges is implemented.     Task&#39;s date ranges (e.g. ActualStart - ActualFinish, EarlyStart - EarlyFinish, etc.) as well as Task Links dates will be checked against the date criteria that start date is less or equal than finish date.
-     * @param "FileName" (optional.String) -  The filename to save the changes
-     * @param "Storage" (optional.String) -  The document storage
-     * @param "Folder" (optional.String) -  The document folder
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutRecalculateProjectOpts - Request parameters:
+  - @param "Name" (string) - The filename
+  - @param "Mode" (optional.String) -  Project&#39;s calculation mode
+  - @param "Validate" (optional.Bool) -  If true the validation of recalculation will be performed. What data is validated:     At the moment only basic validation of task and task link date ranges is implemented.     Task&#39;s date ranges (e.g. ActualStart - ActualFinish, EarlyStart - EarlyFinish, etc.) as well as Task Links dates will be checked against the date criteria that start date is less or equal than finish date.
+  - @param "FileName" (optional.String) -  The filename to save the changes
+  - @param "Storage" (optional.String) -  The document storage
+  - @param "Folder" (optional.String) -  The document folder
 
 @return models.ProjectRecalculateResponse
 */
@@ -4538,12 +4524,12 @@ func (a *TasksApiService) PutRecalculateProject(ctx context.Context, localVarOpt
 
 /*
 TasksApiService Recalculate project resource fields
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutRecalculateProjectResourceFieldsOpts - Request parameters:
-     * @param "Name" (string) - The name of the file
-     * @param "Storage" (optional.String) -  The document storage
-     * @param "Folder" (optional.String) -  The document folder
-     * @param "FileName" (optional.String) -  The document fileName
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutRecalculateProjectResourceFieldsOpts - Request parameters:
+  - @param "Name" (string) - The name of the file
+  - @param "Storage" (optional.String) -  The document storage
+  - @param "Folder" (optional.String) -  The document folder
+  - @param "FileName" (optional.String) -  The document fileName
 
 @return models.AsposeResponse
 */
@@ -4622,13 +4608,13 @@ func (a *TasksApiService) PutRecalculateProjectResourceFields(ctx context.Contex
 
 /*
 TasksApiService Recalculate project uncomplete work
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutRecalculateProjectUncompleteWorkToStartAfterOpts - Request parameters:
-     * @param "Name" (string) - The file name
-     * @param "After" (time.Time) - DateTime (from System lib)
-     * @param "Storage" (optional.String) -  The document storage
-     * @param "Folder" (optional.String) -  The document folder
-     * @param "FileName" (optional.String) -  The filename to save the changes
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutRecalculateProjectUncompleteWorkToStartAfterOpts - Request parameters:
+  - @param "Name" (string) - The file name
+  - @param "After" (time.Time) - DateTime (from System lib)
+  - @param "Storage" (optional.String) -  The document storage
+  - @param "Folder" (optional.String) -  The document folder
+  - @param "FileName" (optional.String) -  The filename to save the changes
 
 @return models.AsposeResponse
 */
@@ -4709,14 +4695,14 @@ func (a *TasksApiService) PutRecalculateProjectUncompleteWorkToStartAfter(ctx co
 
 /*
 TasksApiService Recalculate project work as complete
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutRecalculateProjectWorkAsCompleteOpts - Request parameters:
-     * @param "Name" (string) - The filename
-     * @param "CompleteThrough" (time.Time) - DateTime (type from System lib)
-     * @param "SetZeroOrHundredPercentCompleteOnly" (optional.Bool) -  boolean value
-     * @param "Storage" (optional.String) -  The document storage
-     * @param "Folder" (optional.String) -  The document folder
-     * @param "FileName" (optional.String) -  The filename to save the changes
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutRecalculateProjectWorkAsCompleteOpts - Request parameters:
+  - @param "Name" (string) - The filename
+  - @param "CompleteThrough" (time.Time) - DateTime (type from System lib)
+  - @param "SetZeroOrHundredPercentCompleteOnly" (optional.Bool) -  boolean value
+  - @param "Storage" (optional.String) -  The document storage
+  - @param "Folder" (optional.String) -  The document folder
+  - @param "FileName" (optional.String) -  The filename to save the changes
 
 @return models.AsposeResponse
 */
@@ -4800,12 +4786,12 @@ func (a *TasksApiService) PutRecalculateProjectWorkAsComplete(ctx context.Contex
 
 /*
 TasksApiService Returns created report in PDF format.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetReportPdfOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Type_" (string) - A type of the project&#39;s graphical report.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetReportPdfOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Type_" (string) - A type of the project&#39;s graphical report.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return []byte
 */
@@ -4882,13 +4868,13 @@ func (a *TasksApiService) GetReportPdf(ctx context.Context, localVarOptionals *r
 
 /*
 TasksApiService Deletes a project resource with all references to it
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.DeleteResourceOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "ResourceUid" (int32) - Resource Uid
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.DeleteResourceOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "ResourceUid" (int32) - Resource Uid
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
 
 @return models.AsposeResponse
 */
@@ -4968,12 +4954,12 @@ func (a *TasksApiService) DeleteResource(ctx context.Context, localVarOptionals 
 
 /*
 TasksApiService Get project resource.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetResourceOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "ResourceUid" (int32) - Resource Uid
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetResourceOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "ResourceUid" (int32) - Resource Uid
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.ResourceResponse
 */
@@ -5050,12 +5036,12 @@ func (a *TasksApiService) GetResource(ctx context.Context, localVarOptionals *re
 
 /*
 TasksApiService Get resource&#39;s assignments.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetResourceAssignmentsOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "ResourceUid" (int32) - Resource Uid
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetResourceAssignmentsOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "ResourceUid" (int32) - Resource Uid
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.AssignmentsResponse
 */
@@ -5132,15 +5118,15 @@ func (a *TasksApiService) GetResourceAssignments(ctx context.Context, localVarOp
 
 /*
 TasksApiService Get timescaled data for a resource with the specified Uid.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetResourceTimephasedDataOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "ResourceUid" (int32) - Uid of resource to get timephased data for.
-     * @param "Type_" (optional.String) -  Type of timephased data to get.
-     * @param "StartDate" (*custom.TimeWithoutTZ) -  Start date.
-     * @param "EndDate" (*custom.TimeWithoutTZ) -  End date.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "Storage" (optional.String) -  The document storage.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetResourceTimephasedDataOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "ResourceUid" (int32) - Uid of resource to get timephased data for.
+  - @param "Type_" (optional.String) -  Type of timephased data to get.
+  - @param "StartDate" (*custom.TimeWithoutTZ) -  Start date.
+  - @param "EndDate" (*custom.TimeWithoutTZ) -  End date.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "Storage" (optional.String) -  The document storage.
 
 @return models.TimephasedDataResponse
 */
@@ -5226,11 +5212,11 @@ func (a *TasksApiService) GetResourceTimephasedData(ctx context.Context, localVa
 
 /*
 TasksApiService Get a project&#39;s resources.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetResourcesOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetResourcesOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.ResourceItemsResponse
 */
@@ -5306,14 +5292,14 @@ func (a *TasksApiService) GetResources(ctx context.Context, localVarOptionals *r
 
 /*
 TasksApiService Add a new resource to a project.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PostResourceOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "ResourceName" (optional.String) -  The name of the new resource. The default value is an empty string
-     * @param "BeforeResourceId" (optional.Int32) -  The id of the resource to insert the new resource before. The default value is the id of the last resource in a project file.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PostResourceOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "ResourceName" (optional.String) -  The name of the new resource. The default value is an empty string
+  - @param "BeforeResourceId" (optional.Int32) -  The id of the resource to insert the new resource before. The default value is the id of the last resource in a project file.
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.ResourceItemResponse
 */
@@ -5398,16 +5384,16 @@ func (a *TasksApiService) PostResource(ctx context.Context, localVarOptionals *r
 
 /*
 TasksApiService Updates resource with the specified Uid
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutResourceOpts - Request parameters:
-     * @param "Name" (string) - The file name
-     * @param "ResourceUid" (int32) - The Uid of a resource
-     * @param "Resource" (Resource) - The representation of the modified resource
-     * @param "Mode" (optional.String) -  The calculation mode of a project
-     * @param "Recalculate" (optional.Bool) -  Specifies whether the project&#39;s recalculation should be performed
-     * @param "Storage" (optional.String) -  The document storage
-     * @param "Folder" (optional.String) -  The document storage
-     * @param "FileName" (optional.String) -  The filename to save Changes
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutResourceOpts - Request parameters:
+  - @param "Name" (string) - The file name
+  - @param "ResourceUid" (int32) - The Uid of a resource
+  - @param "Resource" (Resource) - The representation of the modified resource
+  - @param "Mode" (optional.String) -  The calculation mode of a project
+  - @param "Recalculate" (optional.Bool) -  Specifies whether the project&#39;s recalculation should be performed
+  - @param "Storage" (optional.String) -  The document storage
+  - @param "Folder" (optional.String) -  The document storage
+  - @param "FileName" (optional.String) -  The filename to save Changes
 
 @return models.ResourceResponse
 */
@@ -5495,18 +5481,18 @@ func (a *TasksApiService) PutResource(ctx context.Context, localVarOptionals *re
 
 /*
 TasksApiService Performs a risk analysys using Monte Carlo simulation and creates a risk analysis report.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetRiskAnalysisReportOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "TaskUid" (int32) - The uid of the task for which this risk will be applied in Monte Carlo simulation.
-     * @param "DistributionType" (optional.String) -  Gets or sets the probability distribution used in Monte Carlo simulation. The default value is ProbabilityDistributionType.Normal.
-     * @param "Optimistic" (optional.Int32) -  The percentage of the most likely task duration which can happen in the best possible project scenario. The default value is 75, which means that if the estimated specified task duration is 4 days then the optimistic duration will be 3 days.
-     * @param "Pessimistic" (optional.Int32) -  The percentage of the most likely task duration which can happen in the worst possible project scenario. The default value is 125, which means that if the estimated specified task duration is 4 days then the pessimistic duration will be 5 days.
-     * @param "ConfidenceLevel" (optional.String) -  Gets or sets the confidence level that correspond to the percentage of the time the actual generated values will be within optimistic and pessimistic estimates. The default value is CL99.
-     * @param "Iterations" (optional.Int32) -  The number of iterations to use in Monte Carlo simulation. The default value is 100.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The folder storage.
-     * @param "FileName" (optional.String) -  The resulting report fileName.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetRiskAnalysisReportOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "TaskUid" (int32) - The uid of the task for which this risk will be applied in Monte Carlo simulation.
+  - @param "DistributionType" (optional.String) -  Gets or sets the probability distribution used in Monte Carlo simulation. The default value is ProbabilityDistributionType.Normal.
+  - @param "Optimistic" (optional.Int32) -  The percentage of the most likely task duration which can happen in the best possible project scenario. The default value is 75, which means that if the estimated specified task duration is 4 days then the optimistic duration will be 3 days.
+  - @param "Pessimistic" (optional.Int32) -  The percentage of the most likely task duration which can happen in the worst possible project scenario. The default value is 125, which means that if the estimated specified task duration is 4 days then the pessimistic duration will be 5 days.
+  - @param "ConfidenceLevel" (optional.String) -  Gets or sets the confidence level that correspond to the percentage of the time the actual generated values will be within optimistic and pessimistic estimates. The default value is CL99.
+  - @param "Iterations" (optional.Int32) -  The number of iterations to use in Monte Carlo simulation. The default value is 100.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The folder storage.
+  - @param "FileName" (optional.String) -  The resulting report fileName.
 
 @return []byte
 */
@@ -5601,13 +5587,13 @@ func (a *TasksApiService) GetRiskAnalysisReport(ctx context.Context, localVarOpt
 
 /*
 TasksApiService Deletes a project task with all references to it and rebuilds tasks tree.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.DeleteTaskOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "TaskUid" (int32) - Task Uid
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.  If this parameter is omitted then the changes will be saved to the source project document.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.DeleteTaskOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "TaskUid" (int32) - Task Uid
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.  If this parameter is omitted then the changes will be saved to the source project document.
 
 @return models.AsposeResponse
 */
@@ -5687,12 +5673,12 @@ func (a *TasksApiService) DeleteTask(ctx context.Context, localVarOptionals *req
 
 /*
 TasksApiService Get primavera properties for a task with the specified Uid.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetPrimaveraTaskPropertiesOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "TaskUid" (int32) - Uid of task to get primavera properties for.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "Storage" (optional.String) -  The document storage.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetPrimaveraTaskPropertiesOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "TaskUid" (int32) - Uid of task to get primavera properties for.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "Storage" (optional.String) -  The document storage.
 
 @return models.PrimaveraTaskPropertiesResponse
 */
@@ -5769,12 +5755,12 @@ func (a *TasksApiService) GetPrimaveraTaskProperties(ctx context.Context, localV
 
 /*
 TasksApiService Read project task.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetTaskOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "TaskUid" (int32) - Task Uid
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetTaskOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "TaskUid" (int32) - Task Uid
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.TaskResponse
 */
@@ -5851,12 +5837,12 @@ func (a *TasksApiService) GetTask(ctx context.Context, localVarOptionals *reques
 
 /*
 TasksApiService Get task assignments.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetTaskAssignmentsOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "TaskUid" (int32) - Task Uid
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetTaskAssignmentsOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "TaskUid" (int32) - Task Uid
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.AssignmentsResponse
 */
@@ -5933,12 +5919,12 @@ func (a *TasksApiService) GetTaskAssignments(ctx context.Context, localVarOption
 
 /*
 TasksApiService Get recurring info for a task with the specified Uid
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetTaskRecurringInfoOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "TaskUid" (int32) - Task Uid
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetTaskRecurringInfoOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "TaskUid" (int32) - Task Uid
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.RecurringInfoResponse
 */
@@ -6015,15 +6001,15 @@ func (a *TasksApiService) GetTaskRecurringInfo(ctx context.Context, localVarOpti
 
 /*
 TasksApiService Get timescaled data for a task with the specified Uid.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetTaskTimephasedDataOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "TaskUid" (int32) - Uid of task to get timephased data for.
-     * @param "Type_" (optional.String) -  Type of timephased data to get.
-     * @param "StartDate" (*custom.TimeWithoutTZ) -  Start date.
-     * @param "EndDate" (*custom.TimeWithoutTZ) -  End date.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "Storage" (optional.String) -  The document storage.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetTaskTimephasedDataOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "TaskUid" (int32) - Uid of task to get timephased data for.
+  - @param "Type_" (optional.String) -  Type of timephased data to get.
+  - @param "StartDate" (*custom.TimeWithoutTZ) -  Start date.
+  - @param "EndDate" (*custom.TimeWithoutTZ) -  End date.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "Storage" (optional.String) -  The document storage.
 
 @return models.TimephasedDataResponse
 */
@@ -6109,11 +6095,11 @@ func (a *TasksApiService) GetTaskTimephasedData(ctx context.Context, localVarOpt
 
 /*
 TasksApiService Get a project&#39;s tasks.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetTasksOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetTasksOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.TaskItemsResponse
 */
@@ -6189,14 +6175,14 @@ func (a *TasksApiService) GetTasks(ctx context.Context, localVarOptionals *reque
 
 /*
 TasksApiService Add a new task to a project.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PostTaskOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "TaskName" (optional.String) -  The name of the new task. The default value is an empty string
-     * @param "BeforeTaskId" (optional.Int32) -  The id of the task to insert the new task before.              The default value is the id of the last task in a project file.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PostTaskOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "TaskName" (optional.String) -  The name of the new task. The default value is an empty string
+  - @param "BeforeTaskId" (optional.Int32) -  The id of the task to insert the new task before.              The default value is the id of the last task in a project file.
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.TaskItemResponse
 */
@@ -6281,16 +6267,16 @@ func (a *TasksApiService) PostTask(ctx context.Context, localVarOptionals *reque
 
 /*
 TasksApiService Adds a new recurring task.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PostTaskRecurringInfoOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "ParentTaskUid" (int32) - The Uid of parent task for the created recurring task
-     * @param "TaskName" (string) - Name of the task to create.
-     * @param "RecurringInfo" (RecurringInfo) - DTO which defines task&#39;s recurring info.
-     * @param "CalendarName" (string) - Name of the project&#39;s calendar to use for recurring task&#39;s scheduling.
-     * @param "FileName" (optional.String) -  File name to save changes to.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PostTaskRecurringInfoOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "ParentTaskUid" (int32) - The Uid of parent task for the created recurring task
+  - @param "TaskName" (string) - Name of the task to create.
+  - @param "RecurringInfo" (RecurringInfo) - DTO which defines task&#39;s recurring info.
+  - @param "CalendarName" (string) - Name of the project&#39;s calendar to use for recurring task&#39;s scheduling.
+  - @param "FileName" (optional.String) -  File name to save changes to.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.TaskItemResponse
 */
@@ -6374,13 +6360,13 @@ func (a *TasksApiService) PostTaskRecurringInfo(ctx context.Context, localVarOpt
 
 /*
 TasksApiService Create multiple tasks by single request.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PostTasksOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Requests" ([]TaskCreationRequest) - Requests to create tasks.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PostTasksOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Requests" ([]TaskCreationRequest) - Requests to create tasks.
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.TaskItemsResponse
 */
@@ -6461,14 +6447,14 @@ func (a *TasksApiService) PostTasks(ctx context.Context, localVarOptionals *requ
 
 /*
 TasksApiService Move one task to another parent task.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutMoveTaskOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "TaskUid" (int32) - Unique id of the task to be moved.
-     * @param "ParentTaskUid" (int32) - Unique id of the new parent task.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutMoveTaskOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "TaskUid" (int32) - Unique id of the task to be moved.
+  - @param "ParentTaskUid" (int32) - Unique id of the new parent task.
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.AsposeResponse
 */
@@ -6549,14 +6535,14 @@ func (a *TasksApiService) PutMoveTask(ctx context.Context, localVarOptionals *re
 
 /*
 TasksApiService Move a task to another position under the same parent and the same outline level
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutMoveTaskToSiblingOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "TaskUid" (int32) - Task Unique Id.
-     * @param "BeforeTaskUid" (int32) - Unique Id of the task after which the current task will be placed.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.             If this parameter is omitted then the changes will be saved to the source project document.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutMoveTaskToSiblingOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "TaskUid" (int32) - Task Unique Id.
+  - @param "BeforeTaskUid" (int32) - Unique Id of the task after which the current task will be placed.
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.             If this parameter is omitted then the changes will be saved to the source project document.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.AsposeResponse
 */
@@ -6637,16 +6623,16 @@ func (a *TasksApiService) PutMoveTaskToSibling(ctx context.Context, localVarOpti
 
 /*
 TasksApiService Updates special task getting by task UID
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutTaskOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "TaskUid" (int32) - Task UID
-     * @param "Task" (Task) - TaskDTO
-     * @param "Mode" (optional.String) -  CalculationModeDTO
-     * @param "Recalculate" (optional.Bool) -  boolean value
-     * @param "Storage" (optional.String) -  The document strorage
-     * @param "Folder" (optional.String) -  The document folder
-     * @param "FileName" (optional.String) -  The name of the file to save changes
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutTaskOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "TaskUid" (int32) - Task UID
+  - @param "Task" (Task) - TaskDTO
+  - @param "Mode" (optional.String) -  CalculationModeDTO
+  - @param "Recalculate" (optional.Bool) -  boolean value
+  - @param "Storage" (optional.String) -  The document strorage
+  - @param "Folder" (optional.String) -  The document folder
+  - @param "FileName" (optional.String) -  The name of the file to save changes
 
 @return models.TaskResponse
 */
@@ -6734,14 +6720,14 @@ func (a *TasksApiService) PutTask(ctx context.Context, localVarOptionals *reques
 
 /*
 TasksApiService Updates existing task&#39;s recurring info. Note that task should be already recurring.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutTaskRecurringInfoOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "TaskUid" (int32) - Task Uid.
-     * @param "RecurringInfo" (RecurringInfo) - A modified DTO of task&#39;s recurring info.
-     * @param "FileName" (optional.String) -  File name to save changes to.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutTaskRecurringInfoOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "TaskUid" (int32) - Task Uid.
+  - @param "RecurringInfo" (RecurringInfo) - A modified DTO of task&#39;s recurring info.
+  - @param "FileName" (optional.String) -  File name to save changes to.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.AsposeResponse
 */
@@ -6823,13 +6809,13 @@ func (a *TasksApiService) PutTaskRecurringInfo(ctx context.Context, localVarOpti
 
 /*
 TasksApiService Delete task link.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.DeleteTaskLinkOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Index" (int32) - Index of the task link object. See TaskLink.Index property.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.  If this parameter is omitted then the changes will be saved to the source project document.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.DeleteTaskLinkOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Index" (int32) - Index of the task link object. See TaskLink.Index property.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.  If this parameter is omitted then the changes will be saved to the source project document.
 
 @return models.AsposeResponse
 */
@@ -6909,11 +6895,11 @@ func (a *TasksApiService) DeleteTaskLink(ctx context.Context, localVarOptionals 
 
 /*
 TasksApiService Get tasks&#39; links of a project.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetTaskLinksOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetTaskLinksOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.TaskLinksResponse
 */
@@ -6989,13 +6975,13 @@ func (a *TasksApiService) GetTaskLinks(ctx context.Context, localVarOptionals *r
 
 /*
 TasksApiService Adds a new task link to a project.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PostTaskLinkOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "TaskLink" (TaskLink) - The TaskLink object representation that should be added.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.  If this parameter is omitted then the changes will be saved to the source project document.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PostTaskLinkOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "TaskLink" (TaskLink) - The TaskLink object representation that should be added.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.  If this parameter is omitted then the changes will be saved to the source project document.
 
 @return models.AsposeResponse
 */
@@ -7076,14 +7062,14 @@ func (a *TasksApiService) PostTaskLink(ctx context.Context, localVarOptionals *r
 
 /*
 TasksApiService Updates existing task link.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutTaskLinkOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Index" (int32) - Index of the task link object. See TaskLink.Index property.
-     * @param "TaskLink" (TaskLink) - The representation of the modified TaskLink object.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.  If this parameter is omitted then the changes will be saved to the source project document.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutTaskLinkOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Index" (int32) - Index of the task link object. See TaskLink.Index property.
+  - @param "TaskLink" (TaskLink) - The representation of the modified TaskLink object.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.  If this parameter is omitted then the changes will be saved to the source project document.
 
 @return models.TaskLinkResponse
 */
@@ -7165,11 +7151,11 @@ func (a *TasksApiService) PutTaskLink(ctx context.Context, localVarOptionals *re
 
 /*
 TasksApiService Returns VBA project.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetVbaProjectOpts - Request parameters:
-     * @param "Name" (string) - The name of the file
-     * @param "Folder" (optional.String) -  The folder storage
-     * @param "Storage" (optional.String) -  The document storage.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetVbaProjectOpts - Request parameters:
+  - @param "Name" (string) - The name of the file
+  - @param "Folder" (optional.String) -  The folder storage
+  - @param "Storage" (optional.String) -  The document storage.
 
 @return models.VbaProjectResponse
 */
@@ -7244,12 +7230,532 @@ func (a *TasksApiService) GetVbaProject(ctx context.Context, localVarOptionals *
 }
 
 /*
+TasksApiService Create table text style in specified view.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.CreateTableTextStyleOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "ViewUid" (int32) - Uid of the view.
+  - @param "TableTextStyle" (TableTextStyle) - A DTO of TableTextStyle to create
+  - @param "FileName" (optional.String) -  File name to save changes to.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
+
+@return models.AsposeResponse
+*/
+func (a *TasksApiService) CreateTableTextStyle(ctx context.Context, localVarOptionals *requests.CreateTableTextStyleOpts) (models.AsposeResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarReturnValue models.AsposeResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/views/{viewUid}/tabletextstyles"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"viewUid"+"}", fmt.Sprintf("%v", localVarOptionals.ViewUid), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.FileName.IsSet() {
+		localVarQueryParams.Add("fileName", parameterToString(localVarOptionals.FileName.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &localVarOptionals.TableTextStyle
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
+TasksApiService Delete specified table text style from specified view.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.DeleteTableTextStyleOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "ViewUid" (int32) - Uid of the view.
+  - @param "RowUid" (int32) - Uid of the row.
+  - @param "Field" (optional.String) -  Specifies exact field of the row
+  - @param "FileName" (optional.String) -  File name to save changes to.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
+
+@return models.AsposeResponse
+*/
+func (a *TasksApiService) DeleteTableTextStyle(ctx context.Context, localVarOptionals *requests.DeleteTableTextStyleOpts) (models.AsposeResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarReturnValue models.AsposeResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/views/{viewUid}/tabletextstyles/{rowUid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"viewUid"+"}", fmt.Sprintf("%v", localVarOptionals.ViewUid), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"rowUid"+"}", fmt.Sprintf("%v", localVarOptionals.RowUid), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.Field.IsSet() {
+		localVarQueryParams.Add("field", parameterToString(localVarOptionals.Field.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.FileName.IsSet() {
+		localVarQueryParams.Add("fileName", parameterToString(localVarOptionals.FileName.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
+TasksApiService Read all table text styles from specified view.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetAllTableTextStylesOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "ViewUid" (int32) - Uid of the view.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
+
+@return models.TableTextStylesResponse
+*/
+func (a *TasksApiService) GetAllTableTextStyles(ctx context.Context, localVarOptionals *requests.GetAllTableTextStylesOpts) (models.TableTextStylesResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarReturnValue models.TableTextStylesResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/views/{viewUid}/tabletextstyles"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"viewUid"+"}", fmt.Sprintf("%v", localVarOptionals.ViewUid), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
+TasksApiService Read specified table text style from specified view.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetTableTextStyleOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "ViewUid" (int32) - Uid of the view.
+  - @param "RowUid" (int32) - Uid of the row.
+  - @param "Field" (optional.String) -  Specifies exact field of the row
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
+
+@return models.TableTextStyleResponse
+*/
+func (a *TasksApiService) GetTableTextStyle(ctx context.Context, localVarOptionals *requests.GetTableTextStyleOpts) (models.TableTextStyleResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarReturnValue models.TableTextStyleResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/views/{viewUid}/tabletextstyles/{rowUid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"viewUid"+"}", fmt.Sprintf("%v", localVarOptionals.ViewUid), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"rowUid"+"}", fmt.Sprintf("%v", localVarOptionals.RowUid), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.Field.IsSet() {
+		localVarQueryParams.Add("field", parameterToString(localVarOptionals.Field.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
+TasksApiService Read all project views.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetViewsOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
+
+@return models.ViewsResponse
+*/
+func (a *TasksApiService) GetViews(ctx context.Context, localVarOptionals *requests.GetViewsOpts) (models.ViewsResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarReturnValue models.ViewsResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/views"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
+TasksApiService Update table text style in specified view.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.UpdateTableTextStyleOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "ViewUid" (int32) - Uid of the view.
+  - @param "TableTextStyle" (TableTextStyle) - A DTO of TableTextStyle to update
+  - @param "FileName" (optional.String) -  File name to save changes to.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
+
+@return models.AsposeResponse
+*/
+func (a *TasksApiService) UpdateTableTextStyle(ctx context.Context, localVarOptionals *requests.UpdateTableTextStyleOpts) (models.AsposeResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarReturnValue models.AsposeResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/views/{viewUid}/tabletextstyles"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"viewUid"+"}", fmt.Sprintf("%v", localVarOptionals.ViewUid), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.FileName.IsSet() {
+		localVarQueryParams.Add("fileName", parameterToString(localVarOptionals.FileName.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &localVarOptionals.TableTextStyle
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
 TasksApiService Get a project&#39;s WBS Definition.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.GetWbsDefinitionOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.GetWbsDefinitionOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.WbsDefinitionResponse
 */
@@ -7325,13 +7831,13 @@ func (a *TasksApiService) GetWbsDefinition(ctx context.Context, localVarOptional
 
 /*
 TasksApiService Renumber WBS code of passed tasks (if specified) or all project&#39;s tasks.
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PutRenumberWbsCodeOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "TaskUids" ([]int32) - Uids of task for WBS codes renumbering. If not specified, WBS codes for all tasks will be renumbered.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PutRenumberWbsCodeOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "TaskUids" ([]int32) - Uids of task for WBS codes renumbering. If not specified, WBS codes for all tasks will be renumbered.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return models.AsposeResponse
 */
@@ -7412,14 +7918,14 @@ func (a *TasksApiService) PutRenumberWbsCode(ctx context.Context, localVarOption
 
 /*
 TasksApiService Get a project document in the specified format and with the specified save options
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param *requests.PostTaskDocumentWithFormatOpts - Request parameters:
-     * @param "Name" (string) - The name of the file.
-     * @param "Format" (string) - The format of the resulting file.
-     * @param "SaveOptions" (interface{}) - Instance of inheritor of SaveOptions class which contains format-specific settings for saving a project.
-     * @param "ReturnAsZipArchive" (optional.Bool) -  If parameter is true, HTML resources are included as separate files and returned along with the resulting html file as a zip package.
-     * @param "Storage" (optional.String) -  The document storage.
-     * @param "Folder" (optional.String) -  The document folder.
+  - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+  - @param *requests.PostTaskDocumentWithFormatOpts - Request parameters:
+  - @param "Name" (string) - The name of the file.
+  - @param "Format" (string) - The format of the resulting file.
+  - @param "SaveOptions" (interface{}) - Instance of inheritor of SaveOptions class which contains format-specific settings for saving a project.
+  - @param "ReturnAsZipArchive" (optional.Bool) -  If parameter is true, HTML resources are included as separate files and returned along with the resulting html file as a zip package.
+  - @param "Storage" (optional.String) -  The document storage.
+  - @param "Folder" (optional.String) -  The document folder.
 
 @return []byte
 */

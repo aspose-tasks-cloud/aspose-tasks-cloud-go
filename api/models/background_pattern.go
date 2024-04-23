@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="project_ids_response.go">
+ * <copyright company="Aspose" file="background_pattern.go">
  *   Copyright (c) 2021 Aspose.Tasks Cloud
  * </copyright>
  * <summary>
@@ -26,13 +26,23 @@
  */
 
 package models
+// BackgroundPattern : Specifies the background pattern.
+type BackgroundPattern string
 
-// ProjectIds response
-type ProjectIdsResponse struct {
-	// Response status code
-	Code int32 `json:"code"`
-	// Response status
-	Status string `json:"status,omitempty"`
-	// UIds of the project
-	ProjectIds []string `json:"projectIds,omitempty"`
-}
+// List of BackgroundPattern
+const (
+	HOLLOW_BackgroundPattern BackgroundPattern = "Hollow"
+	SOLID_FILL_BackgroundPattern BackgroundPattern = "SolidFill"
+	LIGHT_FILL_BackgroundPattern BackgroundPattern = "LightFill"
+	MEDIUM_FILL_BackgroundPattern BackgroundPattern = "MediumFill"
+	DARK_FILL_BackgroundPattern BackgroundPattern = "DarkFill"
+	DIAGONAL_LEFT_BackgroundPattern BackgroundPattern = "DiagonalLeft"
+	DIAGONAL_RIGHT_BackgroundPattern BackgroundPattern = "DiagonalRight"
+	DARK_DIAGONAL_LEFT_BackgroundPattern BackgroundPattern = "DarkDiagonalLeft"
+	DARK_DIAGONAL_RIGHT_BackgroundPattern BackgroundPattern = "DarkDiagonalRight"
+	THIN_VERTICAL_STRIPE_BackgroundPattern BackgroundPattern = "ThinVerticalStripe"
+	MEDIUM_VERTICAL_STRIPE_BackgroundPattern BackgroundPattern = "MediumVerticalStripe"
+	LIGHT_DITHER_BackgroundPattern BackgroundPattern = "LightDither"
+	MEDIUM_DITHER_BackgroundPattern BackgroundPattern = "MediumDither"
+	DARK_DITHER_BackgroundPattern BackgroundPattern = "DarkDither"
+)

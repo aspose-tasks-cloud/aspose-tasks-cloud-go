@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="project_ids_response.go">
+ * <copyright company="Aspose" file="table_text_style.go">
  *   Copyright (c) 2021 Aspose.Tasks Cloud
  * </copyright>
  * <summary>
@@ -27,12 +27,18 @@
 
 package models
 
-// ProjectIds response
-type ProjectIdsResponse struct {
-	// Response status code
-	Code int32 `json:"code"`
-	// Response status
-	Status string `json:"status,omitempty"`
-	// UIds of the project
-	ProjectIds []string `json:"projectIds,omitempty"`
+// Represents a text style in a view table.
+type TableTextStyle struct {
+	// Gets a row unique id. Return -1 if the style is to be applied to all rows of a view.
+	RowUid int32 `json:"rowUid"`
+	// Gets or sets a field the style is to be applied to.
+	Field *Field `json:"field"`
+	// Returns a value of the TextItemType enum.
+	ItemType *TextItemType `json:"itemType"`
+	// Gets or sets color of the text.
+	Color *Colors `json:"color"`
+	// Gets or sets background pattern of the text style.
+	BackgroundPattern *BackgroundPattern `json:"backgroundPattern"`
+	// Gets or sets background color of the text style.
+	BackgroundColor *Colors `json:"backgroundColor"`
 }

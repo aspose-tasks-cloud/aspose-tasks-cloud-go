@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="project_ids_response.go">
+ * <copyright company="Aspose" file="get_all_table_text_styles_opts.go">
  *   Copyright (c) 2021 Aspose.Tasks Cloud
  * </copyright>
  * <summary>
@@ -25,14 +25,15 @@
  * --------------------------------------------------------------------------------
  */
 
-package models
+package requests
 
-// ProjectIds response
-type ProjectIdsResponse struct {
-	// Response status code
-	Code int32 `json:"code"`
-	// Response status
-	Status string `json:"status,omitempty"`
-	// UIds of the project
-	ProjectIds []string `json:"projectIds,omitempty"`
+import ( 
+	"github.com/antihax/optional"
+)
+
+type GetAllTableTextStylesOpts struct { 
+	Name string
+	ViewUid int32
+	Storage optional.String
+	Folder optional.String
 }

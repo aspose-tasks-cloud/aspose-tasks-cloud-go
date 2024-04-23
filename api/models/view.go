@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="project_ids_response.go">
+ * <copyright company="Aspose" file="view.go">
  *   Copyright (c) 2021 Aspose.Tasks Cloud
  * </copyright>
  * <summary>
@@ -27,12 +27,16 @@
 
 package models
 
-// ProjectIds response
-type ProjectIdsResponse struct {
-	// Response status code
-	Code int32 `json:"code"`
-	// Response status
-	Status string `json:"status,omitempty"`
-	// UIds of the project
-	ProjectIds []string `json:"projectIds,omitempty"`
+// Represents a view in Project
+type View struct {
+	// Gets or sets a value indicating whether Microsoft Project shows the single view  name in the View or the Other Views drop-down lists in the Ribbon
+	ShowInMenu bool `json:"showInMenu"`
+	// Gets the type of item in the single view, such as tasks or resources. Read-only.
+	Type_ *ItemType `json:"type"`
+	// Gets the screen type for the single view. Read-only.
+	Screen *ViewScreen `json:"screen"`
+	// Gets or sets the name of a View object.
+	Name string `json:"name,omitempty"`
+	// Gets the unique identifier of a view.
+	Uid int32 `json:"uid"`
 }

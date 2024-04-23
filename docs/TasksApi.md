@@ -88,6 +88,12 @@ Method | HTTP request | Description
 [**PostTaskLink**](TasksApi.md#posttasklink) | **Post** /tasks/{name}/taskLinks | Adds a new task link to a project.
 [**PutTaskLink**](TasksApi.md#puttasklink) | **Put** /tasks/{name}/taskLinks/{index} | Updates existing task link.
 [**GetVbaProject**](TasksApi.md#getvbaproject) | **Get** /tasks/{name}/vbaproject | Returns VBA project.
+[**CreateTableTextStyle**](TasksApi.md#createtabletextstyle) | **Post** /tasks/{name}/views/{viewUid}/tabletextstyles | Create table text style in specified view.
+[**DeleteTableTextStyle**](TasksApi.md#deletetabletextstyle) | **Delete** /tasks/{name}/views/{viewUid}/tabletextstyles/{rowUid} | Delete specified table text style from specified view.
+[**GetAllTableTextStyles**](TasksApi.md#getalltabletextstyles) | **Get** /tasks/{name}/views/{viewUid}/tabletextstyles | Read all table text styles from specified view.
+[**GetTableTextStyle**](TasksApi.md#gettabletextstyle) | **Get** /tasks/{name}/views/{viewUid}/tabletextstyles/{rowUid} | Read specified table text style from specified view.
+[**GetViews**](TasksApi.md#getviews) | **Get** /tasks/{name}/views | Read all project views.
+[**UpdateTableTextStyle**](TasksApi.md#updatetabletextstyle) | **Put** /tasks/{name}/views/{viewUid}/tabletextstyles | Update table text style in specified view.
 [**GetWbsDefinition**](TasksApi.md#getwbsdefinition) | **Get** /tasks/{name}/wbsDefinition | Get a project&#39;s WBS Definition.
 [**PutRenumberWbsCode**](TasksApi.md#putrenumberwbscode) | **Put** /tasks/{name}/renumberWbsCode | Renumber WBS code of passed tasks (if specified) or all project&#39;s tasks.
 
@@ -2913,6 +2919,215 @@ Name | Type | Description  | Notes
 
 ### Return type
 [**VbaProjectResponse**](VbaProjectResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **CreateTableTextStyle**
+> AsposeResponse CreateTableTextStyle(ctx, name, viewUid, tableTextStyle, optional)
+Create table text style in specified view.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file. | 
+  **viewUid** | **int32**| Uid of the view. | 
+  **tableTextStyle** | [**TableTextStyle**](TableTextStyle.md)| A DTO of TableTextStyle to create | 
+ **optional** | ***CreateTableTextStyleOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **fileName** | **optional.String**| File name to save changes to. | 
+ **storage** | **optional.String**| The document storage. | 
+ **folder** | **optional.String**| The document folder. | 
+
+### Return type
+[**AsposeResponse**](AsposeResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DeleteTableTextStyle**
+> AsposeResponse DeleteTableTextStyle(ctx, name, viewUid, rowUid, optional)
+Delete specified table text style from specified view.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file. | 
+  **viewUid** | **int32**| Uid of the view. | 
+  **rowUid** | **int32**| Uid of the row. | 
+ **optional** | ***DeleteTableTextStyleOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **field** | **optional.String**| Specifies exact field of the row | 
+ **fileName** | **optional.String**| File name to save changes to. | 
+ **storage** | **optional.String**| The document storage. | 
+ **folder** | **optional.String**| The document folder. | 
+
+### Return type
+[**AsposeResponse**](AsposeResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetAllTableTextStyles**
+> TableTextStylesResponse GetAllTableTextStyles(ctx, name, viewUid, optional)
+Read all table text styles from specified view.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file. | 
+  **viewUid** | **int32**| Uid of the view. | 
+ **optional** | ***GetAllTableTextStylesOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **storage** | **optional.String**| The document storage. | 
+ **folder** | **optional.String**| The document folder. | 
+
+### Return type
+[**TableTextStylesResponse**](TableTextStylesResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetTableTextStyle**
+> TableTextStyleResponse GetTableTextStyle(ctx, name, viewUid, rowUid, optional)
+Read specified table text style from specified view.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file. | 
+  **viewUid** | **int32**| Uid of the view. | 
+  **rowUid** | **int32**| Uid of the row. | 
+ **optional** | ***GetTableTextStyleOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **field** | **optional.String**| Specifies exact field of the row | 
+ **storage** | **optional.String**| The document storage. | 
+ **folder** | **optional.String**| The document folder. | 
+
+### Return type
+[**TableTextStyleResponse**](TableTextStyleResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetViews**
+> ViewsResponse GetViews(ctx, name, optional)
+Read all project views.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file. | 
+ **optional** | ***GetViewsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **storage** | **optional.String**| The document storage. | 
+ **folder** | **optional.String**| The document folder. | 
+
+### Return type
+[**ViewsResponse**](ViewsResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UpdateTableTextStyle**
+> AsposeResponse UpdateTableTextStyle(ctx, name, viewUid, tableTextStyle, optional)
+Update table text style in specified view.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file. | 
+  **viewUid** | **int32**| Uid of the view. | 
+  **tableTextStyle** | [**TableTextStyle**](TableTextStyle.md)| A DTO of TableTextStyle to update | 
+ **optional** | ***UpdateTableTextStyleOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **fileName** | **optional.String**| File name to save changes to. | 
+ **storage** | **optional.String**| The document storage. | 
+ **folder** | **optional.String**| The document folder. | 
+
+### Return type
+[**AsposeResponse**](AsposeResponse.md)
 
 ### Authorization
 [JWT](../README.md#JWT)

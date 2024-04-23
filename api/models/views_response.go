@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="project_ids_response.go">
+ * <copyright company="Aspose" file="views_response.go">
  *   Copyright (c) 2021 Aspose.Tasks Cloud
  * </copyright>
  * <summary>
@@ -27,12 +27,12 @@
 
 package models
 
-// ProjectIds response
-type ProjectIdsResponse struct {
+// Views Response.
+type ViewsResponse struct {
 	// Response status code
 	Code int32 `json:"code"`
 	// Response status
 	Status string `json:"status,omitempty"`
-	// UIds of the project
-	ProjectIds []string `json:"projectIds,omitempty"`
+	// Views of the project
+	Views []View `json:"views,omitempty"`
 }

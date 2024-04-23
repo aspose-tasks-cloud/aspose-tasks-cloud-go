@@ -1,0 +1,175 @@
+/*
+ * --------------------------------------------------------------------------------
+ * <copyright company="Aspose" file="colors.go">
+ *   Copyright (c) 2021 Aspose.Tasks Cloud
+ * </copyright>
+ * <summary>
+ *   Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ * 
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ * 
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ * </summary>
+ * --------------------------------------------------------------------------------
+ */
+
+package models
+// Colors : 
+type Colors string
+
+// List of Colors
+const (
+	MEDIUM_AQUAMARINE_Colors Colors = "MediumAquamarine"
+	MEDIUM_BLUE_Colors Colors = "MediumBlue"
+	MEDIUM_ORCHID_Colors Colors = "MediumOrchid"
+	MEDIUM_PURPLE_Colors Colors = "MediumPurple"
+	MEDIUM_SEA_GREEN_Colors Colors = "MediumSeaGreen"
+	MEDIUM_SLATE_BLUE_Colors Colors = "MediumSlateBlue"
+	MEDIUM_SPRING_GREEN_Colors Colors = "MediumSpringGreen"
+	MAROON_Colors Colors = "Maroon"
+	MEDIUM_TURQUOISE_Colors Colors = "MediumTurquoise"
+	MIDNIGHT_BLUE_Colors Colors = "MidnightBlue"
+	MINT_CREAM_Colors Colors = "MintCream"
+	MISTY_ROSE_Colors Colors = "MistyRose"
+	MOCCASIN_Colors Colors = "Moccasin"
+	NAVAJO_WHITE_Colors Colors = "NavajoWhite"
+	NAVY_Colors Colors = "Navy"
+	OLD_LACE_Colors Colors = "OldLace"
+	MEDIUM_VIOLET_RED_Colors Colors = "MediumVioletRed"
+	MAGENTA_Colors Colors = "Magenta"
+	LINEN_Colors Colors = "Linen"
+	LIME_GREEN_Colors Colors = "LimeGreen"
+	LAVENDER_BLUSH_Colors Colors = "LavenderBlush"
+	LAWN_GREEN_Colors Colors = "LawnGreen"
+	LEMON_CHIFFON_Colors Colors = "LemonChiffon"
+	LIGHT_BLUE_Colors Colors = "LightBlue"
+	LIGHT_CORAL_Colors Colors = "LightCoral"
+	LIGHT_CYAN_Colors Colors = "LightCyan"
+	LIGHT_GOLDENROD_YELLOW_Colors Colors = "LightGoldenrodYellow"
+	LIGHT_GRAY_Colors Colors = "LightGray"
+	LIGHT_GREEN_Colors Colors = "LightGreen"
+	LIGHT_PINK_Colors Colors = "LightPink"
+	LIGHT_SALMON_Colors Colors = "LightSalmon"
+	LIGHT_SEA_GREEN_Colors Colors = "LightSeaGreen"
+	LIGHT_SKY_BLUE_Colors Colors = "LightSkyBlue"
+	LIGHT_SLATE_GRAY_Colors Colors = "LightSlateGray"
+	LIGHT_STEEL_BLUE_Colors Colors = "LightSteelBlue"
+	LIGHT_YELLOW_Colors Colors = "LightYellow"
+	LIME_Colors Colors = "Lime"
+	OLIVE_Colors Colors = "Olive"
+	OLIVE_DRAB_Colors Colors = "OliveDrab"
+	ORANGE_Colors Colors = "Orange"
+	ORANGE_RED_Colors Colors = "OrangeRed"
+	SILVER_Colors Colors = "Silver"
+	SKY_BLUE_Colors Colors = "SkyBlue"
+	SLATE_BLUE_Colors Colors = "SlateBlue"
+	SLATE_GRAY_Colors Colors = "SlateGray"
+	SNOW_Colors Colors = "Snow"
+	SPRING_GREEN_Colors Colors = "SpringGreen"
+	STEEL_BLUE_Colors Colors = "SteelBlue"
+	TAN_Colors Colors = "Tan"
+	TEAL_Colors Colors = "Teal"
+	THISTLE_Colors Colors = "Thistle"
+	TOMATO_Colors Colors = "Tomato"
+	TRANSPARENT_Colors Colors = "Transparent"
+	TURQUOISE_Colors Colors = "Turquoise"
+	VIOLET_Colors Colors = "Violet"
+	WHEAT_Colors Colors = "Wheat"
+	WHITE_Colors Colors = "White"
+	WHITE_SMOKE_Colors Colors = "WhiteSmoke"
+	SIENNA_Colors Colors = "Sienna"
+	LAVENDER_Colors Colors = "Lavender"
+	SEA_SHELL_Colors Colors = "SeaShell"
+	SANDY_BROWN_Colors Colors = "SandyBrown"
+	ORCHID_Colors Colors = "Orchid"
+	PALE_GOLDENROD_Colors Colors = "PaleGoldenrod"
+	PALE_GREEN_Colors Colors = "PaleGreen"
+	PALE_TURQUOISE_Colors Colors = "PaleTurquoise"
+	PALE_VIOLET_RED_Colors Colors = "PaleVioletRed"
+	PAPAYA_WHIP_Colors Colors = "PapayaWhip"
+	PEACH_PUFF_Colors Colors = "PeachPuff"
+	PERU_Colors Colors = "Peru"
+	PINK_Colors Colors = "Pink"
+	PLUM_Colors Colors = "Plum"
+	POWDER_BLUE_Colors Colors = "PowderBlue"
+	PURPLE_Colors Colors = "Purple"
+	RED_Colors Colors = "Red"
+	ROSY_BROWN_Colors Colors = "RosyBrown"
+	ROYAL_BLUE_Colors Colors = "RoyalBlue"
+	SADDLE_BROWN_Colors Colors = "SaddleBrown"
+	SALMON_Colors Colors = "Salmon"
+	SEA_GREEN_Colors Colors = "SeaGreen"
+	YELLOW_Colors Colors = "Yellow"
+	KHAKI_Colors Colors = "Khaki"
+	CYAN_Colors Colors = "Cyan"
+	DARK_MAGENTA_Colors Colors = "DarkMagenta"
+	DARK_KHAKI_Colors Colors = "DarkKhaki"
+	DARK_GREEN_Colors Colors = "DarkGreen"
+	DARK_GRAY_Colors Colors = "DarkGray"
+	DARK_GOLDENROD_Colors Colors = "DarkGoldenrod"
+	DARK_CYAN_Colors Colors = "DarkCyan"
+	DARK_BLUE_Colors Colors = "DarkBlue"
+	IVORY_Colors Colors = "Ivory"
+	CRIMSON_Colors Colors = "Crimson"
+	CORNSILK_Colors Colors = "Cornsilk"
+	CORNFLOWER_BLUE_Colors Colors = "CornflowerBlue"
+	CORAL_Colors Colors = "Coral"
+	CHOCOLATE_Colors Colors = "Chocolate"
+	DARK_OLIVE_GREEN_Colors Colors = "DarkOliveGreen"
+	CHARTREUSE_Colors Colors = "Chartreuse"
+	BURLY_WOOD_Colors Colors = "BurlyWood"
+	BROWN_Colors Colors = "Brown"
+	BLUE_VIOLET_Colors Colors = "BlueViolet"
+	BLUE_Colors Colors = "Blue"
+	BLANCHED_ALMOND_Colors Colors = "BlanchedAlmond"
+	BLACK_Colors Colors = "Black"
+	BISQUE_Colors Colors = "Bisque"
+	BEIGE_Colors Colors = "Beige"
+	AZURE_Colors Colors = "Azure"
+	AQUAMARINE_Colors Colors = "Aquamarine"
+	AQUA_Colors Colors = "Aqua"
+	ANTIQUE_WHITE_Colors Colors = "AntiqueWhite"
+	ALICE_BLUE_Colors Colors = "AliceBlue"
+	CADET_BLUE_Colors Colors = "CadetBlue"
+	DARK_ORANGE_Colors Colors = "DarkOrange"
+	YELLOW_GREEN_Colors Colors = "YellowGreen"
+	DARK_RED_Colors Colors = "DarkRed"
+	INDIGO_Colors Colors = "Indigo"
+	INDIAN_RED_Colors Colors = "IndianRed"
+	DARK_ORCHID_Colors Colors = "DarkOrchid"
+	HONEYDEW_Colors Colors = "Honeydew"
+	GREEN_YELLOW_Colors Colors = "GreenYellow"
+	GREEN_Colors Colors = "Green"
+	GRAY_Colors Colors = "Gray"
+	GOLDENROD_Colors Colors = "Goldenrod"
+	GOLD_Colors Colors = "Gold"
+	GHOST_WHITE_Colors Colors = "GhostWhite"
+	GAINSBORO_Colors Colors = "Gainsboro"
+	FUCHSIA_Colors Colors = "Fuchsia"
+	FOREST_GREEN_Colors Colors = "ForestGreen"
+	HOT_PINK_Colors Colors = "HotPink"
+	FIREBRICK_Colors Colors = "Firebrick"
+	FLORAL_WHITE_Colors Colors = "FloralWhite"
+	DODGER_BLUE_Colors Colors = "DodgerBlue"
+	DIM_GRAY_Colors Colors = "DimGray"
+	DEEP_SKY_BLUE_Colors Colors = "DeepSkyBlue"
+	DEEP_PINK_Colors Colors = "DeepPink"
+	DARK_VIOLET_Colors Colors = "DarkViolet"
+	DARK_TURQUOISE_Colors Colors = "DarkTurquoise"
+	DARK_SLATE_GRAY_Colors Colors = "DarkSlateGray"
+	DARK_SLATE_BLUE_Colors Colors = "DarkSlateBlue"
+	DARK_SEA_GREEN_Colors Colors = "DarkSeaGreen"
+	DARK_SALMON_Colors Colors = "DarkSalmon"
+)
