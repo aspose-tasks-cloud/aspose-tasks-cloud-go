@@ -35,7 +35,7 @@ type View struct {
 	Type_ *ItemType `json:"type"`
 	// Gets the screen type for the single view. Read-only.
 	Screen *ViewScreen `json:"screen"`
-	// Gets or sets the name of a View object.
+	// Gets or sets the name of a view object.
 	Name string `json:"name,omitempty"`
 	// Gets the unique identifier of a view.
 	Uid int32 `json:"uid"`

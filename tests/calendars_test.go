@@ -79,6 +79,7 @@ func Test_Calendars_GetCalendar(t *testing.T) {
 	}
 	assert.Equal(t, int32(200), result.Code)
 	assert.NotNil(t, result.Calendar)
+	assert.Equal(t, "3F979F74-B9D3-4E5F-98DC-5E08060A0C30", result.Calendar.Guid)
 	assert.Equal(t, "Standard", result.Calendar.Name)
 	assert.Equal(t, int32(1), result.Calendar.Uid)
 	assert.True(t, result.Calendar.IsBaseCalendar)
@@ -221,11 +222,11 @@ func Test_Calendars_PutCalendar(t *testing.T) {
 		ToTime:   CreateTime(1, 1, 1, 17, 0, 0),
 	}
 	putCalendarOpts := &requests.PutCalendarOpts{
-		Name:   remoteFileName,
-		Folder: optional.NewString(remoteBaseTestDataFolder),
+		Name:        remoteFileName,
+		Folder:      optional.NewString(remoteBaseTestDataFolder),
 		CalendarUid: 1,
 		Calendar: models.Calendar{
-			Uid: 1,
+			Uid:                1,
 			Name:               "Modified calendar",
 			IsBaseCalendar:     false,
 			IsBaselineCalendar: false,
@@ -301,8 +302,8 @@ func Test_Calendars_DeleteCalendar(t *testing.T) {
 	assert.Equal(t, int32(200), deleteResult.Code)
 
 	getResult, _, err := client.TasksApi.GetCalendars(ctx, &requests.GetCalendarsOpts{
-		Name:        remoteFileName,
-		Folder:      optional.NewString(remoteBaseTestDataFolder),
+		Name:   remoteFileName,
+		Folder: optional.NewString(remoteBaseTestDataFolder),
 	})
 	if err != nil {
 		t.Error(err)

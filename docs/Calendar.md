@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Guid** | **string** | Gets calendar&#39;s Guid. | [optional] [default to null]
 **Name** | **string** | The name of the calendar. | [optional] [default to null]
 **Uid** | **int32** | The unique identifier of the calendar. | [default to null]
 **Days** | [**[]WeekDay**](WeekDay.md) | The collection of weekdays that defines the calendar. | [optional] [default to null]

@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="calendar.go">
+ * <copyright company="Aspose" file="primavera_percent_complete_type.go">
  *   Copyright (c) 2021 Aspose.Tasks Cloud
  * </copyright>
  * <summary>
@@ -26,21 +26,13 @@
  */
 
 package models
+// PrimaveraPercentCompleteType : Specifies value of '% Complete Type' field for Primavera activities.
+type PrimaveraPercentCompleteType string
 
-// Represents a calendar used in a project.
-type Calendar struct {
-	// Gets calendar's Guid.
-	Guid string `json:"guid,omitempty"`
-	// The name of the calendar.
-	Name string `json:"name,omitempty"`
-	// The unique identifier of the calendar.
-	Uid int32 `json:"uid"`
-	// The collection of weekdays that defines the calendar.
-	Days []WeekDay `json:"days,omitempty"`
-	// Determines whether the calendar is a base calendar.
-	IsBaseCalendar bool `json:"isBaseCalendar"`
-	// The base calendar on which this calendar depends. Only applicable if the calendar is not a base calendar.
-	BaseCalendar *Calendar `json:"baseCalendar,omitempty"`
-	// Specifies whether the calendar is a baseline calendar.
-	IsBaselineCalendar bool `json:"isBaselineCalendar"`
-}
+// List of PrimaveraPercentCompleteType
+const (
+	NONE_PrimaveraPercentCompleteType PrimaveraPercentCompleteType = "None"
+	DURATION_PrimaveraPercentCompleteType PrimaveraPercentCompleteType = "Duration"
+	PHYSICAL_PrimaveraPercentCompleteType PrimaveraPercentCompleteType = "Physical"
+	UNITS_PrimaveraPercentCompleteType PrimaveraPercentCompleteType = "Units"
+)

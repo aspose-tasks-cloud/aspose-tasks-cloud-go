@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="calendar.go">
+ * <copyright company="Aspose" file="primavera_duration_type.go">
  *   Copyright (c) 2021 Aspose.Tasks Cloud
  * </copyright>
  * <summary>
@@ -26,21 +26,14 @@
  */
 
 package models
+// PrimaveraDurationType : Specifies duration type of Primavera activity.
+type PrimaveraDurationType string
 
-// Represents a calendar used in a project.
-type Calendar struct {
-	// Gets calendar's Guid.
-	Guid string `json:"guid,omitempty"`
-	// The name of the calendar.
-	Name string `json:"name,omitempty"`
-	// The unique identifier of the calendar.
-	Uid int32 `json:"uid"`
-	// The collection of weekdays that defines the calendar.
-	Days []WeekDay `json:"days,omitempty"`
-	// Determines whether the calendar is a base calendar.
-	IsBaseCalendar bool `json:"isBaseCalendar"`
-	// The base calendar on which this calendar depends. Only applicable if the calendar is not a base calendar.
-	BaseCalendar *Calendar `json:"baseCalendar,omitempty"`
-	// Specifies whether the calendar is a baseline calendar.
-	IsBaselineCalendar bool `json:"isBaselineCalendar"`
-}
+// List of PrimaveraDurationType
+const (
+	NONE_PrimaveraDurationType PrimaveraDurationType = "None"
+	FIXED_DURATION_UNITS_PrimaveraDurationType PrimaveraDurationType = "FixedDurationUnits"
+	FIXED_DURATION_UNITS_TIME_PrimaveraDurationType PrimaveraDurationType = "FixedDurationUnitsTime"
+	FIXED_UNITS_PrimaveraDurationType PrimaveraDurationType = "FixedUnits"
+	FIXED_UNITS_TIME_PrimaveraDurationType PrimaveraDurationType = "FixedUnitsTime"
+)

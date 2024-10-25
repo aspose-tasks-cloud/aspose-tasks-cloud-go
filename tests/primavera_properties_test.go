@@ -30,6 +30,7 @@ package api_test
 
 import (
 	"github.com/antihax/optional"
+	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/models"
 	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/requests"
 	"github.com/stretchr/testify/assert"
 	"testing"
@@ -62,5 +63,8 @@ func Test_PrimaveraProperties_GetPrimaveraTaskProperties(t *testing.T) {
 	assert.Equal(t, "Task Dependent", result.PrimaveraProperties.RawActivityType)
 	assert.Equal(t, "Units", result.PrimaveraProperties.RawCompletePercentType)
 	assert.Equal(t, "Not Started", result.PrimaveraProperties.RawStatus)
+	assert.Equal(t, models.FIXED_UNITS_PrimaveraDurationType, *result.PrimaveraProperties.DurationType)
+	assert.Equal(t, models.TASK_DEPENDENT_PrimaveraActivityType, *result.PrimaveraProperties.ActivityType)
+	assert.Equal(t, models.UNITS_PrimaveraPercentCompleteType, *result.PrimaveraProperties.PercentCompleteType)
 	t.Cleanup(func() { DeleteTestFileFromStorage(t, ctx, client) })
 }

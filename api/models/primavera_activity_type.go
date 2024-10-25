@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="calendar.go">
+ * <copyright company="Aspose" file="primavera_activity_type.go">
  *   Copyright (c) 2021 Aspose.Tasks Cloud
  * </copyright>
  * <summary>
@@ -26,21 +26,16 @@
  */
 
 package models
+// PrimaveraActivityType : Specifies type of Primavera activity.
+type PrimaveraActivityType string
 
-// Represents a calendar used in a project.
-type Calendar struct {
-	// Gets calendar's Guid.
-	Guid string `json:"guid,omitempty"`
-	// The name of the calendar.
-	Name string `json:"name,omitempty"`
-	// The unique identifier of the calendar.
-	Uid int32 `json:"uid"`
-	// The collection of weekdays that defines the calendar.
-	Days []WeekDay `json:"days,omitempty"`
-	// Determines whether the calendar is a base calendar.
-	IsBaseCalendar bool `json:"isBaseCalendar"`
-	// The base calendar on which this calendar depends. Only applicable if the calendar is not a base calendar.
-	BaseCalendar *Calendar `json:"baseCalendar,omitempty"`
-	// Specifies whether the calendar is a baseline calendar.
-	IsBaselineCalendar bool `json:"isBaselineCalendar"`
-}
+// List of PrimaveraActivityType
+const (
+	NONE_PrimaveraActivityType PrimaveraActivityType = "None"
+	START_MILESTONE_PrimaveraActivityType PrimaveraActivityType = "StartMilestone"
+	FINISH_MILESTONE_PrimaveraActivityType PrimaveraActivityType = "FinishMilestone"
+	TASK_DEPENDENT_PrimaveraActivityType PrimaveraActivityType = "TaskDependent"
+	RESOURCE_DEPENDENT_PrimaveraActivityType PrimaveraActivityType = "ResourceDependent"
+	LEVEL_OF_EFFORT_PrimaveraActivityType PrimaveraActivityType = "LevelOfEffort"
+	WBS_SUMMARY_PrimaveraActivityType PrimaveraActivityType = "WbsSummary"
+)

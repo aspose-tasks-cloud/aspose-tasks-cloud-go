@@ -53,4 +53,46 @@ type PrimaveraTaskProperties struct {
 	RawCompletePercentType string `json:"rawCompletePercentType,omitempty"`
 	// Raw text representation (as in source file) of 'Status' field of the activity.
 	RawStatus string `json:"rawStatus,omitempty"`
+	// Gets the value of duration percent complete.
+	DurationPercentComplete float64 `json:"durationPercentComplete"`
+	// Gets the value of Physical Percent Complete.
+	PhysicalPercentComplete float64 `json:"physicalPercentComplete"`
+	// Gets the value of actual non labor units.
+	ActualNonLaborUnits float64 `json:"actualNonLaborUnits"`
+	// Gets the value of actual labor units.
+	ActualLaborUnits float64 `json:"actualLaborUnits"`
+	// Gets the value of units percent complete.
+	UnitsPercentComplete float64 `json:"unitsPercentComplete"`
+	// Gets the value of remaining labor units.
+	RemainingLaborUnits float64 `json:"remainingLaborUnits"`
+	// Gets the value of remaining non labor units.
+	RemainingNonLaborUnits float64 `json:"remainingNonLaborUnits"`
+	// Gets the value of 'Duration Type' field of the activity.
+	DurationType *PrimaveraDurationType `json:"durationType"`
+	// Gets the value of 'Activity Type' field.
+	ActivityType *PrimaveraActivityType `json:"activityType"`
+	// Gets the value of '% Complete Type' field of the activity.
+	PercentCompleteType *PrimaveraPercentCompleteType `json:"percentCompleteType"`
+	// Gets the value of actual labor cost.
+	ActualLaborCost float32 `json:"actualLaborCost"`
+	// Gets the value of actual non labor cost.
+	ActualNonlaborCost float32 `json:"actualNonlaborCost"`
+	// Gets the value of actual material cost.             
+	ActualMaterialCost float32 `json:"actualMaterialCost"`
+	// Gets the value of actual expense cost.
+	ActualExpenseCost float32 `json:"actualExpenseCost"`
+	// Gets the value of remaining expense cost.
+	RemainingExpenseCost float32 `json:"remainingExpenseCost"`
+	// Gets the total value of actual costs.
+	ActualTotalCost float32 `json:"actualTotalCost"`
+	// Gets the total value of budgeted (or planned) costs.
+	BudgetedTotalCost float32 `json:"budgetedTotalCost"`
+	// Gets the value of budgeted (or planned) labor cost.
+	BudgetedLaborCost float32 `json:"budgetedLaborCost"`
+	// Gets the value of budgeted (or planned) non labor cost.
+	BudgetedNonlaborCost float32 `json:"budgetedNonlaborCost"`
+	// Gets the value of of budgeted (or planned) material cost.
+	BudgetedMaterialCost float32 `json:"budgetedMaterialCost"`
+	// Gets the value of budgeted (or planned) expense cost.
+	BudgetedExpenseCost float32 `json:"budgetedExpenseCost"`
 }
