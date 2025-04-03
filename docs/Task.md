@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **ConstraintType** | [***ConstraintType**](ConstraintType.md) | Provides choices for the type of constraint that can be applied for scheduling a task. | [default to null]
 **Contact** | **string** | The contact person for a task. | [optional] [default to null]
 **Cost** | **float32** | The projected or scheduled cost of a task. | [default to null]
+**OutlineNumber** | **string** | Gets or sets a value of OutlineNumber. | [optional] [default to null]
 **Cv** | **float64** | The difference between the baseline cost and total cost for a task. | [default to null]
 **Deadline** | [**time.Time**](time.Time.md) | The deadline for a task to be completed. | [default to null]
 **DurationVariance** | **string** | Contains the difference between the total duration of a task and the baseline duration of a task. | [default to null]
@@ -118,6 +119,7 @@ Name | Type | Description | Notes
 **OutlineCodes** | [**[]OutlineCode**](OutlineCode.md) | Task outline codes. | [optional] [default to null]
 **Warning** | **bool** | Represents the flag which indicates that task has schedule discrepancies. | [default to null]
 **ActivityId** | **string** | Represents activity id field - a task&#39;s unique identifier used by Primavera (only applicable to Primavera projects). | [optional] [default to null]
+**ExternalUid** | **int32** | Contains the external task&#39;s Unique identifier when the task is external. | [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -85,6 +85,8 @@ type Task struct {
 	Contact string `json:"contact,omitempty"`
 	// The projected or scheduled cost of a task.
 	Cost float32 `json:"cost"`
+	// Gets or sets a value of OutlineNumber.
+	OutlineNumber string `json:"outlineNumber,omitempty"`
 	// The difference between the baseline cost and total cost for a task.
 	Cv float64 `json:"cv"`
 	// The deadline for a task to be completed.
@@ -254,4 +256,6 @@ type Task struct {
 	Warning bool `json:"warning"`
 	// Represents activity id field - a task's unique identifier used by Primavera (only applicable to Primavera projects).
 	ActivityId string `json:"activityId,omitempty"`
+	// Contains the external task's Unique identifier when the task is external.
+	ExternalUid int32 `json:"externalUid"`
 }

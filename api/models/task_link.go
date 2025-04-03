@@ -35,4 +35,6 @@ type TaskLink struct {
 	LinkType *TaskLinkType `json:"linkType"`
 	Lag int32 `json:"lag"`
 	LagFormat *TimeUnitType `json:"lagFormat"`
+	// Gets or sets lag duration, depending on LagFormat.
+	LinkLagTimeSpan *string `json:"linkLagTimeSpan,omitempty"`
 }

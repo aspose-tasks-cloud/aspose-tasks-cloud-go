@@ -31,4 +31,6 @@ package models
 type ProjectRecalculationResult struct {
 	ValidationState *ProjectValidationState `json:"validationState"`
 	ValidationErrorMessage string `json:"validationErrorMessage,omitempty"`
+	// Gets the task uid which caused the validation error.
+	FailedTaskUid int32 `json:"failedTaskUid,omitempty"`
 }

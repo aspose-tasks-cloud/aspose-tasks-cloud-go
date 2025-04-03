@@ -136,3 +136,59 @@ func Test_TaskDocumentFormat_PostTaskDocumentWithFormat(t *testing.T) {
 	assert.Equal(t, "Five to Eight Weeks Before Moving,16 days", fileAsStrings[0])
 	t.Cleanup(func() { DeleteTestFileFromStorage(t, ctx, client) })
 }
+
+// Test for get task document with format and extended properties.
+func Test_TaskDocumentFormat_PostTaskDocumentWithFormat_WithExtendedProps(t *testing.T) {
+	localFileName := "Home_move_plan.mpp"
+	remoteFileName := CreateRandomGuid() + localFileName
+	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
+
+	// SaveOptions parameters is a representation of
+	// Aspose.Tasks's SaveOptions class or its format-specific inheritors (Like CsvOptions, etc):
+	// See Aspose.Tasks reference: https://apireference.aspose.com/net/tasks/aspose.tasks.saving/saveoptions
+	type (
+		Column = struct {
+			Type     string
+			Name     string
+			Property string
+			Width    int
+		}
+		View = struct {
+			Columns []Column
+		}
+		saveOptions = struct {
+			View View
+		}
+	)
+
+	so := saveOptions{
+		View{
+			[]Column{
+				{"GanttChartColumn", "ID", "Id", 120},
+				{"GanttChartColumn", "Active", "IsActive", 120},
+				{"GanttChartColumn", "Name", "Name", 120},
+				{"GanttChartColumn", "Duration", "Duration", 120},
+				{"GanttChartColumn", "Start", "Start", 120},
+				{"GanttChartColumn", "Finish", "Finish", 120},
+				{"GanttChartColumn", "Predecessors", "Predecessors", 120},
+				{"GanttChartColumn", "Successors", "Successors", 120},
+			},
+		},
+	}
+	opts := &requests.PostTaskDocumentWithFormatOpts{
+		Name:        remoteFileName,
+		SaveOptions: so,
+		Format:      string(models.CSV_ProjectFileFormat),
+		Folder:      optional.NewString(remoteBaseTestDataFolder),
+	}
+	data, response, err := client.TasksApi.PostTaskDocumentWithFormat(ctx, opts)
+	if err != nil {
+		t.Error(err)
+	}
+	assert.Equal(t, 200, response.StatusCode)
+	assert.NotNil(t, data)
+	assert.Less(t, 1, len(data))
+	fileAsStrings := ConvertBytesToStrings(data)
+	assert.Equal(t, "ID;Active;Name;Duration;Start;Finish;Predecessors;Successors", fileAsStrings[0])
+	t.Cleanup(func() { DeleteTestFileFromStorage(t, ctx, client) })
+}

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **LinkType** | [***TaskLinkType**](TaskLinkType.md) |  | [default to null]
 **Lag** | **int32** |  | [default to null]
 **LagFormat** | [***TimeUnitType**](TimeUnitType.md) |  | [default to null]
+**LinkLagTimeSpan** | **string** | Gets or sets lag duration, depending on LagFormat. | [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

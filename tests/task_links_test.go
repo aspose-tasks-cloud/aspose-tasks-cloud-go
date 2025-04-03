@@ -117,7 +117,7 @@ func Test_TaskLinks_PutTaskLink(t *testing.T) {
 	taskLinkToEdit.LagFormat = &newTimeUnitType
 	taskLinkToEdit.LinkType = &newTaskLinkType
 	putOpts := &requests.PutTaskLinkOpts{
-		Index: 1,
+		Index:    1,
 		TaskLink: *taskLinkToEdit,
 		Name:     remoteFileName,
 		Folder:   optional.NewString(remoteBaseTestDataFolder),
@@ -140,6 +140,7 @@ func Test_TaskLinks_PutTaskLink(t *testing.T) {
 	assert.Equal(t, *taskLinkToEdit.LinkType, *getResult.TaskLinks[0].LinkType)
 	assert.Equal(t, taskLinkToEdit.Lag, getResult.TaskLinks[0].Lag)
 	assert.Equal(t, *taskLinkToEdit.LagFormat, *getResult.TaskLinks[0].LagFormat)
+	assert.Equal(t, "16:00:00", *getResult.TaskLinks[0].LinkLagTimeSpan)
 	t.Cleanup(func() { DeleteTestFileFromStorage(t, ctx, client) })
 }
 
@@ -150,9 +151,9 @@ func Test_TaskLinks_DeleteTaskLink(t *testing.T) {
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
 
 	deleteOpts := &requests.DeleteTaskLinkOpts{
-		Index: 1,
-		Name:     remoteFileName,
-		Folder:   optional.NewString(remoteBaseTestDataFolder),
+		Index:  1,
+		Name:   remoteFileName,
+		Folder: optional.NewString(remoteBaseTestDataFolder),
 	}
 	deleteResult, _, err := client.TasksApi.DeleteTaskLink(ctx, deleteOpts)
 	if err != nil {
