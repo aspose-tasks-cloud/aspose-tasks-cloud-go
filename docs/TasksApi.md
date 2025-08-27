@@ -61,6 +61,8 @@ Method | HTTP request | Description
 [**PutRecalculateProjectUncompleteWorkToStartAfter**](TasksApi.md#putrecalculateprojectuncompleteworktostartafter) | **Put** /tasks/{name}/recalculate/uncompleteWorkToStartAfter | Recalculate project uncomplete work
 [**PutRecalculateProjectWorkAsComplete**](TasksApi.md#putrecalculateprojectworkascomplete) | **Put** /tasks/{name}/recalculate/projectWorkAsComplete | Recalculate project work as complete 
 [**GetReportPdf**](TasksApi.md#getreportpdf) | **Get** /tasks/{name}/report | Returns created report in PDF format.
+[**ClearLeveling**](TasksApi.md#clearleveling) | **Delete** /tasks/{name}/resourceLevel | Clears leveling delays that was previously added to the project during resource leveling.  If request body is empty, all leveling delays will be cleared.
+[**LevelTasks**](TasksApi.md#leveltasks) | **Put** /tasks/{name}/resourceLevel | Levels tasks for project’s resources. If request body is empty,  all project&#39;s resources with default leveling options will be leveled.
 [**DeleteResource**](TasksApi.md#deleteresource) | **Delete** /tasks/{name}/resources/{resourceUid} | Deletes a project resource with all references to it
 [**GetResource**](TasksApi.md#getresource) | **Get** /tasks/{name}/resources/{resourceUid} | Get project resource.
 [**GetResourceAssignments**](TasksApi.md#getresourceassignments) | **Get** /tasks/{name}/resources/{resourceUid}/assignments | Get resource&#39;s assignments.
@@ -1988,6 +1990,72 @@ Name | Type | Description  | Notes
 
 ### Return type
 [***os.File**](*os.File.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ClearLeveling**
+> AsposeResponse ClearLeveling(ctx, name, optional)
+Clears leveling delays that was previously added to the project during resource leveling.  If request body is empty, all leveling delays will be cleared.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file | 
+ **optional** | ***ClearLevelingOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **taskUids** | **optional.[]int32**| The array containing task uids              for which leveling delay should be cleared.              If not specified, all leveling delays will be cleared.  | 
+ **fileName** | **optional.String**| The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document. | 
+ **folder** | **optional.String**| The folder storage | 
+ **storage** | **optional.String**| The document storage. | 
+
+### Return type
+[**AsposeResponse**](AsposeResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **LevelTasks**
+> LevelingResponse LevelTasks(ctx, name, optional)
+Levels tasks for project’s resources. If request body is empty,  all project's resources with default leveling options will be leveled.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file | 
+ **optional** | ***LevelTasksOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **options** | [**optional.Interface of LevelingOptions**](LevelingOptions.md)| Options which specifies how to level resources.              If not specified, default leveling options will be used.  | 
+ **fileName** | **optional.String**| The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document. | 
+ **folder** | **optional.String**| The folder storage | 
+ **storage** | **optional.String**| The document storage. | 
+
+### Return type
+[**LevelingResponse**](LevelingResponse.md)
 
 ### Authorization
 [JWT](../README.md#JWT)

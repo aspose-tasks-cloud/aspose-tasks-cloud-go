@@ -44,10 +44,10 @@ func Test_GetPageCount(t *testing.T) {
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
 
 	options := &requests.GetPageCountOpts{
-		Name:   remoteFileName,
-		Folder: optional.NewString(remoteBaseTestDataFolder),
+		Name:               remoteFileName,
+		Folder:             optional.NewString(remoteBaseTestDataFolder),
 		PresentationFormat: optional.NewString(string(models.TASK_USAGE_PresentationFormat)),
-		Timescale: optional.NewString(string(models.MONTHS_Timescale)),
+		Timescale:          optional.NewString(string(models.MONTHS_Timescale)),
 	}
 	result, _, err := client.TasksApi.GetPageCount(ctx, options)
 
@@ -66,15 +66,15 @@ func Test_GetPageCountWithSpecifiedPresentationFormatAndDateInterval(t *testing.
 
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
 
-	newStartDate := CreateTime(2004, 1, 1,0,0,0)
-	newEndDate := CreateTime(2004, 1, 28,0,0,0)
+	newStartDate := CreateTime(2004, 1, 1, 0, 0, 0)
+	newEndDate := CreateTime(2004, 1, 28, 0, 0, 0)
 	options := &requests.GetPageCountOpts{
-		Name:   remoteFileName,
-		Folder: optional.NewString(remoteBaseTestDataFolder),
+		Name:               remoteFileName,
+		Folder:             optional.NewString(remoteBaseTestDataFolder),
 		PresentationFormat: optional.NewString(string(models.TASK_USAGE_PresentationFormat)),
-		Timescale: optional.NewString(string(models.MONTHS_Timescale)),
-		StartDate: &newStartDate,
-		EndDate: &newEndDate,
+		Timescale:          optional.NewString(string(models.MONTHS_Timescale)),
+		StartDate:          &newStartDate,
+		EndDate:            &newEndDate,
 	}
 	result, _, err := client.TasksApi.GetPageCount(ctx, options)
 

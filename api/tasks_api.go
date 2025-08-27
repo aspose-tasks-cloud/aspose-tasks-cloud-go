@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="tasks_api.go">
- *   Copyright (c) 2021 Aspose.Tasks Cloud
+ *   Copyright (c) 2025 Aspose.Tasks Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -4218,8 +4218,9 @@ func (a *TasksApiService) CreateNewProject(ctx context.Context, localVarOptional
 	// body params
 	if localVarOptionals != nil && localVarOptionals.SaveOptions.IsSet() {
 
-		localVarOptionalSaveOptions, localVarOptionalSaveOptionsok := localVarOptionals.SaveOptions.Value().(models.ProjectServerSaveOptionsDto)
-		if !localVarOptionalSaveOptionsok {
+		localVarOptionalSaveOptions, localVarOptionalSaveOptionsOk := localVarOptionals.SaveOptions.Value().(models.ProjectServerSaveOptionsDto)
+
+		if !localVarOptionalSaveOptionsOk {
 			return localVarReturnValue, nil, reportError("saveOptions should be ProjectServerSaveOptionsDto")
 		}
 		localVarPostBody = &localVarOptionalSaveOptions
@@ -4406,8 +4407,9 @@ func (a *TasksApiService) UpdateProject(ctx context.Context, localVarOptionals *
 	// body params
 	if localVarOptionals != nil && localVarOptionals.SaveOptions.IsSet() {
 
-		localVarOptionalSaveOptions, localVarOptionalSaveOptionsok := localVarOptionals.SaveOptions.Value().(models.ProjectServerSaveOptionsDto)
-		if !localVarOptionalSaveOptionsok {
+		localVarOptionalSaveOptions, localVarOptionalSaveOptionsOk := localVarOptionals.SaveOptions.Value().(models.ProjectServerSaveOptionsDto)
+
+		if !localVarOptionalSaveOptionsOk {
 			return localVarReturnValue, nil, reportError("saveOptions should be ProjectServerSaveOptionsDto")
 		}
 		localVarPostBody = &localVarOptionalSaveOptions
@@ -5461,6 +5463,195 @@ func (a *TasksApiService) PutResource(ctx context.Context, localVarOptionals *re
 	}
 	// body params
 	localVarPostBody = &localVarOptionals.Resource
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
+TasksApiService Clears leveling delays that was previously added to the project during resource leveling.  If request body is empty, all leveling delays will be cleared.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param *requests.ClearLevelingOpts - Request parameters:
+     * @param "Name" (string) - The name of the file
+     * @param "TaskUids" (optional.[]int32) -  The array containing task uids              for which leveling delay should be cleared.              If not specified, all leveling delays will be cleared.
+     * @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
+     * @param "Folder" (optional.String) -  The folder storage
+     * @param "Storage" (optional.String) -  The document storage.
+
+@return models.AsposeResponse
+*/
+func (a *TasksApiService) ClearLeveling(ctx context.Context, localVarOptionals *requests.ClearLevelingOpts) (models.AsposeResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarReturnValue models.AsposeResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/resourceLevel"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.FileName.IsSet() {
+		localVarQueryParams.Add("fileName", parameterToString(localVarOptionals.FileName.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	if localVarOptionals != nil && localVarOptionals.TaskUids.IsSet() {
+		localVarOptionalTaskUids, localVarOptionalTaskUidsOk := localVarOptionals.TaskUids.Value().([]int32)
+
+		if !localVarOptionalTaskUidsOk {
+			return localVarReturnValue, nil, reportError("taskUids should be []int32")
+		}
+		localVarPostBody = &localVarOptionalTaskUids
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
+TasksApiService Levels tasks for project’s resources. If request body is empty,  all project&#39;s resources with default leveling options will be leveled.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param *requests.LevelTasksOpts - Request parameters:
+     * @param "Name" (string) - The name of the file
+     * @param "Options" (optional.Interface of LevelingOptions) -  Options which specifies how to level resources.              If not specified, default leveling options will be used.
+     * @param "FileName" (optional.String) -  The name of the project document to save changes to.              If this parameter is omitted then the changes will be saved to the source project document.
+     * @param "Folder" (optional.String) -  The folder storage
+     * @param "Storage" (optional.String) -  The document storage.
+
+@return models.LevelingResponse
+*/
+func (a *TasksApiService) LevelTasks(ctx context.Context, localVarOptionals *requests.LevelTasksOpts) (models.LevelingResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarReturnValue models.LevelingResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/resourceLevel"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.FileName.IsSet() {
+		localVarQueryParams.Add("fileName", parameterToString(localVarOptionals.FileName.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	if localVarOptionals != nil && localVarOptionals.Options.IsSet() {
+
+		localVarOptionalOptions, localVarOptionalOptionsOk := localVarOptionals.Options.Value().(models.LevelingOptions)
+
+		if !localVarOptionalOptionsOk {
+			return localVarReturnValue, nil, reportError("options should be LevelingOptions")
+		}
+		localVarPostBody = &localVarOptionalOptions
+	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
 	if err != nil {
 		return localVarReturnValue, nil, err

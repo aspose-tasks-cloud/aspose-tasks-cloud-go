@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="resource.go">
- *   Copyright (c) 2021 Aspose.Tasks Cloud
+ *   Copyright (c) 2025 Aspose.Tasks Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -10,10 +10,10 @@
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *  copies of the Software, and to permit persons to whom the Software is
  *  furnished to do so, subject to the following conditions:
- * 
+ *
  *  The above copyright notice and this permission notice shall be included in all
  *  copies or substantial portions of the Software.
- * 
+ *
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -33,7 +33,7 @@ import (
 
 // Represents a project resource.
 type Resource struct {
-	//         Gets the flag indicating whether resource is a root resource. Root resource is         a special resource which is intended to support internals of MS Project's formats         and is not intended to be used directly from the user's code.     
+	//         Gets the flag indicating whether resource is a root resource. Root resource is         a special resource which is intended to support internals of MS Project's formats         and is not intended to be used directly from the user's code.
 	IsRoot bool `json:"isRoot"`
 	// The name of a resource.
 	Name string `json:"name,omitempty"`
@@ -41,7 +41,7 @@ type Resource struct {
 	Uid int32 `json:"uid"`
 	// The position identifier of a resource within the list of resources.
 	Id int32 `json:"id"`
-	// Contains the generated unique identification code for the resource.             
+	// Contains the generated unique identification code for the resource.
 	Guid string `json:"guid,omitempty"`
 	// The type of a resource.
 	Type_ *ResourceType `json:"type"`
@@ -62,7 +62,7 @@ type Resource struct {
 	// The code or other information about a resource.
 	Code string `json:"code,omitempty"`
 	// The group to which a resource belongs.
-	Group string `json:"group,omitempty"`
+	Group        string `json:"group,omitempty"`
 	EmailAddress string `json:"emailAddress,omitempty"`
 	// The title of a hyperlink associated with a resource.
 	Hyperlink string `json:"hyperlink,omitempty"`
@@ -73,8 +73,8 @@ type Resource struct {
 	// The maximum number of units of a resource is available.
 	MaxUnits float64 `json:"maxUnits"`
 	// The largest number of units assigned to a resource at any time.
-	PeakUnits float64 `json:"peakUnits"`
-	OverAllocated bool `json:"overAllocated"`
+	PeakUnits     float64 `json:"peakUnits"`
+	OverAllocated bool    `json:"overAllocated"`
 	// The first date when a resource is available.
 	AvailableFrom custom.TimeWithoutTZ `json:"availableFrom"`
 	// The last date when a resource is available.
@@ -165,7 +165,7 @@ type Resource struct {
 	CostCenter string `json:"costCenter,omitempty"`
 	// Determines whether a resource is a cost resource.
 	IsCostResource bool `json:"isCostResource"`
-	// Determines whether the current resource is a team resource.             
+	// Determines whether the current resource is a team resource.
 	TeamAssignmentPool bool `json:"teamAssignmentPool"`
 	// The name of an assignment owner.
 	AssignmentOwner string `json:"assignmentOwner,omitempty"`

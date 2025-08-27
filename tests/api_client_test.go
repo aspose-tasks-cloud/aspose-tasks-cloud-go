@@ -10,10 +10,10 @@
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *  copies of the Software, and to permit persons to whom the Software is
  *  furnished to do so, subject to the following conditions:
- * 
+ *
  *  The above copyright notice and this permission notice shall be included in all
  *  copies or substantial portions of the Software.
- * 
+ *
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -28,83 +28,82 @@
 package api_test
 
 import (
-    "context"
-    "os"
-    "testing"
-    "github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api"
-    "github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/requests"
-    "github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/models"
-    "github.com/stretchr/testify/assert"
+	"context"
+	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api"
+	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/models"
+	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/requests"
+	"github.com/stretchr/testify/assert"
+	"os"
+	"testing"
 )
 
 func TestAppSidAndAppKey(t *testing.T) {
-    p := []struct {
-        appKey string
-        appSid string
-    }{
-        {"", "x"},
-        {"x", ""},
-    }
-    for _, cp := range p {
-        config := models.Configuration{
-            AppKey: cp.appKey,
-            AppSid: cp.appSid,
-        }
-        _, err := api.NewAPIClient(&config)
+	p := []struct {
+		appKey string
+		appSid string
+	}{
+		{"", "x"},
+		{"x", ""},
+	}
+	for _, cp := range p {
+		config := models.Configuration{
+			AppKey: cp.appKey,
+			AppSid: cp.appSid,
+		}
+		_, err := api.NewAPIClient(&config)
 
-        assert.Error(t, err)
-    }
+		assert.Error(t, err)
+	}
 }
 
 func TestBaseUrl(t *testing.T) {
-    config := models.Configuration{
-        AppKey:  "x",
-        AppSid:  "x",
-        BaseUrl: "x",
-    }
-    _, err := api.NewAPIClient(&config)
+	config := models.Configuration{
+		AppKey:  "x",
+		AppSid:  "x",
+		BaseUrl: "x",
+	}
+	_, err := api.NewAPIClient(&config)
 
-    assert.Error(t, err)
+	assert.Error(t, err)
 }
 
 func TestWrongAppKey(t *testing.T) {
-    config := ReadConfiguration(t)
-    config.AppKey = "x"
-    _, _, err := api.CreateTasksApi(config)
+	config := ReadConfiguration(t)
+	config.AppKey = "x"
+	_, _, err := api.CreateTasksApi(config)
 
-    assert.Error(t, err)
+	assert.Error(t, err)
 }
 
 func TestWrongAppSid(t *testing.T) {
-    config := ReadConfiguration(t)
-    config.AppSid = "x"
-    _, _, err := api.CreateTasksApi(config)
+	config := ReadConfiguration(t)
+	config.AppSid = "x"
+	_, _, err := api.CreateTasksApi(config)
 
-    assert.Error(t, err)
+	assert.Error(t, err)
 }
 
 func TestUnathorizedAccess(t *testing.T) {
-    config := ReadConfiguration(t)
-    client, err := api.NewAPIClient(config)
+	config := ReadConfiguration(t)
+	client, err := api.NewAPIClient(config)
 
-    if err != nil {
-        t.Error(err)
-    }
-    fileName := "NewProductDev.mpp"
-    remoteFilePath := remoteBaseTestDataFolder + "/Storage/" + fileName
-    localFilePath := GetLocalPath(fileName)
-    file, fileErr := os.Open(localFilePath)
-    if fileErr != nil {
-        t.Error(fileErr)
-    }
+	if err != nil {
+		t.Error(err)
+	}
+	fileName := "NewProductDev.mpp"
+	remoteFilePath := remoteBaseTestDataFolder + "/Storage/" + fileName
+	localFilePath := GetLocalPath(fileName)
+	file, fileErr := os.Open(localFilePath)
+	if fileErr != nil {
+		t.Error(fileErr)
+	}
 
-    request := requests.UploadFileOpts{
-        Path: remoteFilePath,
-        File:        file,
-    }
+	request := requests.UploadFileOpts{
+		Path: remoteFilePath,
+		File: file,
+	}
 
-    _, _, err = client.TasksApi.UploadFile(context.Background(), &request)
+	_, _, err = client.TasksApi.UploadFile(context.Background(), &request)
 
-    assert.Error(t, err)
+	assert.Error(t, err)
 }
-

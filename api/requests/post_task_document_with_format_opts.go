@@ -32,10 +32,10 @@ import (
 )
 
 type PostTaskDocumentWithFormatOpts struct {
-	Name string
-	Format string
-	SaveOptions interface{}
+	Name               string
+	Format             string
+	SaveOptions        interface{}
 	ReturnAsZipArchive optional.Bool
-	Storage optional.String
-	Folder optional.String
+	Storage            optional.String
+	Folder             optional.String
 }

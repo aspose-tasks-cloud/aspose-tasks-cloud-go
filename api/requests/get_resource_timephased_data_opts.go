@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="get_resource_timephased_data_opts.go">
- *   Copyright (c) 2021 Aspose.Tasks Cloud
+ *   Copyright (c) 2025 Aspose.Tasks Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -10,10 +10,10 @@
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *  copies of the Software, and to permit persons to whom the Software is
  *  furnished to do so, subject to the following conditions:
- * 
+ *
  *  The above copyright notice and this permission notice shall be included in all
  *  copies or substantial portions of the Software.
- * 
+ *
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -27,17 +27,17 @@
 
 package requests
 
-import ( 
-	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/custom"
+import (
 	"github.com/antihax/optional"
+	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/custom"
 )
 
-type GetResourceTimephasedDataOpts struct { 
-	Name string
+type GetResourceTimephasedDataOpts struct {
+	Name        string
 	ResourceUid int32
-	Type_ optional.String
-	StartDate *custom.TimeWithoutTZ
-	EndDate *custom.TimeWithoutTZ
-	Folder optional.String
-	Storage optional.String
+	Type_       optional.String
+	StartDate   *custom.TimeWithoutTZ
+	EndDate     *custom.TimeWithoutTZ
+	Folder      optional.String
+	Storage     optional.String
 }

@@ -60,8 +60,8 @@ func Test_CalendarWorkWeeks_GetCalendarWorkWeeks(t *testing.T) {
 	}
 
 	getCalendarWorkWeeksResult, _, err := client.TasksApi.GetCalendarWorkWeeks(ctx, &requests.GetCalendarWorkWeeksOpts{
-		Name:   remoteFileName,
-		Folder: optional.NewString(remoteBaseTestDataFolder),
+		Name:        remoteFileName,
+		Folder:      optional.NewString(remoteBaseTestDataFolder),
 		CalendarUid: calendarUid,
 	})
 	if err != nil {

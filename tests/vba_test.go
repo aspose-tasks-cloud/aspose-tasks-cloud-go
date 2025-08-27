@@ -53,8 +53,8 @@ func Test_Vba_GetVbaProject(t *testing.T) {
 	assert.Equal(t, int32(200), result.Code)
 	assert.NotNil(t, result.VbaProject)
 	assert.NotNil(t, result.VbaProject.Modules)
-	assert.Equal(t, 7, len(result.VbaProject.Modules))
-	assert.Equal(t, "Module1", result.VbaProject.Modules[0].Name)
-	assert.True(t, strings.HasPrefix(result.VbaProject.Modules[0].SourceCode, "Type MEMORYSTATUS"))
+	assert.Equal(t, 8, len(result.VbaProject.Modules))
+	assert.Equal(t, "Module1", result.VbaProject.Modules[1].Name)
+	assert.True(t, strings.HasPrefix(result.VbaProject.Modules[1].SourceCode, "Type MEMORYSTATUS"))
 	t.Cleanup(func() { DeleteTestFileFromStorage(t, ctx, client) })
 }

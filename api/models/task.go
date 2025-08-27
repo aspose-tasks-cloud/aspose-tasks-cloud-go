@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="task.go">
- *   Copyright (c) 2021 Aspose.Tasks Cloud
+ *   Copyright (c) 2025 Aspose.Tasks Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -10,10 +10,10 @@
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *  copies of the Software, and to permit persons to whom the Software is
  *  furnished to do so, subject to the following conditions:
- * 
+ *
  *  The above copyright notice and this permission notice shall be included in all
  *  copies or substantial portions of the Software.
- * 
+ *
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -114,8 +114,8 @@ type Task struct {
 	// Determines how the fixed cost is accrued against a task.
 	FixedCostAccrual *CostAccrualType `json:"fixedCostAccrual"`
 	// The amount of a free slack.
-	FreeSlack int32 `json:"freeSlack"`
-	Guid string `json:"guid,omitempty"`
+	FreeSlack int32  `json:"freeSlack"`
+	Guid      string `json:"guid,omitempty"`
 	// Indicates whether the task has an resource assigned which has more work on assigned tasks than can be completed within normal working capacity.
 	HasOverallocatedResource bool `json:"hasOverallocatedResource"`
 	// Determines whether the GANTT bar of a task is hidden when displayed in Microsoft Project.
@@ -125,12 +125,12 @@ type Task struct {
 	// The late finish date of a task.
 	LateFinish custom.TimeWithoutTZ `json:"lateFinish"`
 	// The late start date of a task.
-	LateStart custom.TimeWithoutTZ `json:"lateStart"`
-	IsLevelAssignments bool `json:"isLevelAssignments"`
-	CanLevelingSplit bool `json:"canLevelingSplit"`
+	LateStart          custom.TimeWithoutTZ `json:"lateStart"`
+	IsLevelAssignments bool                 `json:"isLevelAssignments"`
+	CanLevelingSplit   bool                 `json:"canLevelingSplit"`
 	// The delay caused by leveling a task.
 	LevelingDelay int32 `json:"levelingDelay"`
-	// Shows whether a task is marked for further action or identification of some kind.             
+	// Shows whether a task is marked for further action or identification of some kind.
 	IsMarked bool `json:"isMarked"`
 	// Determines whether a task is a milestone.
 	IsMilestone bool `json:"isMilestone"`
@@ -147,8 +147,8 @@ type Task struct {
 	// Unique ids of all subtasks.
 	SubtasksUids []int32 `json:"subtasksUids,omitempty"`
 	// The outline level of a task.
-	OutlineLevel int32 `json:"outlineLevel"`
-	IsOverAllocated bool `json:"isOverAllocated"`
+	OutlineLevel    int32 `json:"outlineLevel"`
+	IsOverAllocated bool  `json:"isOverAllocated"`
 	// Determines whether a task is estimated.
 	IsEstimated bool `json:"isEstimated"`
 	// The sum of an actual and remaining overtime cost of a task.
@@ -156,9 +156,9 @@ type Task struct {
 	// The amount of an overtime work scheduled for a task.
 	OvertimeWork *string `json:"overtimeWork,omitempty"`
 	// The percentage complete value entered by the Project Manager.
-	PhysicalPercentComplete int32 `json:"physicalPercentComplete"`
-	PreLeveledFinish custom.TimeWithoutTZ `json:"preLeveledFinish"`
-	PreLeveledStart custom.TimeWithoutTZ `json:"preLeveledStart"`
+	PhysicalPercentComplete int32                `json:"physicalPercentComplete"`
+	PreLeveledFinish        custom.TimeWithoutTZ `json:"preLeveledFinish"`
+	PreLeveledStart         custom.TimeWithoutTZ `json:"preLeveledStart"`
 	// Determines whether a task is a recurring task.
 	IsRecurring bool `json:"isRecurring"`
 	// The amount of non-overtime work scheduled for a task.
@@ -183,7 +183,7 @@ type Task struct {
 	IsRollup bool `json:"isRollup"`
 	// Returns the task's start slack.
 	StartSlack int32 `json:"startSlack"`
-	// The variance of the task start date from the baseline start date as minutes. 
+	// The variance of the task start date from the baseline start date as minutes.
 	StartVariance int32 `json:"startVariance"`
 	// The unique id of task calendar.
 	CalendarUid int32 `json:"calendarUid"`
@@ -210,17 +210,17 @@ type Task struct {
 	// Notes' plain text extracted from RTF data.
 	NotesText string `json:"notesText,omitempty"`
 	// The text notes in RTF format.
-	NotesRTF string `json:"notesRTF,omitempty"`
-	Acwp float64 `json:"acwp"`
-	Bcws float64 `json:"bcws"`
-	Bcwp float64 `json:"bcwp"`
+	NotesRTF string  `json:"notesRTF,omitempty"`
+	Acwp     float64 `json:"acwp"`
+	Bcws     float64 `json:"bcws"`
+	Bcwp     float64 `json:"bcwp"`
 	// LevelingDelayFormat
 	LevelingDelayFormat *TimeUnitType `json:"levelingDelayFormat"`
 	// The task Uid numbers for the predecessor tasks on which the task depends before it can be started or finished.
 	Predecessors string `json:"predecessors,omitempty"`
 	// The task Uid numbers for the successor tasks to a task.
 	Successors string `json:"successors,omitempty"`
-	// Indicates whether to hide the schedule conflict warning indicator in Microsoft Project.             
+	// Indicates whether to hide the schedule conflict warning indicator in Microsoft Project.
 	IgnoreWarnings bool `json:"ignoreWarnings"`
 	// Determines whether a summary task is expanded or not in GanttChart view.
 	IsExpanded bool `json:"isExpanded"`

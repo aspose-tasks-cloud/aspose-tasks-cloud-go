@@ -164,11 +164,11 @@ func Test_CalendarExceptions_PutCalendarException(t *testing.T) {
 	exception.ToDate = CreateTime(2015, 8, 5, 23, 59, 0)
 
 	putResult, _, err := client.TasksApi.PutCalendarException(ctx, &requests.PutCalendarExceptionOpts{
-		CalendarUid: 1,
-		Index: exception.Index,
+		CalendarUid:       1,
+		Index:             exception.Index,
 		CalendarException: *exception,
-		Name:        remoteFileName,
-		Folder:      optional.NewString(remoteBaseTestDataFolder),
+		Name:              remoteFileName,
+		Folder:            optional.NewString(remoteBaseTestDataFolder),
 	})
 
 	if err != nil {
@@ -202,7 +202,7 @@ func Test_CalendarExceptions_DeleteCalendarException(t *testing.T) {
 
 	deleteResult, _, err := client.TasksApi.DeleteCalendarException(ctx, &requests.DeleteCalendarExceptionOpts{
 		CalendarUid: 1,
-		Index: 1,
+		Index:       1,
 		Name:        remoteFileName,
 		Folder:      optional.NewString(remoteBaseTestDataFolder),
 	})

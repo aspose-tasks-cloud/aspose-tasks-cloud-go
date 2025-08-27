@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="primavera_task_properties.go">
- *   Copyright (c) 2021 Aspose.Tasks Cloud
+ *   Copyright (c) 2025 Aspose.Tasks Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -10,10 +10,10 @@
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *  copies of the Software, and to permit persons to whom the Software is
  *  furnished to do so, subject to the following conditions:
- * 
+ *
  *  The above copyright notice and this permission notice shall be included in all
  *  copies or substantial portions of the Software.
- * 
+ *
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -77,7 +77,7 @@ type PrimaveraTaskProperties struct {
 	ActualLaborCost float32 `json:"actualLaborCost"`
 	// Gets the value of actual non labor cost.
 	ActualNonlaborCost float32 `json:"actualNonlaborCost"`
-	// Gets the value of actual material cost.             
+	// Gets the value of actual material cost.
 	ActualMaterialCost float32 `json:"actualMaterialCost"`
 	// Gets the value of actual expense cost.
 	ActualExpenseCost float32 `json:"actualExpenseCost"`

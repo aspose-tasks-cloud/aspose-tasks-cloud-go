@@ -141,9 +141,9 @@ func Test_Recalculation_PutRecalculateProjectWorkAsComplete(t *testing.T) {
 	client, ctx := UploadTestFileToStorage(t, localFileName, remoteBaseTestDataFolder+"/"+remoteFileName)
 
 	opts := &requests.PutRecalculateProjectWorkAsCompleteOpts{
-		CompleteThrough:  CreateTime(2010, 10, 10, 0, 0, 0),
-		Name:   remoteFileName,
-		Folder: optional.NewString(remoteBaseTestDataFolder),
+		CompleteThrough: CreateTime(2010, 10, 10, 0, 0, 0),
+		Name:            remoteFileName,
+		Folder:          optional.NewString(remoteBaseTestDataFolder),
 	}
 	result, _, err := client.TasksApi.PutRecalculateProjectWorkAsComplete(ctx, opts)
 	if err != nil {

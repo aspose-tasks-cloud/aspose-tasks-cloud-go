@@ -34,6 +34,7 @@ import (
 )
 
 const formatStringTimeWithoutTZ = "2006-01-02T15:04:05"
+
 var regexFinder = regexp.MustCompile(`\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}`)
 
 // TimeWithoutTZ provides a yyyy-MM-ddThh:mm:ss date.
@@ -47,7 +48,7 @@ func (d TimeWithoutTZ) MarshalJSON() ([]byte, error) {
 // UnmarshalJSON handles incoming JSON.
 func (d *TimeWithoutTZ) UnmarshalJSON(b []byte) (err error) {
 	str := regexFinder.FindString(string(b))
-	if str == ""{
+	if str == "" {
 		err = newErrInvalidDateFormatTimeWithoutTZ(string(b))
 		return
 	}
@@ -60,6 +61,7 @@ func (d *TimeWithoutTZ) UnmarshalJSON(b []byte) (err error) {
 }
 
 // String // String returns the time formatted using the format string
+//
 //	"2006-01-02T15:04:05"
 //
 // If the time has a monotonic clock reading, the returned string
@@ -79,4 +81,3 @@ type ErrInvalidDateFormatTimeWithoutTZ error
 func newErrInvalidDateFormatTimeWithoutTZ(input string) ErrInvalidDateFormatTimeWithoutTZ {
 	return ErrInvalidDateFormatTimeWithoutTZ(fmt.Errorf(" string '%s' did not contain any date in yyyy-MM-ddThh:mm:ss format", input))
 }
-

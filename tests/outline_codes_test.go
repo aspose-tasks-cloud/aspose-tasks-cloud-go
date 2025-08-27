@@ -67,7 +67,7 @@ func Test_OutlineCodes_GetOutlineCodeByIndex(t *testing.T) {
 	options := &requests.GetOutlineCodeByIndexOpts{
 		Name:   remoteFileName,
 		Folder: optional.NewString(remoteBaseTestDataFolder),
-		Index: 1,
+		Index:  1,
 	}
 
 	result, _, err := client.TasksApi.GetOutlineCodeByIndex(ctx, options)
@@ -91,7 +91,7 @@ func Test_OutlineCodes_DeleteOutlineCodeByIndex(t *testing.T) {
 	deleteOptions := &requests.DeleteOutlineCodeByIndexOpts{
 		Name:   remoteFileName,
 		Folder: optional.NewString(remoteBaseTestDataFolder),
-		Index: 1,
+		Index:  1,
 	}
 
 	deleteResult, _, err := client.TasksApi.DeleteOutlineCodeByIndex(ctx, deleteOptions)
@@ -99,7 +99,6 @@ func Test_OutlineCodes_DeleteOutlineCodeByIndex(t *testing.T) {
 		t.Error(err)
 	}
 	assert.Equal(t, int32(200), deleteResult.Code)
-
 
 	getResult, _, err := client.TasksApi.GetOutlineCodes(ctx, &requests.GetOutlineCodesOpts{
 		Name:   remoteFileName,
