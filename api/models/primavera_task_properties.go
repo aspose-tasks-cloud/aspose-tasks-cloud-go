@@ -95,4 +95,12 @@ type PrimaveraTaskProperties struct {
 	BudgetedMaterialCost float32 `json:"budgetedMaterialCost"`
 	// Gets the value of budgeted (or planned) expense cost.
 	BudgetedExpenseCost float32 `json:"budgetedExpenseCost"`
+	// Gets a type of primary constraint.
+	PrimaryConstraintType *PrimaveraConstraintType `json:"primaryConstraintType"`
+	// Gets the date of primary constraint.
+	PrimaryConstraintDate custom.TimeWithoutTZ `json:"primaryConstraintDate"`
+	// Gets a type of secondary constraint.
+	SecondaryConstraintType *PrimaveraConstraintType `json:"secondaryConstraintType"`
+	// Gets the date of secondary constraint.
+	SecondaryConstraintDate custom.TimeWithoutTZ `json:"secondaryConstraintDate"`
 }
