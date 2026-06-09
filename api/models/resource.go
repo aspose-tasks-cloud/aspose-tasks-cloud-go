@@ -79,9 +79,9 @@ type Resource struct {
 	AvailableFrom custom.TimeWithoutTZ `json:"availableFrom"`
 	// The last date when a resource is available.
 	AvailableTo custom.TimeWithoutTZ `json:"availableTo"`
-	// The scheduled start date of a resource.
+	// The scheduled start date of a resource. This property is calculated on demand and cannot be set directly.
 	Start custom.TimeWithoutTZ `json:"start"`
-	// The scheduled finish date of a resource.
+	// The scheduled finish date of a resource. This property is calculated on demand and cannot be set directly.
 	Finish custom.TimeWithoutTZ `json:"finish"`
 	// Determines whether a resource can be leveled.
 	CanLevel bool `json:"canLevel"`

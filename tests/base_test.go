@@ -32,10 +32,6 @@ import (
 	"context"
 	"crypto/rand"
 	"fmt"
-	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api"
-	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/custom"
-	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/models"
-	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/requests"
 	"io/ioutil"
 	"log"
 	"os"
@@ -46,6 +42,11 @@ import (
 	"sync"
 	"testing"
 	"time"
+
+	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api"
+	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/custom"
+	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/models"
+	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/requests"
 )
 
 var remoteBaseTestDataFolder = "Temp/SdkTests/Go/TestData"

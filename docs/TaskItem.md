@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Start** | [**time.Time**](time.Time.md) |  | [default to null]
 **Finish** | [**time.Time**](time.Time.md) |  | [default to null]
 **Duration** | **string** | The duration of a task. | [default to null]
+**ActivityId** | **string** | Represents activity id field - a task&#39;s unique identifier used by Primavera.     (only applicable to Primavera projects) | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

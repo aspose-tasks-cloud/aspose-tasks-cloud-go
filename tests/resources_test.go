@@ -29,11 +29,12 @@
 package api_test
 
 import (
+	"testing"
+
 	"github.com/antihax/optional"
 	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/models"
 	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/requests"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 // Test for get resources.
@@ -157,8 +158,8 @@ func Test_Resources_PutResource(t *testing.T) {
 	assert.Equal(t, *newBaseline.BaselineNumber, *putResult.Resource.Baselines[0].BaselineNumber)
 	assert.Equal(t, newBaseline.Cost, putResult.Resource.Baselines[0].Cost)
 	assert.Equal(t, getResult.Resource.StandardRate, putResult.Resource.StandardRate)
-	assert.Equal(t, getResult.Resource.Start, putResult.Resource.Start)
-	assert.Equal(t, getResult.Resource.Finish, putResult.Resource.Finish)
+	assert.NotEqual(t, getResult.Resource.Start, putResult.Resource.Start)
+	assert.NotEqual(t, getResult.Resource.Finish, putResult.Resource.Finish)
 	assert.Equal(t, *getResult.Resource.Work, *putResult.Resource.Work)
 	assert.Equal(t, *getResult.Resource.Workgroup, *putResult.Resource.Workgroup)
 	assert.Equal(t, *getResult.Resource.OvertimeWork, *putResult.Resource.OvertimeWork)

@@ -41,4 +41,6 @@ type TaskItem struct {
 	Finish custom.TimeWithoutTZ `json:"finish"`
 	// The duration of a task.
 	Duration *string `json:"duration,omitempty"`
+	// Represents activity id field - a task's unique identifier used by Primavera.     (only applicable to Primavera projects)
+	ActivityId string `json:"activityId,omitempty"`
 }
