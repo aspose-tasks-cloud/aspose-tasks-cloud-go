@@ -3909,6 +3909,494 @@ func (a *TasksApiService) PutExtendedAttribute(ctx context.Context, localVarOpti
 }
 
 /*
+TasksApiService Returns the project resources grouped according to the specified resource group definition.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param *requests.GetGroupedResourcesOpts - Request parameters:
+     * @param "Name" (string) - The name of the file.
+     * @param "GroupUid" (int32) - Group&#39;s Uid
+     * @param "Storage" (optional.String) -  The document storage.
+     * @param "Folder" (optional.String) -  The document folder.
+
+@return models.GroupedResourcesResponse
+*/
+func (a *TasksApiService) GetGroupedResources(ctx context.Context, localVarOptionals *requests.GetGroupedResourcesOpts) (models.GroupedResourcesResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarReturnValue models.GroupedResourcesResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/resourceGroups/{groupUid}/resources"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupUid"+"}", fmt.Sprintf("%v", localVarOptionals.GroupUid), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
+TasksApiService Returns the project tasks grouped according to the specified task group definition.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param *requests.GetGroupedTasksOpts - Request parameters:
+     * @param "Name" (string) - The name of the file.
+     * @param "GroupUid" (int32) - Group&#39;s Uid
+     * @param "Storage" (optional.String) -  The document storage.
+     * @param "Folder" (optional.String) -  The document folder.
+
+@return models.GroupedTasksResponse
+*/
+func (a *TasksApiService) GetGroupedTasks(ctx context.Context, localVarOptionals *requests.GetGroupedTasksOpts) (models.GroupedTasksResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarReturnValue models.GroupedTasksResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/taskGroups/{groupUid}/tasks"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupUid"+"}", fmt.Sprintf("%v", localVarOptionals.GroupUid), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
+TasksApiService Read a project&#39;s resource group definition with the specified Uid.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param *requests.GetResourceGroupOpts - Request parameters:
+     * @param "Name" (string) - The name of the file.
+     * @param "GroupUid" (int32) - Group&#39;s Uid
+     * @param "Storage" (optional.String) -  The document storage.
+     * @param "Folder" (optional.String) -  The document folder.
+
+@return models.GroupResponse
+*/
+func (a *TasksApiService) GetResourceGroup(ctx context.Context, localVarOptionals *requests.GetResourceGroupOpts) (models.GroupResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarReturnValue models.GroupResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/resourceGroups/{groupUid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupUid"+"}", fmt.Sprintf("%v", localVarOptionals.GroupUid), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
+TasksApiService Read the resource group definitions of a project.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param *requests.GetResourceGroupsOpts - Request parameters:
+     * @param "Name" (string) - The name of the file.
+     * @param "Storage" (optional.String) -  The document storage.
+     * @param "Folder" (optional.String) -  The document folder.
+
+@return models.GroupItemsResponse
+*/
+func (a *TasksApiService) GetResourceGroups(ctx context.Context, localVarOptionals *requests.GetResourceGroupsOpts) (models.GroupItemsResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarReturnValue models.GroupItemsResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/resourceGroups"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
+TasksApiService Read a project&#39;s task group definition with the specified Uid.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param *requests.GetTaskGroupOpts - Request parameters:
+     * @param "Name" (string) - The name of the file.
+     * @param "GroupUid" (int32) - Group&#39;s Uid
+     * @param "Storage" (optional.String) -  The document storage.
+     * @param "Folder" (optional.String) -  The document folder.
+
+@return models.GroupResponse
+*/
+func (a *TasksApiService) GetTaskGroup(ctx context.Context, localVarOptionals *requests.GetTaskGroupOpts) (models.GroupResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarReturnValue models.GroupResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/taskGroups/{groupUid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupUid"+"}", fmt.Sprintf("%v", localVarOptionals.GroupUid), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
+TasksApiService Read the task group definitions of a project.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param *requests.GetTaskGroupsOpts - Request parameters:
+     * @param "Name" (string) - The name of the file.
+     * @param "Storage" (optional.String) -  The document storage.
+     * @param "Folder" (optional.String) -  The document folder.
+
+@return models.GroupItemsResponse
+*/
+func (a *TasksApiService) GetTaskGroups(ctx context.Context, localVarOptionals *requests.GetTaskGroupsOpts) (models.GroupItemsResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarReturnValue models.GroupItemsResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/taskGroups"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
 TasksApiService Deletes a project outline code
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.DeleteOutlineCodeByIndexOpts - Request parameters:

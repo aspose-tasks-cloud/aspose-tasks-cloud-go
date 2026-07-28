@@ -50,6 +50,12 @@ Method | HTTP request | Description
 [**GetExtendedAttributeByIndex**](TasksApi.md#getextendedattributebyindex) | **Get** /tasks/{name}/extendedAttributes/{index} | Get a project extended attribute definition with the specified index.
 [**GetExtendedAttributes**](TasksApi.md#getextendedattributes) | **Get** /tasks/{name}/extendedAttributes | Get a project&#39;s extended attributes.
 [**PutExtendedAttribute**](TasksApi.md#putextendedattribute) | **Put** /tasks/{name}/extendedAttributes | Add a new extended attribute definition to a project or  updates existing attribute definition (with the same FieldId).
+[**GetGroupedResources**](TasksApi.md#getgroupedresources) | **Get** /tasks/{name}/resourceGroups/{groupUid}/resources | Returns the project resources grouped according to the specified resource group definition.
+[**GetGroupedTasks**](TasksApi.md#getgroupedtasks) | **Get** /tasks/{name}/taskGroups/{groupUid}/tasks | Returns the project tasks grouped according to the specified task group definition.
+[**GetResourceGroup**](TasksApi.md#getresourcegroup) | **Get** /tasks/{name}/resourceGroups/{groupUid} | Read a project&#39;s resource group definition with the specified Uid.
+[**GetResourceGroups**](TasksApi.md#getresourcegroups) | **Get** /tasks/{name}/resourceGroups | Read the resource group definitions of a project.
+[**GetTaskGroup**](TasksApi.md#gettaskgroup) | **Get** /tasks/{name}/taskGroups/{groupUid} | Read a project&#39;s task group definition with the specified Uid.
+[**GetTaskGroups**](TasksApi.md#gettaskgroups) | **Get** /tasks/{name}/taskGroups | Read the task group definitions of a project.
 [**DeleteOutlineCodeByIndex**](TasksApi.md#deleteoutlinecodebyindex) | **Delete** /tasks/{name}/outlineCodes/{index} | Deletes a project outline code
 [**GetOutlineCodeByIndex**](TasksApi.md#getoutlinecodebyindex) | **Get** /tasks/{name}/outlineCodes/{index} | Get outline code by index.
 [**GetOutlineCodes**](TasksApi.md#getoutlinecodes) | **Get** /tasks/{name}/outlineCodes | Get a project&#39;s outline codes.
@@ -1619,6 +1625,200 @@ Name | Type | Description  | Notes
 
 ### Return type
 [**ExtendedAttributeItemResponse**](ExtendedAttributeItemResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetGroupedResources**
+> GroupedResourcesResponse GetGroupedResources(ctx, name, groupUid, optional)
+Returns the project resources grouped according to the specified resource group definition.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file. | 
+  **groupUid** | **int32**| Group&#39;s Uid | 
+ **optional** | ***GetGroupedResourcesOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **storage** | **optional.String**| The document storage. | 
+ **folder** | **optional.String**| The document folder. | 
+
+### Return type
+[**GroupedResourcesResponse**](GroupedResourcesResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetGroupedTasks**
+> GroupedTasksResponse GetGroupedTasks(ctx, name, groupUid, optional)
+Returns the project tasks grouped according to the specified task group definition.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file. | 
+  **groupUid** | **int32**| Group&#39;s Uid | 
+ **optional** | ***GetGroupedTasksOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **storage** | **optional.String**| The document storage. | 
+ **folder** | **optional.String**| The document folder. | 
+
+### Return type
+[**GroupedTasksResponse**](GroupedTasksResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetResourceGroup**
+> GroupResponse GetResourceGroup(ctx, name, groupUid, optional)
+Read a project's resource group definition with the specified Uid.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file. | 
+  **groupUid** | **int32**| Group&#39;s Uid | 
+ **optional** | ***GetResourceGroupOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **storage** | **optional.String**| The document storage. | 
+ **folder** | **optional.String**| The document folder. | 
+
+### Return type
+[**GroupResponse**](GroupResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetResourceGroups**
+> GroupItemsResponse GetResourceGroups(ctx, name, optional)
+Read the resource group definitions of a project.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file. | 
+ **optional** | ***GetResourceGroupsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **storage** | **optional.String**| The document storage. | 
+ **folder** | **optional.String**| The document folder. | 
+
+### Return type
+[**GroupItemsResponse**](GroupItemsResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetTaskGroup**
+> GroupResponse GetTaskGroup(ctx, name, groupUid, optional)
+Read a project's task group definition with the specified Uid.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file. | 
+  **groupUid** | **int32**| Group&#39;s Uid | 
+ **optional** | ***GetTaskGroupOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **storage** | **optional.String**| The document storage. | 
+ **folder** | **optional.String**| The document folder. | 
+
+### Return type
+[**GroupResponse**](GroupResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetTaskGroups**
+> GroupItemsResponse GetTaskGroups(ctx, name, optional)
+Read the task group definitions of a project.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file. | 
+ **optional** | ***GetTaskGroupsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **storage** | **optional.String**| The document storage. | 
+ **folder** | **optional.String**| The document folder. | 
+
+### Return type
+[**GroupItemsResponse**](GroupItemsResponse.md)
 
 ### Authorization
 [JWT](../README.md#JWT)

@@ -29,8 +29,10 @@
 package api_test
 
 import (
-	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/requests"
 	"testing"
+
+	"github.com/antihax/optional"
+	"github.com/aspose-tasks-cloud/aspose-tasks-cloud-go/api/requests"
 )
 
 // Test for delete folder.
@@ -42,7 +44,8 @@ func Test_Folder_DeleteFolder(t *testing.T) {
 	client, ctx := UploadTestFileToStorage(t, localFileName, testDeleteFolder+"/TestDeleteFolder.mpp")
 
 	options := &requests.DeleteFolderOpts{
-		Path: testDeleteFolder,
+		Path:      testDeleteFolder,
+		Recursive: optional.NewBool(true),
 	}
 	_, err := client.TasksApi.DeleteFolder(ctx, options)
 
