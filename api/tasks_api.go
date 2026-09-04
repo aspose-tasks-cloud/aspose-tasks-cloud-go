@@ -7843,6 +7843,258 @@ func (a *TasksApiService) PutTaskLink(ctx context.Context, localVarOptionals *re
 }
 
 /*
+TasksApiService Clears all VBA macros from the project.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param *requests.ClearVbaOpts - Request parameters:
+     * @param "Name" (string) - The name of the file
+     * @param "FileName" (optional.String) -  Optional output file name
+     * @param "Folder" (optional.String) -  The folder storage
+     * @param "Storage" (optional.String) -  The document storage.
+
+@return models.AsposeResponse
+*/
+func (a *TasksApiService) ClearVba(ctx context.Context, localVarOptionals *requests.ClearVbaOpts) (models.AsposeResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarReturnValue models.AsposeResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/vbaproject"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.FileName.IsSet() {
+		localVarQueryParams.Add("fileName", parameterToString(localVarOptionals.FileName.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
+TasksApiService Deletes a VBA module.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param *requests.DeleteVbaModuleOpts - Request parameters:
+     * @param "Name" (string) - The name of the file
+     * @param "Module" (string) - The module name or index
+     * @param "FileName" (optional.String) -  Optional output file name
+     * @param "Folder" (optional.String) -  The folder storage
+     * @param "Storage" (optional.String) -  The document storage.
+
+@return models.AsposeResponse
+*/
+func (a *TasksApiService) DeleteVbaModule(ctx context.Context, localVarOptionals *requests.DeleteVbaModuleOpts) (models.AsposeResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Delete")
+		localVarPostBody    interface{}
+		localVarReturnValue models.AsposeResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/vbaproject/modules/{module}"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"module"+"}", fmt.Sprintf("%v", localVarOptionals.Module), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.FileName.IsSet() {
+		localVarQueryParams.Add("fileName", parameterToString(localVarOptionals.FileName.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
+TasksApiService Returns VBA module by name or index.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param *requests.GetVbaModuleOpts - Request parameters:
+     * @param "Name" (string) - The name of the file
+     * @param "Module" (string) - The module name or index
+     * @param "Folder" (optional.String) -  The folder storage
+     * @param "Storage" (optional.String) -  The document storage.
+
+@return models.VbaModuleResponse
+*/
+func (a *TasksApiService) GetVbaModule(ctx context.Context, localVarOptionals *requests.GetVbaModuleOpts) (models.VbaModuleResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Get")
+		localVarPostBody    interface{}
+		localVarReturnValue models.VbaModuleResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/vbaproject/modules/{module}"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"module"+"}", fmt.Sprintf("%v", localVarOptionals.Module), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
 TasksApiService Returns VBA project.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param *requests.GetVbaProjectOpts - Request parameters:
@@ -7890,6 +8142,182 @@ func (a *TasksApiService) GetVbaProject(ctx context.Context, localVarOptionals *
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
+TasksApiService Adds a new VBA module.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param *requests.PostVbaModuleOpts - Request parameters:
+     * @param "Name" (string) - The name of the file
+     * @param "Module" (CreateVbaModuleRequest) - The module creation request
+     * @param "FileName" (optional.String) -  Optional output file name
+     * @param "Folder" (optional.String) -  The folder storage
+     * @param "Storage" (optional.String) -  The document storage.
+
+@return models.VbaModuleResponse
+*/
+func (a *TasksApiService) PostVbaModule(ctx context.Context, localVarOptionals *requests.PostVbaModuleOpts) (models.VbaModuleResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Post")
+		localVarPostBody    interface{}
+		localVarReturnValue models.VbaModuleResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/vbaproject/modules"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.FileName.IsSet() {
+		localVarQueryParams.Add("fileName", parameterToString(localVarOptionals.FileName.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &localVarOptionals.Module
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+	if localVarHttpResponse.StatusCode == 401 {
+		defer localVarHttpResponse.Body.Close()
+		return localVarReturnValue, nil, errors.New("Access is denied")
+	}
+	if localVarHttpResponse.StatusCode >= 300 {
+		defer localVarHttpResponse.Body.Close()
+
+		var apiError TasksApiErrorResponse
+
+		if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&apiError); err != nil {
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+
+		return localVarReturnValue, localVarHttpResponse, &apiError
+	}
+	defer localVarHttpResponse.Body.Close()
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&localVarReturnValue); err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	return localVarReturnValue, localVarHttpResponse, err
+}
+
+/*
+TasksApiService Updates a VBA module&#39;s source code.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param *requests.PutVbaModuleOpts - Request parameters:
+     * @param "Name" (string) - The name of the file
+     * @param "Module" (string) - The module name or index
+     * @param "UpdateRequest" (UpdateVbaModuleRequest) - The module update request
+     * @param "FileName" (optional.String) -  Optional output file name
+     * @param "Folder" (optional.String) -  The folder storage
+     * @param "Storage" (optional.String) -  The document storage.
+
+@return models.VbaModuleResponse
+*/
+func (a *TasksApiService) PutVbaModule(ctx context.Context, localVarOptionals *requests.PutVbaModuleOpts) (models.VbaModuleResponse, *http.Response, error) {
+	var (
+		localVarHttpMethod  = strings.ToUpper("Put")
+		localVarPostBody    interface{}
+		localVarReturnValue models.VbaModuleResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BaseUrl + "/tasks/{name}/vbaproject/modules/{module}"
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", fmt.Sprintf("%v", localVarOptionals.Name), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"module"+"}", fmt.Sprintf("%v", localVarOptionals.Module), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := make([]FormParamContainer, 0)
+
+	if localVarOptionals != nil && localVarOptionals.FileName.IsSet() {
+		localVarQueryParams.Add("fileName", parameterToString(localVarOptionals.FileName.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Folder.IsSet() {
+		localVarQueryParams.Add("folder", parameterToString(localVarOptionals.Folder.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Storage.IsSet() {
+		localVarQueryParams.Add("storage", parameterToString(localVarOptionals.Storage.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &localVarOptionals.UpdateRequest
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams)
 	if err != nil {
 		return localVarReturnValue, nil, err

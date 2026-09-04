@@ -38,6 +38,7 @@ Name | Type | Description | Notes
 **PrimaryConstraintDate** | [**time.Time**](time.Time.md) | Gets the date of primary constraint. | [default to null]
 **SecondaryConstraintType** | [***PrimaveraConstraintType**](PrimaveraConstraintType.md) | Gets a type of secondary constraint. | [default to null]
 **SecondaryConstraintDate** | [**time.Time**](time.Time.md) | Gets the date of secondary constraint. | [default to null]
+**PlannedDuration** | **string** | Gets the original or planned duration -- the total working time from the task planned start date to the planned finish date. | [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

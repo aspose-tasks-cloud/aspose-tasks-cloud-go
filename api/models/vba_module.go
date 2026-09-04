@@ -35,4 +35,6 @@ type VbaModule struct {
 	Name string `json:"name,omitempty"`
 	// Gets a source code of the module
 	SourceCode string `json:"sourceCode,omitempty"`
+	// Gets the type of the module.
+	Type_ *VbaModuleType `json:"type"`
 }

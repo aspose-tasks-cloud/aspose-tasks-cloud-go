@@ -103,4 +103,6 @@ type PrimaveraTaskProperties struct {
 	SecondaryConstraintType *PrimaveraConstraintType `json:"secondaryConstraintType"`
 	// Gets the date of secondary constraint.
 	SecondaryConstraintDate custom.TimeWithoutTZ `json:"secondaryConstraintDate"`
+	// Gets the original or planned duration -- the total working time from the task planned start date to the planned finish date.
+	PlannedDuration *string `json:"plannedDuration,omitempty"`
 }

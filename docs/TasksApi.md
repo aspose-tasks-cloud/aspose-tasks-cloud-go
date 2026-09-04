@@ -95,7 +95,12 @@ Method | HTTP request | Description
 [**GetTaskLinks**](TasksApi.md#gettasklinks) | **Get** /tasks/{name}/taskLinks | Get tasks&#39; links of a project.
 [**PostTaskLink**](TasksApi.md#posttasklink) | **Post** /tasks/{name}/taskLinks | Adds a new task link to a project.
 [**PutTaskLink**](TasksApi.md#puttasklink) | **Put** /tasks/{name}/taskLinks/{index} | Updates existing task link.
+[**ClearVba**](TasksApi.md#clearvba) | **Delete** /tasks/{name}/vbaproject | Clears all VBA macros from the project.
+[**DeleteVbaModule**](TasksApi.md#deletevbamodule) | **Delete** /tasks/{name}/vbaproject/modules/{module} | Deletes a VBA module.
+[**GetVbaModule**](TasksApi.md#getvbamodule) | **Get** /tasks/{name}/vbaproject/modules/{module} | Returns VBA module by name or index.
 [**GetVbaProject**](TasksApi.md#getvbaproject) | **Get** /tasks/{name}/vbaproject | Returns VBA project.
+[**PostVbaModule**](TasksApi.md#postvbamodule) | **Post** /tasks/{name}/vbaproject/modules | Adds a new VBA module.
+[**PutVbaModule**](TasksApi.md#putvbamodule) | **Put** /tasks/{name}/vbaproject/modules/{module} | Updates a VBA module&#39;s source code.
 [**CreateTableTextStyle**](TasksApi.md#createtabletextstyle) | **Post** /tasks/{name}/views/{viewUid}/tabletextstyles | Create table text style in specified view.
 [**DeleteTableTextStyle**](TasksApi.md#deletetabletextstyle) | **Delete** /tasks/{name}/views/{viewUid}/tabletextstyles/{rowUid} | Delete specified table text style from specified view.
 [**GetAllTableTextStyles**](TasksApi.md#getalltabletextstyles) | **Get** /tasks/{name}/views/{viewUid}/tabletextstyles | Read all table text styles from specified view.
@@ -3166,6 +3171,105 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **ClearVba**
+> AsposeResponse ClearVba(ctx, name, optional)
+Clears all VBA macros from the project.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file | 
+ **optional** | ***ClearVbaOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **fileName** | **optional.String**| Optional output file name | 
+ **folder** | **optional.String**| The folder storage | 
+ **storage** | **optional.String**| The document storage. | 
+
+### Return type
+[**AsposeResponse**](AsposeResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DeleteVbaModule**
+> AsposeResponse DeleteVbaModule(ctx, name, module, optional)
+Deletes a VBA module.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file | 
+  **module** | **string**| The module name or index | 
+ **optional** | ***DeleteVbaModuleOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **fileName** | **optional.String**| Optional output file name | 
+ **folder** | **optional.String**| The folder storage | 
+ **storage** | **optional.String**| The document storage. | 
+
+### Return type
+[**AsposeResponse**](AsposeResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetVbaModule**
+> VbaModuleResponse GetVbaModule(ctx, name, module, optional)
+Returns VBA module by name or index.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file | 
+  **module** | **string**| The module name or index | 
+ **optional** | ***GetVbaModuleOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **folder** | **optional.String**| The folder storage | 
+ **storage** | **optional.String**| The document storage. | 
+
+### Return type
+[**VbaModuleResponse**](VbaModuleResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **GetVbaProject**
 > VbaProjectResponse GetVbaProject(ctx, name, optional)
 Returns VBA project.
@@ -3187,6 +3291,76 @@ Name | Type | Description  | Notes
 
 ### Return type
 [**VbaProjectResponse**](VbaProjectResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PostVbaModule**
+> VbaModuleResponse PostVbaModule(ctx, name, module, optional)
+Adds a new VBA module.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file | 
+  **module** | [**CreateVbaModuleRequest**](CreateVbaModuleRequest.md)| The module creation request | 
+ **optional** | ***PostVbaModuleOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **fileName** | **optional.String**| Optional output file name | 
+ **folder** | **optional.String**| The folder storage | 
+ **storage** | **optional.String**| The document storage. | 
+
+### Return type
+[**VbaModuleResponse**](VbaModuleResponse.md)
+
+### Authorization
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **PutVbaModule**
+> VbaModuleResponse PutVbaModule(ctx, name, module, updateRequest, optional)
+Updates a VBA module's source code.
+
+### Required Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **name** | **string**| The name of the file | 
+  **module** | **string**| The module name or index | 
+  **updateRequest** | [**UpdateVbaModuleRequest**](UpdateVbaModuleRequest.md)| The module update request | 
+ **optional** | ***PutVbaModuleOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **fileName** | **optional.String**| Optional output file name | 
+ **folder** | **optional.String**| The folder storage | 
+ **storage** | **optional.String**| The document storage. | 
+
+### Return type
+[**VbaModuleResponse**](VbaModuleResponse.md)
 
 ### Authorization
 [JWT](../README.md#JWT)
